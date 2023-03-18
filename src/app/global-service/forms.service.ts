@@ -62,6 +62,32 @@ export class FormsService {
     ]
   }
 
+  FieldsConfirmPassword() : FormlyFieldConfig[] {
+    return [
+      {
+        fieldGroupClassName: this.fieldGroupClassName,
+        fieldGroup : [
+          {
+            key : 'new-Password',
+            type :'input',
+            className : 'col-12 ',
+            props: {
+              placeholder: 'Enter Your Password',
+            }
+          },
+          {
+            key : 'confirm-Password',
+            type :'input',
+            className : 'col-12 ',
+            props: {
+              placeholder: 'confirm Your Password',
+            }
+          },
+        ]
+      }
+    ]
+  }
+
   gridFields(queryMedia : any = undefined , methodField : string){
     let gridListFields !: FormlyFieldConfig[]
     switch(methodField){
@@ -70,6 +96,9 @@ export class FormsService {
       break;
       case 'forgetPassword' :
       gridListFields = this.fireMethods(queryMedia , this.FieldsForgetPassword())
+      break;
+      case 'confirmPassword' :
+      gridListFields = this.fireMethods(queryMedia , this.FieldsConfirmPassword())
       break;
     }
     return gridListFields
