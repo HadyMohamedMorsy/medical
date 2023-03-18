@@ -21,11 +21,11 @@ export class ConfirmPasswordComponent {
   fieldsConfirmPassword !: FormlyFieldConfig[];
 
   ngOnInit()  {
-    this.fieldsConfirmPassword= this.getFieldsConfirmPassword.gridFields(undefined , 'confirmPassword');
+    this.fieldsConfirmPassword= this.getFieldsConfirmPassword.gridFields('confirmPassword');
   }
 
   onSubmit(LoginModel : any){
     console.log(LoginModel);
   }
-  
+
 }

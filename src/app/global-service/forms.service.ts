@@ -88,7 +88,7 @@ export class FormsService {
     ]
   }
 
-  gridFields(queryMedia : any = undefined , methodField : string){
+  gridFields( methodField : string , queryMedia : any = undefined){
     let gridListFields !: FormlyFieldConfig[]
     switch(methodField){
       case 'login' :

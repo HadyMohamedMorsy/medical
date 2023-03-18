@@ -22,7 +22,7 @@ export class LoginComponent {
   fieldsLogin !: FormlyFieldConfig[];
 
   ngOnInit()  {
-    this.fieldsLogin= this.getFieldsLogin.gridFields(undefined , 'login');
+    this.fieldsLogin= this.getFieldsLogin.gridFields('login');
   }
 
   onSubmit(LoginModel : any){

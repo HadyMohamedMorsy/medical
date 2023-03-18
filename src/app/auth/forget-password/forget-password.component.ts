@@ -21,7 +21,7 @@ export class ForgetPasswordComponent {
   fieldsForgetPassword !: FormlyFieldConfig[];
 
   ngOnInit()  {
-    this.fieldsForgetPassword= this.getFieldsForgetPassword.gridFields(undefined , 'forgetPassword');
+    this.fieldsForgetPassword= this.getFieldsForgetPassword.gridFields('forgetPassword');
   }
 
   onSubmit(LoginModel : any){
