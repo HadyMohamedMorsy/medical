@@ -1,1 +1,15 @@
-<p>login works!</p>
+<div class="content-background flex-column h-screen flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="grid card-login ml-3 mr-3 md:ml-0 md:mr-0">
+      <div class="img-login-side col-12 md:col-6 p-0 hidden md:block">
+        <img src="../../assets/images/login-page.jpg" alt="" class="max-w-full img-login">
+      </div>
+      <div class="content-form col-12 md:col-6 flex align-items-center p-0 md:pr-8 md:pl-8">
+        <form [formGroup]="form" (ngSubmit)="onSubmit(LoginModel)">
+            <formly-form [form]="form" [fields]="fieldsLogin" [model]="LoginModel"></formly-form>
+            <button pButton type="submit" label="Login" class="p-button-warning mt-4"></button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

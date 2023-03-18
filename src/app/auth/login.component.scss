@@ -1,0 +1,19 @@
+:host::ng-deep .p-inputtext{
+  width: 100%;
+}
+:host::ng-deep label {
+  margin-bottom: 10px;
+  display: block;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+.content-background{
+  background: url('../../assets/images/background-medical.jpg') no-repeat center top / cover;
+}
+ .card-login{
+  background-color: var(--main-color);
+  @media (min-width : 992px) {
+    border-radius: 30px;
+  }
+}
+
