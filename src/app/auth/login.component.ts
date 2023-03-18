@@ -23,7 +23,6 @@ export class LoginComponent {
 
   ngOnInit()  {
     this.fieldsLogin = this.getFieldsLogin.FieldsLogin(1);
-    console.log(this.fieldsLogin);
   }
 
   onSubmit(LoginModel : any){

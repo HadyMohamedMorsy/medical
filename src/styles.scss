@@ -1,11 +1,32 @@
 @import './styles/varebales';
 
+@font-face {
+  font-family: Lato;
+  src: url('./fonts/Lato-Regular.ttf');
+}
+p{
+  margin: 0;
+}
+.sub-text{
+  color: var(--text);
+}
+.filed{
+  input{
+    background-color: var(--input-background);
+    border: 1px solid var(--input-background);
+    border-radius: 20px;
+    padding: calc(.71429rem - 1px) 1.42857rem;
+    transition: background .2s ease-in-out,border .2s ease-in-out,box-shadow .2s ease-in-out,color .2s ease-in-out;
+    will-change: background,border,box-shadow,color;
+  }
+}
 * , *::after , *::before{
   box-sizing: border-box;
 }
 body{
   margin: 0;
   padding: 0;
+  font-family: Lato , sans-serif;
 }
 .container{
   width: min(100% , 1170px);

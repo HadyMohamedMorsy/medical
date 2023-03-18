@@ -23,27 +23,28 @@ export class FormsService {
           {
             key : 'username',
             type :'input',
-            className: this.gridColum,
+            className:`${this.gridColum} filed`,
             props: {
-              label: 'username',
-              labelClass: "customClass",
-              className : 'mb-2',
               placeholder: 'Enter Your userName',
-              required: true,
             }
           },
           {
             key : 'password',
             type :'input',
-            className: this.gridColum,
+            className: `${this.gridColum} filed`,
             props: {
-              label: 'password',
-              labelClass: "customClass",
-              className : 'mb-2',
               placeholder: 'Enter Your password',
-              required: true,
             }
-          }
+          },
+          {
+            key : 'Remember Me',
+            type :'switchInput',
+            className: `${this.gridColum}`,
+            props: {
+              label: 'Enter Your password',
+            }
+          },
+
         ]
       }
     ]

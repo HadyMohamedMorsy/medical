@@ -4,16 +4,14 @@
 :host::ng-deep label {
   margin-bottom: 10px;
   display: block;
-  color: var(--white);
-  font-size: 1.2rem;
-}
-.content-background{
-  background: url('../../assets/images/background-medical.jpg') no-repeat center top / cover;
+  font-size: 1rem;
 }
  .card-login{
-  background-color: var(--main-color);
-  @media (min-width : 992px) {
-    border-radius: 30px;
-  }
+  background-color: var(--white);
 }
-
+.content-form{
+  box-shadow: 0 18px 24px rgb(0 0 0 / 12%);
+}
+.img-login{
+  object-fit: cover;
+}
