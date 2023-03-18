@@ -23,7 +23,7 @@ import {InputSwitchModule} from 'primeng/inputswitch';
       [formlyAttributes]="field"
     >
     </p-inputSwitch>
-        <h5 class="m-0 ml-3 font-medium"> Remember Me</h5>
+    <h5 class="m-0 ml-3 font-medium"> {{field.props.label}} </h5>
   </div>
   `,
   styleUrls: ['./switch-input.component.scss']

@@ -5,6 +5,7 @@
     "paths": {
       "@shared/*" : ["src/app/shared-module/*"],
       "@services/*" : ["src/app/global-service/*"],
+      "@modal/*" : ["src/app/global-modal/*"],
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

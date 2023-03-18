@@ -1,12 +1,18 @@
 <div class="content-background  h-screen flex  justify-content-center flex-column">
     <div class="grid overflow-hidden card-login ml-3 mr-3 md:ml-0 md:mr-0 md:mt-0 h-auto lg:h-full">
       <div class="content-form col-12 sm:col-12 md:col-12 lg:col-4 flex-column flex justify-content-center pr-8 pl-8">
-        <h2 class="h4 mt-0 mb-1"> Sign in </h2>
-        <p class="mb-5 sub-text"> Sign in to access your Account </p>
-        <form [formGroup]="form" (ngSubmit)="onSubmit(LoginModel)">
-            <formly-form [form]="form" [fields]="fieldsLogin" [model]="LoginModel"></formly-form>
-            <button pButton type="button" label="Sign in" icon="pi pi-sign-in" class=" mt-4" badge="8" badgeClass="p-badge-info"></button>
-          </form>
+        <div class="content-header pb-6">
+          <img src="../../assets/images/logo-medical.png" class="max-w-full max-h-full" alt="">
+        </div>
+        <div class="content-body">
+          <h2 class="h4 mt-0 mb-1"> Sign in </h2>
+          <p class="mb-5 sub-text"> Sign in to access your Account </p>
+          <form [formGroup]="form" (ngSubmit)="onSubmit(LoginModel)">
+              <formly-form [form]="form" [fields]="fieldsLogin" [model]="LoginModel"></formly-form>
+              <button pButton type="button" label="Sign in" icon="pi pi-sign-in" class=" mt-4 p-button-danger" badge="8" badgeClass="p-badge-info"></button>
+            </form>
+            <a [routerLink]="'/forget-password'"  class="mt-6 link block"> Forgot password? </a>
+        </div>
       </div>
       <div class="img-login-side col-12 sm:col-12 md:col-12 lg:col-8 p-0 hidden lg:block">
         <img src="../../assets/images/login-page.jpg" alt="" class="max-w-full h-full img-login">

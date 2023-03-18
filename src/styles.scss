@@ -4,12 +4,35 @@
   font-family: Lato;
   src: url('./fonts/Lato-Regular.ttf');
 }
+// switcher icon input
+.p-inputswitch{
+  &.p-inputswitch-checked{
+    .p-inputswitch-slider{
+      background-color: var(--green) !important;
+    }
+  }
+}
+
+// link
+a{
+  text-decoration: none;
+
+}
+.link{
+  color: var(--green);
+}
+// link
+
+// paragraph
 p{
   margin: 0;
 }
 .sub-text{
   color: var(--text);
 }
+// paragraph
+
+// input
 .filed{
   input{
     background-color: var(--input-background);
@@ -20,6 +43,7 @@ p{
     will-change: background,border,box-shadow,color;
   }
 }
+
 * , *::after , *::before{
   box-sizing: border-box;
 }

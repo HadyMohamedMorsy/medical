@@ -1,21 +1,17 @@
+import { FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import {FormlyFieldConfig} from '@ngx-formly/core';
+import {GridFields} from '@modal/grid-fields';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormsService {
 
-  Login !: FormlyFieldConfig[];
   gridColum !: string;
   fieldGroupClassName =  'grid';
 
-  FieldsLogin(Colum : number , media : string | undefined = undefined) : FormlyFieldConfig[] {
-    if(media){
-      this.gridColum = `${media}:col-${12  / Colum}`;
-    }else{
-      this.gridColum = `col-${12  / Colum}`;
-    }
+  FieldsLogin() : FormlyFieldConfig[] {
     return [
       {
         fieldGroupClassName: this.fieldGroupClassName,
@@ -23,7 +19,7 @@ export class FormsService {
           {
             key : 'username',
             type :'input',
-            className:`${this.gridColum} filed`,
+            className : 'col-12 ',
             props: {
               placeholder: 'Enter Your userName',
             }
@@ -31,7 +27,7 @@ export class FormsService {
           {
             key : 'password',
             type :'input',
-            className: `${this.gridColum} filed`,
+            className : 'col-12 ',
             props: {
               placeholder: 'Enter Your password',
             }
@@ -39,15 +35,32 @@ export class FormsService {
           {
             key : 'Remember Me',
             type :'switchInput',
-            className: `${this.gridColum}`,
+            className : 'col-12 ',
             props: {
-              label: 'Enter Your password',
+              label: 'Remember Me',
             }
           },
-
         ]
       }
     ]
   }
 
+  gridFields(queryMedia : any = undefined , methodField : string){
+    let gridListFields = this.FieldsLogin()[0]?.fieldGroup as FormlyFieldConfig[];
+    switch(methodField){
+        case 'login' :
+        gridListFields = this.FieldsLogin()[0]?.fieldGroup as FormlyFieldConfig[];
+        if(queryMedia){
+          queryMedia.forEach((field : any , index : number)=>{
+            field.forEach((grid : any) => {
+              gridListFields[index].className += `${grid.media}:col-${grid.colNumber} `;
+            });
+          });
+        }else{
+          gridListFields = this.FieldsLogin();
+        }
+      break;
+    }
+    return gridListFields
+  }
 }
