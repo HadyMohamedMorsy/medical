@@ -1,11 +1,11 @@
-import {importProvidersFrom} from '@angular/core';
 import { AppComponent } from './app/app.component';
-import { AppRoutingModule } from './app/app-routing.module';
+import { routes } from './app/app-routing';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
 
 
 bootstrapApplication(AppComponent , {
   providers : [
-    importProvidersFrom(AppRoutingModule)
+    provideRouter(routes)
   ]
 })

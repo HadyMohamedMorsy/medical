@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+
+import {Route } from '@angular/router';
 import { LoginComponent } from './auth/login.component';
 import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 import { ConfirmPasswordComponent } from './auth/confirm-password/confirm-password.component';
-const routes: Routes = [
+import { DashboardComponent } from './medical/dashboard/dashboard.component';
+export const routes: Route[] = [
   {
     path : '' ,
     redirectTo:'login',
@@ -20,11 +21,11 @@ const routes: Routes = [
   {
     path :'confirm-password',
     component : ConfirmPasswordComponent
-  }
+  },
+  {
+    path :'clinic',
+    component : DashboardComponent,
+    loadChildren: () => import('./medical/routes-medical').then(mod => mod.ADMIN_ROUTES)
+  },
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
