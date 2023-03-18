@@ -44,23 +44,52 @@ export class FormsService {
       }
     ]
   }
+  FieldsForgetPassword() : FormlyFieldConfig[] {
+    return [
+      {
+        fieldGroupClassName: this.fieldGroupClassName,
+        fieldGroup : [
+          {
+            key : 'username',
+            type :'input',
+            className : 'col-12 ',
+            props: {
+              placeholder: 'Enter Your userName',
+            }
+          },
+        ]
+      }
+    ]
+  }
 
   gridFields(queryMedia : any = undefined , methodField : string){
-    let gridListFields = this.FieldsLogin()[0]?.fieldGroup as FormlyFieldConfig[];
+    let gridListFields !: FormlyFieldConfig[]
     switch(methodField){
-        case 'login' :
-        gridListFields = this.FieldsLogin()[0]?.fieldGroup as FormlyFieldConfig[];
-        if(queryMedia){
-          queryMedia.forEach((field : any , index : number)=>{
-            field.forEach((grid : any) => {
-              gridListFields[index].className += `${grid.media}:col-${grid.colNumber} `;
-            });
-          });
-        }else{
-          gridListFields = this.FieldsLogin();
-        }
+      case 'login' :
+      gridListFields = this.fireMethods(queryMedia , this.FieldsLogin())
+      break;
+      case 'forgetPassword' :
+      gridListFields = this.fireMethods(queryMedia , this.FieldsForgetPassword())
       break;
     }
     return gridListFields
+  }
+
+  private fireMethods(
+    queryMedia : any = undefined,
+    method : FormlyFieldConfig[]
+  )
+  {
+    let gridListFields = method[0]?.fieldGroup as FormlyFieldConfig[];
+    if(queryMedia){
+      queryMedia.forEach((field : any , index : number)=>{
+        field.forEach((grid : any) => {
+          gridListFields[index].className += `${grid.media}:col-${grid.colNumber} `;
+        });
+      });
+    }else{
+      gridListFields = method;
+    }
+    return gridListFields;
   }
 }

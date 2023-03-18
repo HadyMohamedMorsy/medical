@@ -10,8 +10,8 @@
           <form [formGroup]="form" (ngSubmit)="onSubmit(LoginModel)">
               <formly-form [form]="form" [fields]="fieldsLogin" [model]="LoginModel"></formly-form>
               <button pButton type="button" label="Sign in" icon="pi pi-sign-in" class=" mt-4 p-button-danger" badge="8" badgeClass="p-badge-info"></button>
-            </form>
-            <a [routerLink]="'/forget-password'"  class="mt-6 link block"> Forgot password? </a>
+          </form>
+          <a [routerLink]="'/forget-password'"  class="mt-6 link block"> Forgot password? </a>
         </div>
       </div>
       <div class="img-login-side col-12 sm:col-12 md:col-12 lg:col-8 p-0 hidden lg:block">
