@@ -3,9 +3,10 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@shared/*" : ["src/app/shared-module/*"],
-      "@services/*" : ["src/app/global-service/*"],
-      "@modal/*" : ["src/app/global-modal/*"],
+      "@shared/*" : ["src/app/shared/*"],
+      "@services/*" : ["src/app/global/global-service/*"],
+      "@modal/*" : ["src/app/global/global-modal/*"],
+      "@core/*" : ["src/app/core/*"],
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

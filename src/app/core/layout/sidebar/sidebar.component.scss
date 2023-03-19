@@ -1,0 +1,49 @@
+
+:host ::ng-deep{
+  .p-panelmenu .p-panelmenu-header > a
+  {
+    padding: .75rem 0;
+    border: none;
+    background: none;
+    color: #000;
+    font-weight: 700;
+  }
+  .p-sidebar-left{
+    width: 17rem;
+  }
+
+  .p-panelmenu .p-panelmenu-header:not(.p-highlight):not(.p-disabled) > a:hover
+  {
+    background: none;
+    border-color: none;
+    color: var(--red);
+  }
+  .p-panelmenu .p-panelmenu-header > a:focus {
+    box-shadow: none;
+  }
+  .p-panelmenu .p-panelmenu-header.p-highlight:not(.p-disabled) > a:hover{
+    background: none;
+    border-color: none;
+    color: var(--red);
+  }
+  .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover{
+    color: var(--red);
+    background: none;
+  }
+  .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:focus{
+    box-shadow: none;
+  }
+  .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text{
+    color: var(--red);
+  }
+  .p-panelmenu .p-panelmenu-content{
+    border: none;
+  }
+  .p-sidebar .p-sidebar-content {
+    padding: 0 0 1.25rem 10px;
+  }
+  .p-panelmenu .p-panelmenu-header > a{
+    margin-inline-start: 20px;
+  }
+}
+

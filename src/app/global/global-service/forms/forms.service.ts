@@ -1,7 +1,7 @@
 import { FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import {FormlyFieldConfig} from '@ngx-formly/core';
-import {GridFields} from '@modal/grid-fields';
+import {GridFields} from 'src/app/global/global-modal/grid-fields';
 
 @Injectable({
   providedIn: 'root'

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { SharedModuleModule} from '@shared/shared-module.module';
+import { SharedModuleModule} from 'src/app/shared/shared-module.module';
 import { FormlyFieldConfig} from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { inject } from '@angular/core';
-import {FormsService} from '@services/forms.service';
+import {FormsService} from '@services/forms/forms.service';
 
 @Component({
   selector: 'app-forget-password',

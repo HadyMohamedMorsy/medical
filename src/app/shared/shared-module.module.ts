@@ -5,7 +5,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {FormlyModule} from '@ngx-formly/core';
 import {FormlyPrimeNGModule} from '@ngx-formly/primeng';
 import {ButtonModule} from 'primeng/button';
-import {SwitchInputComponent} from '../sharedComponent/switch-input/switch-input.component';
+import {SwitchInputComponent} from './sharedComponent/switch-input/switch-input.component';
+import {BreadcrumbModule} from 'primeng/breadcrumb';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [],
@@ -16,11 +18,15 @@ import {SwitchInputComponent} from '../sharedComponent/switch-input/switch-input
       ],
     }),
   ],
-  exports : [CommonModule ,
-    RouterModule, ReactiveFormsModule
+  exports : [
+    CommonModule ,
+    RouterModule,
+    ReactiveFormsModule
   , FormlyModule ,
     FormlyPrimeNGModule,
     ButtonModule ,
+    BreadcrumbModule,
+    TableModule
 ]
 })
 export class SharedModuleModule { }

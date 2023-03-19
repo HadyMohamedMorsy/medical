@@ -1,0 +1,23 @@
+:host ::ng-deep{
+  .p-breadcrumb{
+    border: none;
+  }
+  .p-card{
+    box-shadow: none;
+  }
+  .p-card .p-card-body{
+    padding: 20px 1rem;
+    box-shadow: 0 18px 24px rgba(0,0,0,.12);
+  }
+  .p-card .p-card-content{
+    padding: 0;
+  }
+}
+.total{
+  color: var(--red);
+}
+svg{
+  width: 40px !important;
+  height: 40px !important;
+}
+
