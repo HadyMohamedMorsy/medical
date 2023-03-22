@@ -1,3 +1,4 @@
+import { routes } from './../../../app-routing';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { SidebarModule} from 'primeng/sidebar';
@@ -17,14 +18,17 @@ export class SidebarComponent {
         {
             label: 'Dashboard',
             icon: 'pi pi-calendar-plus',
+            routerLink : '/clinic',
         },
         {
             label: 'Appointments',
             icon: 'pi pi-shopping-bag',
+            routerLink : './appointments',
         },
         {
             label: 'Patients',
             icon: 'pi pi-users',
+            routerLink : './patients',
         }
     ];
 }

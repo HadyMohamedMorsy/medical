@@ -1,0 +1,29 @@
+<div class="bredcrumb mt-4 flex align-items-center justify-content-between">
+  <p-breadcrumb [model]="items"></p-breadcrumb>
+  <div class="icon-sidebar">
+    <i class="pi pi-align-right p-menubar-button ng-star-inserted" style="font-size: 1.5rem"></i>
+  </div>
+</div>
+
+<div class="Last-patients mt-6">
+  <app-header-table [label]="'Add Patients'"
+  [header]="'Patients'"
+  >
+  </app-header-table>
+  <app-table [DateBind]="patients$">
+    <ng-template #header let-Patients>
+      <th> ID </th>
+      <th> Name </th>
+      <th> Age</th>
+      <th> Address </th>
+      <th> Number </th>
+      <th> Last visit </th>
+      <th> Status</th>
+    </ng-template>
+  </app-table>
+</div>
+
+<app-dialog [header]="'Add Patients'"
+>
+</app-dialog>
+

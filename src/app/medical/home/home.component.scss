@@ -1,7 +1,4 @@
 :host ::ng-deep{
-  .p-breadcrumb{
-    border: none;
-  }
   .p-card{
     box-shadow: none;
   }
@@ -11,6 +8,9 @@
   }
   .p-card .p-card-content{
     padding: 0;
+  }
+  .p-breadcrumb{
+    border: none;
   }
 }
 .total{
