@@ -13,15 +13,19 @@ import { SharedModuleModule } from 'src/app/shared/shared-module.module';
 export class DialogComponent {
   display !: boolean
   dialogService = inject(DialogService);
+  subscripeDialog : any;
+  isLoading = false;
   @Input()  header !:string;
+  @Input() label !:string
 
   ngOnInit(): void {
     this.dialogService.getDisplay().subscribe((val)=>{
       this.display = val
+      console.log(this.display);
     })
   }
   onClose() {
-    this.dialogService.setDisplay(false);
+    this.dialogService.setDisplay(!this.display);
   }
 
 }

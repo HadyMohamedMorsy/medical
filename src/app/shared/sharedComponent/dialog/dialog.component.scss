@@ -1,0 +1,14 @@
+
+:host ::ng-deep{
+  .p-element{
+    button{
+      background-color: var(--red);
+      border: 1px solid var(--red);
+      &:hover{
+        background: #DC2626;
+        border-color: #DC2626;
+      }
+    }
+  }
+}
+

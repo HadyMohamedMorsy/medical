@@ -3,7 +3,7 @@ import { SharedModuleModule } from '@shared/shared-module.module';
 import { LazyLoadEvent } from 'primeng/api';
 import { Table, TableService } from 'primeng/table';
 import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
-
+import {ButtonModule} from 'primeng/button';
 export function tableFactory(tableComponent: TableComponent) {
   return tableComponent.primingTable;
 }
@@ -11,7 +11,7 @@ export function tableFactory(tableComponent: TableComponent) {
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [SharedModuleModule],
+  imports: [SharedModuleModule  , ButtonModule],
   providers: [
     TableService,
     {
@@ -29,26 +29,20 @@ export class TableComponent {
   loading = true;
   primingTable: any;
   filteredData$!: Observable<any[]>;
+  isLoading = false;
 
   private  searchSubject = new BehaviorSubject<any>('');
-  ngOnInit() {
-    // this.filteredData$ = combineLatest([this.DateBind , this.searchSubject])
-    // .pipe(
-    //   map(([data, search]) =>{
-    //     return data.filter((item : any) =>{
-    //       Object.values(item).some((val:any) =>
-    //         val.toString().toLowerCase().includes(search.toLowerCase())
-    //       )
-    //     })
-    //   })
-    // )
-  }
+
   onSearch(value : any): void {
     this.searchSubject.next(value.value);
-    console.log(value.value);
-
   }
 
+  refresh(){
+    this.isLoading = !this.isLoading;
+    setTimeout(()=>{
+      this.isLoading = !this.isLoading;
+    },1000)
+  }
   loadPagination(event : LazyLoadEvent){
     setTimeout(()=> {
       this.loading = false;

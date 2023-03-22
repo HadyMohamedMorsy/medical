@@ -1,12 +1,15 @@
 
-  <p-dialog [modal]="true" [header]="header" [(visible)]='display' [style]="{width: '50vw'}" [draggable]="false"
-  (onEscape)="onClose()"
-  [dismissableMask]="display"
+  <p-dialog [modal]="true" [header]="header" [(visible)]='display' [style]="{width: '75vw'}" [draggable]="false"
+  [closable]="false"
   >
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
+    <ng-template pTemplate="footer">
+      <button (click)="onClose()" pButton type="button" label="cancel" class="p-button-outlined p-button-danger"></button>
+      <p-button [label]="label" icon="pi pi-plus" [loading]="isLoading" class="specific-button"></p-button>
+    </ng-template>
   </p-dialog>
 

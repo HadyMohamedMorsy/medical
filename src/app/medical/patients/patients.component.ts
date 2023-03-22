@@ -16,7 +16,6 @@ export class PatientsComponent {
   private PatientsService =  inject(PatientsService);
   items : any;
   patients$ : any;
-  display: boolean = false;
 
   ngOnInit() {
     this.items = [

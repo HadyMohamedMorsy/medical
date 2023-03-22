@@ -6,10 +6,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class DialogService {
 
-  private displaySubject = new BehaviorSubject<boolean>(false);
+  displaySubject = new BehaviorSubject<boolean>(false);
 
   setDisplay(value: boolean) {
     this.displaySubject.next(value);
+    console.log(value);
+
   }
 
   getDisplay() : Observable<boolean>{
