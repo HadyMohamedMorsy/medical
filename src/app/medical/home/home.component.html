@@ -55,14 +55,30 @@
   <h3 class="text-4xl font-medium mb-4"> Last-Patients </h3>
   <app-table [DateBind]="patients$">
     <ng-template #header let-Patients>
-      <th> ID </th>
-      <th> Name </th>
-      <th> Age</th>
-      <th> Address </th>
-      <th> Number </th>
-      <th> Last visit </th>
-      <th> Status</th>
+      <th class="text-center"> ID </th>
+      <th class="text-center"> Name </th>
+      <th class="text-center"> Age</th>
+      <th class="text-center"> Address </th>
+      <th class="text-center"> Number </th>
+      <th class="text-center"> Last visit </th>
+      <th class="text-center"> Status</th>
+      <th class="text-center"> Action</th>
     </ng-template>
+    <ng-template #body let-Patients>
+      <td>{{Patients.id}}</td>
+      <td>{{Patients.name}}</td>
+      <td>{{Patients.age}}</td>
+      <td>{{Patients.address}}</td>
+      <td>{{Patients.phone}}</td>
+      <td>{{Patients.lastVisit}}</td>
+      <td>{{Patients.status}}</td>
+      <td class="flex justify-content-center">
+        <button icon="pi pi-eye" pButton type="button"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+        <button icon="pi pi-pencil" pButton type="button" class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+        <button icon="pi pi-trash" pButton type="button" class="p-button-outlined p-button-danger  p-button-rounded"></button>
+      </td>
+    </ng-template>
+
   </app-table>
 </div>
 

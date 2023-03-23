@@ -13,9 +13,11 @@ import { PatientsService } from '@services/patients/patients.service';
   providers: [PatientsService]
 })
 export class HomeComponent {
+
   private PatientsService =  inject(PatientsService);
   items : any;
   patients$ : any;
+
 
   ngOnInit() {
     this.items = [

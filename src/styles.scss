@@ -41,6 +41,7 @@ p{
     padding: calc(.71429rem - 1px) 1.42857rem;
     transition: background .2s ease-in-out,border .2s ease-in-out,box-shadow .2s ease-in-out,color .2s ease-in-out;
     will-change: background,border,box-shadow,color;
+    width: 100%;
   }
 }
 
@@ -65,3 +66,6 @@ body{
 h1 , h2 ,h3 ,h4 ,h5 ,h6 {
   margin: 0;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

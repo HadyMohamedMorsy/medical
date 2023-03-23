@@ -26,6 +26,7 @@ export function tableFactory(tableComponent: TableComponent) {
 export class TableComponent {
   @Input() DateBind !: Observable<any>;
   @ContentChild('header') header!: TemplateRef<any>;
+  @ContentChild('body') body!: TemplateRef<any>;
   loading = true;
   primingTable: any;
   filteredData$!: Observable<any[]>;

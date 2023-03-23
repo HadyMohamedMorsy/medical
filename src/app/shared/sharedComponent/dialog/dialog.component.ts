@@ -1,31 +1,25 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { DialogService } from '@services/dialog/dialog.service';
-import { Observable } from 'rxjs';
-import { SharedModuleModule } from 'src/app/shared/shared-module.module';
+import { Component, Inject, inject, ViewEncapsulation } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import  {MatDialogRef , MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { SharedModuleModule } from '@shared/shared-module.module';
+
 
 @Component({
   selector: 'app-dialog',
   standalone: true,
   imports: [SharedModuleModule],
   templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss']
+  styleUrls: ['./dialog.component.scss'],
+  encapsulation : ViewEncapsulation.None
 })
 export class DialogComponent {
-  display !: boolean
-  dialogService = inject(DialogService);
-  subscripeDialog : any;
-  isLoading = false;
-  @Input()  header !:string;
-  @Input() label !:string
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
+  dialogRef  = inject(MatDialogRef<DialogComponent>);
+  form = new FormGroup({});
+  fieldsModel = {};
 
-  ngOnInit(): void {
-    this.dialogService.getDisplay().subscribe((val)=>{
-      this.display = val
-      console.log(this.display);
-    })
+  onSubmit(fieldsModel : any){
+    console.log(fieldsModel);
   }
-  onClose() {
-    this.dialogService.setDisplay(!this.display);
-  }
-
+  
 }

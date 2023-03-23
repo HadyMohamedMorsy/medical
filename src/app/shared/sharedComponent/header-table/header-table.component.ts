@@ -1,21 +1,29 @@
+import { FieldTypeConfig } from '@ngx-formly/core';
 import { Component, Output, EventEmitter, Input, inject } from '@angular/core';
-import { DialogService } from '@services/dialog/dialog.service';
 import { SharedModuleModule } from '@shared/shared-module.module';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-header-table',
   standalone: true,
-  imports: [SharedModuleModule],
+  imports: [SharedModuleModule , DialogComponent],
   templateUrl: './header-table.component.html',
   styleUrls: ['./header-table.component.scss']
 })
 export class HeaderTableComponent {
-  dialogService = inject(DialogService);
-  @Input() label  !: string;
+  dialog = inject(MatDialog);
   @Input() header !:string;
-  value = false;
+  @Input() label  !: string;
+  @Input() fields !: FieldTypeConfig[];
 
-  showDialog(){
-    this.dialogService.setDisplay(true);
+  openDialog(enterAnimationDuration : string , exitAnimationDuration: string) : void {
+    this.dialog.open(DialogComponent , {
+      width : '50vw',
+      data: {
+        title: this.header,
+        fields : this.fields
+      },
+    })
   }
 }

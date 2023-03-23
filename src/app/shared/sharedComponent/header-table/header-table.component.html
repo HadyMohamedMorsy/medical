@@ -1,5 +1,5 @@
 <div class="flex justify-content-between mb-5">
-  <h1 class="text-4xl font-medium"> Patients </h1>
-  <button pButton type="button" icon="pi pi-plus" label="Add Patients" (click)="showDialog()" class="p-button-danger pt-1 pb-1 pr-1 pl-1 text-100 h-3rem">
+  <h1 class="text-4xl font-medium"> {{header}} </h1>
+  <button pButton type="button" icon="pi pi-plus" [label]="label" (click)="openDialog('0ms', '0ms')" class="p-button-danger pt-1 pb-1 pr-1 pl-1 text-100 h-3rem">
   </button>
 </div>

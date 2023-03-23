@@ -5,28 +5,36 @@
   </div>
 </div>
 <div class="Last-patients mt-6">
-  <div class="flex justify-content-between mb-5">
-    <h1 class="text-4xl font-medium"> Appointments </h1>
-    <button pButton type="button" icon="pi pi-plus" label="Add Appointments" (click)="showDialog()" class="p-button-danger pt-1 pb-1 pr-1 pl-1 text-100 h-3rem"></button>
-  </div>
+
+  <app-header-table [label]="'Add Appointments'"
+  [header]="'Appointments'"
+  >
+  </app-header-table>
 
   <app-table [DateBind]="Appointments">
     <ng-template #header let-Patients>
-      <th> ID </th>
-      <th> Name </th>
-      <th> Age</th>
-      <th> Address </th>
-      <th> Number </th>
-      <th> Last visit </th>
-      <th> Status</th>
+      <th class="text-center"> ID </th>
+      <th class="text-center"> Name </th>
+      <th class="text-center"> Age</th>
+      <th class="text-center"> Address </th>
+      <th class="text-center"> Number </th>
+      <th class="text-center"> Last visit </th>
+      <th class="text-center"> Status</th>
+      <th class="text-center"> Action</th>
+    </ng-template>
+    <ng-template #body let-Patients>
+      <td>{{Patients.id}}</td>
+      <td>{{Patients.name}}</td>
+      <td>{{Patients.age}}</td>
+      <td>{{Patients.address}}</td>
+      <td>{{Patients.phone}}</td>
+      <td>{{Patients.lastVisit}}</td>
+      <td>{{Patients.status}}</td>
+      <td class="flex justify-content-center">
+        <button icon="pi pi-eye" pButton type="button"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+        <button icon="pi pi-pencil" pButton type="button" class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+        <button icon="pi pi-trash" pButton type="button" class="p-button-outlined p-button-danger  p-button-rounded"></button>
+      </td>
     </ng-template>
   </app-table>
 </div>
-
-<p-dialog [modal]="true" header="Title" [(visible)]="display" [style]="{width: '50vw'}">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-</p-dialog>

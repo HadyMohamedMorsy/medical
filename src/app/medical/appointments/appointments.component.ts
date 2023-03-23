@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SharedModuleModule } from '@shared/shared-module.module';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
 import { AppointmentsService } from '@services/appointments/appointments.service';
+import { HeaderTableComponent } from '@shared/sharedComponent/header-table/header-table.component';
 
 @Component({
   selector: 'app-appointments',
   standalone: true,
-  imports: [CommonModule , SharedModuleModule , TableComponent],
+  imports: [CommonModule , SharedModuleModule , TableComponent , HeaderTableComponent],
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
   providers: [AppointmentsService]
@@ -28,7 +29,5 @@ export class AppointmentsComponent {
   }
 
 
-  showDialog() {
-      this.display = true;
-  }
+
 }

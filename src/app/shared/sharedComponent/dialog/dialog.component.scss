@@ -1,14 +1,5 @@
-
 :host ::ng-deep{
-  .p-element{
-    button{
-      background-color: var(--red);
-      border: 1px solid var(--red);
-      &:hover{
-        background: #DC2626;
-        border-color: #DC2626;
-      }
-    }
+  .mat-mdc-dialog-container .mdc-dialog__surface{
+    background-color: var(--white) !important;
   }
 }
-

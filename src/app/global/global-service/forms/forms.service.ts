@@ -9,82 +9,120 @@ import {GridFields} from 'src/app/global/global-modal/grid-fields';
 export class FormsService {
 
   gridColum !: string;
-  fieldGroupClassName =  'grid';
 
   FieldsLogin() : FormlyFieldConfig[] {
     return [
-      {
-        fieldGroupClassName: this.fieldGroupClassName,
-        fieldGroup : [
-          {
-            key : 'username',
-            type :'input',
-            className : 'col-12 ',
-            props: {
-              placeholder: 'Enter Your userName',
-            }
-          },
-          {
-            key : 'password',
-            type :'input',
-            className : 'col-12 ',
-            props: {
-              placeholder: 'Enter Your password',
-            }
-          },
-          {
-            key : 'Remember Me',
-            type :'switchInput',
-            className : 'col-12 ',
-            props: {
-              label: 'Remember Me',
-            }
-          },
-        ]
-      }
+        {
+          key : 'username',
+          type :'input',
+          className : 'filed col-12 ',
+          props: {
+            placeholder: 'Enter Your userName',
+          }
+        },
+        {
+          key : 'password',
+          type :'input',
+          className : 'filed col-12 ',
+          props: {
+            placeholder: 'Enter Your password',
+          }
+        },
+        {
+          key : 'Remember Me',
+          type :'switchInput',
+          className : 'col-12 ',
+          props: {
+            label: 'Remember Me',
+          }
+        },
     ]
   }
   FieldsForgetPassword() : FormlyFieldConfig[] {
     return [
-      {
-        fieldGroupClassName: this.fieldGroupClassName,
-        fieldGroup : [
-          {
-            key : 'username',
-            type :'input',
-            className : 'col-12 ',
-            props: {
-              placeholder: 'Enter Your userName',
-            }
-          },
-        ]
-      }
+        {
+          key : 'username',
+          type :'input',
+          className : 'filed col-12 ',
+          props: {
+            placeholder: 'Enter Your userName',
+          }
+        },
     ]
   }
 
   FieldsConfirmPassword() : FormlyFieldConfig[] {
     return [
-      {
-        fieldGroupClassName: this.fieldGroupClassName,
-        fieldGroup : [
+        {
+          key : 'new-Password',
+          type :'input',
+          className : 'filed col-12 ',
+          props: {
+            placeholder: 'Enter Your Password',
+          }
+        },
+        {
+          key : 'confirm-Password',
+          type :'input',
+          className : 'col-12 ',
+          props: {
+            placeholder: 'confirm Your Password',
+          }
+        },
+    ]
+  }
+
+  FieldsPatients() : FormlyFieldConfig[]{
+    return [
           {
-            key : 'new-Password',
+            key : 'First-Name',
             type :'input',
-            className : 'col-12 ',
+            className : 'filed col-12 ',
             props: {
-              placeholder: 'Enter Your Password',
+              placeholder: 'Enter Your First Name',
             }
           },
           {
-            key : 'confirm-Password',
+            key : 'Last-Name',
             type :'input',
-            className : 'col-12 ',
+            className : 'filed col-12 ',
             props: {
-              placeholder: 'confirm Your Password',
+              placeholder: 'Enter Your Last Name',
             }
           },
-        ]
-      }
+          {
+            key : 'Age',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Age',
+            }
+          },
+          {
+            key : 'National-ID',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your National-ID',
+            }
+          },
+          {
+            key : 'Address',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Address',
+            }
+          },
+          {
+            key : 'Phone-Number',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Phone Number',
+            }
+          }
+
     ]
   }
 
@@ -100,6 +138,9 @@ export class FormsService {
       case 'confirmPassword' :
       gridListFields = this.fireMethods(queryMedia , this.FieldsConfirmPassword())
       break;
+      case 'Patients' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsPatients())
+      break;
     }
     return gridListFields
   }
@@ -109,16 +150,28 @@ export class FormsService {
     method : FormlyFieldConfig[]
   )
   {
-    let gridListFields = method[0]?.fieldGroup as FormlyFieldConfig[];
+    let gridListFields = method as FormlyFieldConfig[];
     if(queryMedia){
       queryMedia.forEach((field : any , index : number)=>{
         field.forEach((grid : any) => {
           gridListFields[index].className += `${grid.media}:col-${grid.colNumber} `;
         });
       });
+      let groupFormFields = [
+        {
+          fieldGroupClassName : 'grid',
+          fieldGroup : [
+            ...gridListFields
+          ]
+        }
+      ]
+      return groupFormFields;
+
     }else{
+
       gridListFields = method;
+
+      return gridListFields;
     }
-    return gridListFields;
   }
 }

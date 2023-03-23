@@ -11,6 +11,7 @@ import {TableModule} from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
 import {InputTextModule} from 'primeng/inputtext';
 import {DialogModule} from 'primeng/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -25,14 +26,15 @@ import {DialogModule} from 'primeng/dialog';
     CommonModule ,
     RouterModule,
     ReactiveFormsModule,
-    HttpClientModule
-  , FormlyModule ,
+    HttpClientModule,
+    FormlyModule ,
     FormlyPrimeNGModule,
     ButtonModule ,
     BreadcrumbModule,
     TableModule,
     InputTextModule,
-    DialogModule
+    DialogModule,
+    MatDialogModule
 ]
 })
 export class SharedModuleModule { }
