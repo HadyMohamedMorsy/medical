@@ -8,7 +8,7 @@ import { importProvidersFrom } from '@angular/core';
 
 bootstrapApplication(AppComponent , {
   providers : [
-    importProvidersFrom([BrowserAnimationsModule], BrowserAnimationsModule, BrowserAnimationsModule),
+    importProvidersFrom([BrowserAnimationsModule]),
     provideRouter(routes)
   ]
 })

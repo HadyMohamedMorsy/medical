@@ -34,7 +34,7 @@ p{
 
 // input
 .filed{
-  input{
+  input , textarea{
     background-color: var(--input-background);
     border: 1px solid var(--input-background);
     border-radius: 20px;
@@ -42,6 +42,10 @@ p{
     transition: background .2s ease-in-out,border .2s ease-in-out,box-shadow .2s ease-in-out,color .2s ease-in-out;
     will-change: background,border,box-shadow,color;
     width: 100%;
+  }
+  textarea{
+    resize: none;
+    height: 100px;
   }
 }
 

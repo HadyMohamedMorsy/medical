@@ -58,12 +58,6 @@ export class PatientsComponent {
           media : 'md',
           colNumber : '12'
         },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '12'
-        },
       ]
     ]
     );

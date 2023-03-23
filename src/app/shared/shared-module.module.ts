@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {InputTextModule} from 'primeng/inputtext';
 import {DialogModule} from 'primeng/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CalenderComponent } from './sharedComponent/calender/calender.component';
 
 @NgModule({
   declarations: [],
@@ -19,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormlyModule.forRoot({
       types: [
         { name: 'switchInput', component: SwitchInputComponent },
+        { name: 'calender', component: CalenderComponent },
       ],
     }),
   ],
@@ -34,7 +36,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     TableModule,
     InputTextModule,
     DialogModule,
-    MatDialogModule
+    MatDialogModule,
 ]
 })
 export class SharedModuleModule { }

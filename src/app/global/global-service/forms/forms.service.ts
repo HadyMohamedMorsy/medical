@@ -41,16 +41,16 @@ export class FormsService {
   FieldsForgetPassword() : FormlyFieldConfig[] {
     return [
         {
-          key : 'username',
+          key : 'NationalId',
           type :'input',
           className : 'filed col-12 ',
           props: {
-            placeholder: 'Enter Your userName',
+            type : 'number',
+            placeholder: 'Enter Your NationalId',
           }
         },
     ]
   }
-
   FieldsConfirmPassword() : FormlyFieldConfig[] {
     return [
         {
@@ -71,7 +71,6 @@ export class FormsService {
         },
     ]
   }
-
   FieldsPatients() : FormlyFieldConfig[]{
     return [
           {
@@ -92,26 +91,13 @@ export class FormsService {
           },
           {
             key : 'Age',
-            type :'input',
+            type :'calender',
             className : 'filed col-12 ',
+            defaultValue: new Date(),
             props: {
+              label: 'My Date',
               placeholder: 'Enter Your Age',
-            }
-          },
-          {
-            key : 'National-ID',
-            type :'input',
-            className : 'filed col-12 ',
-            props: {
-              placeholder: 'Enter Your National-ID',
-            }
-          },
-          {
-            key : 'Address',
-            type :'input',
-            className : 'filed col-12 ',
-            props: {
-              placeholder: 'Enter Your Address',
+              required: true,
             }
           },
           {
@@ -119,10 +105,19 @@ export class FormsService {
             type :'input',
             className : 'filed col-12 ',
             props: {
-              placeholder: 'Enter Your Phone Number',
+              placeholder: 'Enter Your Phone-Number',
+              max: 11,
+              min:11,
             }
-          }
-
+          },
+          {
+            key : 'Address',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Address',
+            }
+          },
     ]
   }
 

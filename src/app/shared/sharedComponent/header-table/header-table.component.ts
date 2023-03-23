@@ -21,7 +21,7 @@ export class HeaderTableComponent {
     this.dialog.open(DialogComponent , {
       width : '50vw',
       data: {
-        title: this.header,
+        title: this.label,
         fields : this.fields
       },
     })
