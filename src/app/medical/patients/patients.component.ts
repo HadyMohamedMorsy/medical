@@ -16,9 +16,9 @@ import { ActionsComponent } from '@shared/sharedComponent/actions/actions.compon
   providers: [PatientsService]
 })
 export class PatientsComponent {
-  // injection dependency services
-  private getFieldsPatients  = inject(FormsService);
-  private PatientsService =  inject(PatientsService);
+    // injection dependency services
+    private getFieldsPatients  = inject(FormsService);
+    private PatientsService =  inject(PatientsService);
   items : any;
   patients$ : any;
   addPatientsFields !: FormlyFieldConfig[];

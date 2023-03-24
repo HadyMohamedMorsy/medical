@@ -29,6 +29,11 @@ export class SidebarComponent {
             label: 'Patients',
             icon: 'pi pi-users',
             routerLink : './patients',
+        },
+        {
+            label: 'Confirm-Patients',
+            icon: 'pi pi-check',
+            routerLink : './Confirm-Patients',
         }
     ];
 }

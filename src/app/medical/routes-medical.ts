@@ -3,6 +3,7 @@ import {HomeComponent} from './home/home.component';
 import {AppointmentsComponent} from './appointments/appointments.component';
 import { PatientsComponent } from './patients/patients.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ConfirmPatientsComponent } from './confirm-patients/confirm-patients.component';
 export const ADMIN_ROUTES : Route[] = [
   {
     path : '',
@@ -17,8 +18,12 @@ export const ADMIN_ROUTES : Route[] = [
     component : PatientsComponent
   },
   {
-    path : 'profile',
+    path : ':id/profile',
     component : ProfileComponent
+  },
+  {
+    path : 'Confirm-Patients',
+    component : ConfirmPatientsComponent
   },
 
 ]
