@@ -3,11 +3,12 @@ import { Component, inject } from '@angular/core';
 import { CardModule} from 'primeng/card';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
 import { PatientsService } from '@services/patients/patients.service';
+import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SharedModuleModule , CardModule , TableComponent],
+  imports: [SharedModuleModule , CardModule , TableComponent ,ActionsComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   providers: [PatientsService]

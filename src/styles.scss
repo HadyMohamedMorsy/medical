@@ -47,6 +47,13 @@ p{
     resize: none;
     height: 100px;
   }
+  .p-dropdown{
+    width: 100%;
+    background-color: var(--input-background);
+    border: 1px solid var(--input-background);
+    border-radius: 20px;
+    transition: background .2s ease-in-out,border .2s ease-in-out,box-shadow .2s ease-in-out,color .2s ease-in-out;
+  }
 }
 
 //global

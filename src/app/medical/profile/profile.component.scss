@@ -1,0 +1,14 @@
+:host ::ng-deep{
+  .p-breadcrumb{
+    border: none;
+  }
+  .p-timeline-event-opposite{
+    flex: 3;
+  }
+  .p-timeline-event-content{
+    flex: 0.5;
+  }
+  .p-timeline .p-timeline-event-marker{
+    border: 2px solid #EF4444;
+  }
+}

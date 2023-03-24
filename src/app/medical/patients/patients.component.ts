@@ -5,29 +5,31 @@ import { TableComponent } from '@shared/sharedComponent/table/table.component';
 import { HeaderTableComponent } from '@shared/sharedComponent/header-table/header-table.component';
 import { FormsService } from '@services/forms/forms.service';
 import { FormlyFieldConfig} from '@ngx-formly/core';
+import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
 
 @Component({
   selector: 'app-patients',
   standalone: true,
-  imports: [SharedModuleModule , TableComponent , HeaderTableComponent],
+  imports: [SharedModuleModule , TableComponent , HeaderTableComponent , ActionsComponent],
   templateUrl: './patients.component.html',
   styleUrls: ['./patients.component.scss'],
   providers: [PatientsService]
 })
 export class PatientsComponent {
   // injection dependency services
-  private getFieldsAddPatients  = inject(FormsService);
+  private getFieldsPatients  = inject(FormsService);
   private PatientsService =  inject(PatientsService);
   items : any;
   patients$ : any;
   addPatientsFields !: FormlyFieldConfig[];
+  confirmPatientsFields !: FormlyFieldConfig[];
   ngOnInit() {
     this.items = [
         {label:'Clinic'},
         {label:'Patients'},
     ];
     this.patients$ = this.PatientsService.getPatients();
-    this.addPatientsFields = this.getFieldsAddPatients.gridFields('Patients',
+    this.addPatientsFields = this.getFieldsPatients.gridFields('Patients',
     [
       [
         {
@@ -39,6 +41,12 @@ export class PatientsComponent {
         {
           media : 'md',
           colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '12'
         },
       ],
       [
@@ -58,12 +66,37 @@ export class PatientsComponent {
           media : 'md',
           colNumber : '12'
         },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '12'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '12'
+        },
       ]
     ]
     );
-
-    console.log(this.addPatientsFields);
-
+    this.confirmPatientsFields = this.getFieldsPatients.gridFields('ConfirmPatients' ,
+    [
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+    ]
+    )
   }
 
 }

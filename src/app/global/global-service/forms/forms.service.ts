@@ -95,9 +95,9 @@ export class FormsService {
             className : 'filed col-12 ',
             defaultValue: new Date(),
             props: {
-              label: 'My Date',
-              placeholder: 'Enter Your Age',
-              required: true,
+              label: 'Age',
+              htmlFor:'age',
+              id:'age'
             }
           },
           {
@@ -111,6 +111,18 @@ export class FormsService {
             }
           },
           {
+            key : 'gender',
+            type :'select',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Gender',
+              options: [
+                { label: 'male', value: 'male' },
+                { label: 'female', value: 'female' },
+              ],
+            }
+          },
+          {
             key : 'Address',
             type :'textarea',
             className : 'filed col-12 ',
@@ -118,6 +130,120 @@ export class FormsService {
               placeholder: 'Enter Your Address',
             }
           },
+          {
+            key : 'chronicDisease',
+            type :'switchInput',
+            className : 'filed col-12 ',
+            props: {
+              label : 'Do u have chronic disease',
+              placeholder: 'Enter Your Address',
+              id : 'chronic',
+            },
+          },
+          {
+            key : 'medications',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'What medications are you taking',
+
+            },
+            expressions: {
+              hide: (field: FormlyFieldConfig) =>{
+                return !(field.model?.chronicDisease);;
+              }
+            },
+          },
+    ]
+  }
+  FieldsProfilePatients() : FormlyFieldConfig[]{
+    return [
+          {
+            key : 'First-Name',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your First Name',
+            }
+          },
+          {
+            key : 'Last-Name',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Last Name',
+            }
+          },
+          {
+            key : 'Age',
+            type :'calender',
+            className : 'filed col-12 ',
+            defaultValue: new Date(),
+            props: {
+              label: 'Age',
+              htmlFor:'age',
+              id:'age'
+            }
+          },
+          {
+            key : 'Phone-Number',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Phone-Number',
+              max: 11,
+              min:11,
+            }
+          },
+          {
+            key : 'gender',
+            type :'select',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Gender',
+              options: [
+                { label: 'male', value: 'male' },
+                { label: 'female', value: 'female' },
+              ],
+            }
+          },
+          {
+            key : 'Address',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Address',
+            }
+          },
+    ]
+  }
+  FieldsConfirmPatients() : FormlyFieldConfig[]{
+    return [
+      {
+        key : 'type',
+        type :'select',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'select Your type Your inquiry',
+          options: [
+            { label: 'statement', value: 'statement' },
+            { label: 'consultation', value: 'consultation' },
+          ],
+        }
+      },
+      {
+        key : 'booking',
+        type :'calender',
+        className : 'filed col-12 ',
+        defaultValue: new Date(),
+        props: {
+          label: 'booking timing',
+          htmlFor:'booking',
+          id:'booking',
+          time : true,
+          second : true,
+        }
+      },
     ]
   }
 
@@ -135,6 +261,12 @@ export class FormsService {
       break;
       case 'Patients' :
       gridListFields =  this.fireMethods(queryMedia , this.FieldsPatients())
+      break;
+      case 'FieldsProfile' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsProfilePatients())
+      break;
+      case 'ConfirmPatients' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsConfirmPatients())
       break;
     }
     return gridListFields

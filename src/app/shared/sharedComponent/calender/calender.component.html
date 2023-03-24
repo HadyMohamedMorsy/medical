@@ -1,6 +1,11 @@
-<p-calendar [formControl]="formControl"
-[touchUI]="true" [readonlyInput]="true"
-[formlyAttributes]="field"
-[showIcon]="true"
->
-</p-calendar>
+
+  <p-calendar [formControl]="formControl"
+  [touchUI]="true" [readonlyInput]="true"
+  [formlyAttributes]="field"
+  [showIcon]="true"
+  [showTime]="field.props['time']"
+  [showSeconds]="field.props['second']"
+  [inputId]="field.props['id']"
+  >
+  </p-calendar>
+

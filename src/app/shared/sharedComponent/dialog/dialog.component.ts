@@ -16,10 +16,17 @@ export class DialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
   dialogRef  = inject(MatDialogRef<DialogComponent>);
   form = new FormGroup({});
-  fieldsModel = {};
+  fieldsModel = {
+  };
+
+  ngOnInit(): void {
+  console.log(this.data.fields[0].fieldGroup);
+
+
+  }
 
   onSubmit(fieldsModel : any){
     console.log(fieldsModel);
   }
-  
+
 }

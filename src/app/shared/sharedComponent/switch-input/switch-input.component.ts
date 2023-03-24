@@ -17,13 +17,14 @@ import {InputSwitchModule} from 'primeng/inputswitch';
     InputSwitchModule
   ],
   template: `
+  <label class="m-0 font-medium" for="{{field.props['id']}}">{{field.props.label}}</label>
   <div class="grid align-items-center mt-3">
     <p-inputSwitch
       [formControl]="formControl"
       [formlyAttributes]="field"
+      [inputId]="id"
     >
     </p-inputSwitch>
-    <h5 class="m-0 ml-3 font-medium"> {{field.props.label}} </h5>
   </div>
   `,
   styleUrls: ['./switch-input.component.scss']
