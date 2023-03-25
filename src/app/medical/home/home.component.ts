@@ -4,6 +4,8 @@ import { CardModule} from 'primeng/card';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
 import { PatientsService } from '@services/patients/patients.service';
 import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
+import { FormlyFieldConfig} from '@ngx-formly/core';
+import { FormsService } from '@services/forms/forms.service';
 
 @Component({
   selector: 'app-home',
@@ -14,18 +16,94 @@ import { ActionsComponent } from '@shared/sharedComponent/actions/actions.compon
   providers: [PatientsService]
 })
 export class HomeComponent {
+  private DataBindTableService =  inject(PatientsService);
+  private getFields = inject(FormsService);
 
-  private PatientsService =  inject(PatientsService);
   items : any;
-  patients$ : any;
-
+  data$ : any;
+  confirmFields !: FormlyFieldConfig[];
+  deleting !:FormlyFieldConfig[];
+  updateField !: FormlyFieldConfig[];
+  uploadFields !: FormlyFieldConfig[];
 
   ngOnInit() {
     this.items = [
         {label:'Clinic'},
         {label:'Home'},
     ];
-    this.patients$ = this.PatientsService.getPatients();
+    this.data$ = this.DataBindTableService.getPatients();
+
+    this.confirmFields = this.getFields.gridFields('ConfirmPatients' ,
+    [
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+    ]
+    )
+    this.deleting = this.getFields.gridFields('FieldsDelete');
+    this.updateField = this.getFields.gridFields('FieldUpdatePatient',
+    [
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '12'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '12'
+        },
+      ]
+    ]
+    );
+
+    this.uploadFields = this.getFields.gridFields('FieldUpload');
   }
 
 }

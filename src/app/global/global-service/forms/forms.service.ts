@@ -8,7 +8,6 @@ import {GridFields} from 'src/app/global/global-modal/grid-fields';
 })
 export class FormsService {
 
-  gridColum !: string;
 
   FieldsLogin() : FormlyFieldConfig[] {
     return [
@@ -156,6 +155,94 @@ export class FormsService {
           },
     ]
   }
+  FieldsUpdatePatients() : FormlyFieldConfig[]{
+    return [
+          {
+            key : 'First-Name',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your First Name',
+            }
+          },
+          {
+            key : 'Last-Name',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Last Name',
+            }
+          },
+          {
+            key : 'Age',
+            type :'calender',
+            className : 'filed col-12 ',
+            defaultValue: new Date(),
+            props: {
+              label: 'Age',
+              htmlFor:'age',
+              id:'age'
+            }
+          },
+          {
+            key : 'Phone-Number',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Phone-Number',
+              max: 11,
+              min:11,
+            }
+          },
+          {
+            key : 'gender',
+            type :'select',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Gender',
+              options: [
+                { label: 'male', value: 'male' },
+                { label: 'female', value: 'female' },
+              ],
+            }
+          },
+          {
+            key : 'Address',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Address',
+            }
+          },
+          {
+            key : 'medications',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'What medications are you taking',
+            }
+          },
+          {
+            key : 'Consulted-again',
+            type :'calender',
+            className : 'filed col-12 ',
+            defaultValue: new Date(),
+            props: {
+              label: 'Consulted-again',
+              htmlFor:'Consulted-again',
+              id:'Consulted-again'
+            }
+          },
+          {
+            key : 'pharmaceutical',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'What pharmaceutical ?',
+            }
+          },
+    ]
+  }
   FieldsProfilePatients() : FormlyFieldConfig[]{
     return [
           {
@@ -246,6 +333,264 @@ export class FormsService {
       },
     ]
   }
+  FieldsAppointments() : FormlyFieldConfig[]{
+    return [
+      {
+        key : 'First-Name',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your First Name',
+        }
+      },
+      {
+        key : 'Last-Name',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your Last Name',
+        }
+      },
+      {
+        key : 'Age',
+        type :'calender',
+        className : 'filed col-12 ',
+        defaultValue: new Date(),
+        props: {
+          label: 'Age',
+          htmlFor:'age',
+          id:'age'
+        }
+      },
+      {
+        key : 'Phone-Number',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your Phone-Number',
+          max: 11,
+          min:11,
+        }
+      },
+      {
+        key : 'NationalId',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your NationalId',
+          max: 14,
+          min:14,
+        }
+      },
+      {
+        key : 'gender',
+        type :'select',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Gender',
+          options: [
+            { label: 'male', value: 'male' },
+            { label: 'female', value: 'female' },
+          ],
+        }
+      },
+      {
+        key : 'Address',
+        type :'textarea',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your Address',
+        }
+      },
+    ]
+  }
+  FieldsUpdateAppointments() : FormlyFieldConfig[]{
+    return [
+      {
+        key : 'First-Name',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your First Name',
+        }
+      },
+      {
+        key : 'Last-Name',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your Last Name',
+        }
+      },
+      {
+        key : 'Age',
+        type :'calender',
+        className : 'filed col-12 ',
+        defaultValue: new Date(),
+        props: {
+          label: 'Age',
+          htmlFor:'age',
+          id:'age'
+        }
+      },
+      {
+        key : 'Phone-Number',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your Phone-Number',
+          max: 11,
+          min:11,
+        }
+      },
+      {
+        key : 'NationalId',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your NationalId',
+          max: 14,
+          min:14,
+        }
+      },
+      {
+        key : 'gender',
+        type :'select',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Gender',
+          options: [
+            { label: 'male', value: 'male' },
+            { label: 'female', value: 'female' },
+          ],
+        }
+      },
+      {
+        key : 'Address',
+        type :'textarea',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your Address',
+        }
+      },
+    ]
+  }
+  FieldShowAppointments() : FormlyFieldConfig[]{
+    return [
+      {
+        key : 'First-Name',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your First Name',
+          disabled : true
+        }
+      },
+      {
+        key : 'Last-Name',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your Last Name',
+          disabled : true
+        }
+      },
+      {
+        key : 'Age',
+        type :'calender',
+        className : 'filed col-12 ',
+        defaultValue: new Date(),
+        props: {
+          label: 'Age',
+          htmlFor:'age',
+          id:'age',
+          disabled : true
+        }
+      },
+      {
+        key : 'Phone-Number',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your Phone-Number',
+          max: 11,
+          min:11,
+          disabled : true
+        }
+      },
+      {
+        key : 'NationalId',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your NationalId',
+          max: 14,
+          min:14,
+          disabled : true
+        }
+      },
+      {
+        key : 'gender',
+        type :'select',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Gender',
+          disabled : true,
+          options: [
+            { label: 'male', value: 'male' },
+            { label: 'female', value: 'female' },
+          ],
+        }
+      },
+      {
+        key : 'Address',
+        type :'textarea',
+        className : 'filed col-12 ',
+        props: {
+          disabled : true,
+          placeholder: 'Enter Your Address',
+        }
+      },
+    ]
+  }
+  FieldsDelete() : FormlyFieldConfig[]{
+    return [
+      {
+        key : 'id',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          type : 'hidden',
+          placeholder: 'Enter Your First Name',
+        }
+      },
+    ]
+  }
+  FieldsCheck() : FormlyFieldConfig[]{
+    return [
+      {
+        key : 'id',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          type : 'hidden',
+          placeholder: 'Enter Your First Name',
+        }
+      },
+    ]
+  }
+  FieldUpload() : FormlyFieldConfig[]{
+    return [
+      {
+        key : 'FileUpload',
+        type :'FileUpload',
+        className :'filed col-12 ',
+        props: {
+          placeholder: 'files',
+        }
+      },
+    ]
+  }
 
   gridFields( methodField : string , queryMedia : any = undefined){
     let gridListFields !: FormlyFieldConfig[]
@@ -267,6 +612,27 @@ export class FormsService {
       break;
       case 'ConfirmPatients' :
       gridListFields =  this.fireMethods(queryMedia , this.FieldsConfirmPatients())
+      break;
+      case 'Appointments' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsAppointments())
+      break;
+      case 'FieldsDelete' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsDelete())
+      break;
+      case 'FieldsUpdateAppointments' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsUpdateAppointments())
+      break;
+      case 'FieldShowAppointments' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldShowAppointments())
+      break;
+      case 'FieldCheck' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsCheck())
+      break;
+      case 'FieldUpdatePatient' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsUpdatePatients())
+      break;
+      case 'FieldUpload' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldUpload())
       break;
     }
     return gridListFields

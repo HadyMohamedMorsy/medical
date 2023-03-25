@@ -53,7 +53,7 @@
 </div>
 <div class="Last-patients mt-6">
   <h3 class="text-4xl font-medium mb-4"> Last-Patients </h3>
-  <app-table [DateBind]="patients$">
+  <app-table [DateBind]="data$">
     <ng-template #header let-Patients>
       <th class="text-center"> ID </th>
       <th class="text-center"> Name </th>
@@ -73,7 +73,11 @@
       <td>{{Patients.lastVisit}}</td>
       <td>{{Patients.status}}</td>
       <td class="flex justify-content-center">
-        <app-actions></app-actions>
+        <app-actions [ConfirmFields]="$any(confirmFields)"
+        [Delete]="$any(deleting)"
+        [UpdatedFields]="$any(updateField)"
+        [uploadFileFields]="$any(uploadFields)"
+        ></app-actions>
       </td>
     </ng-template>
 

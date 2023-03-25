@@ -8,10 +8,10 @@
 <div class="Last-patients mt-6">
   <app-header-table [label]="'Add Patients'"
   [header]="'Patients'"
-  [fields]="$any(addPatientsFields)"
+  [fields]="$any(addFields)"
   >
   </app-header-table>
-  <app-table [DateBind]="patients$">
+  <app-table [DateBind]="data$">
     <ng-template #header let-Patients>
       <th class="text-center"> ID </th>
       <th class="text-center"> Name </th>
@@ -31,9 +31,12 @@
       <td>{{Patients.lastVisit}}</td>
       <td>{{Patients.status}}</td>
       <td class="flex justify-content-center">
-        <app-actions [ConfirmFields]="$any(confirmPatientsFields)"
-        [label]="'confirm-Patients'"
-        ></app-actions>
+        <app-actions [ConfirmFields]="$any(confirmFields)"
+        [Delete]="$any(deleting)"
+        [UpdatedFields]="$any(updateField)"
+        [uploadFileFields]="$any(uploadFields)"
+        >
+      </app-actions>
       </td>
     </ng-template>
   </app-table>

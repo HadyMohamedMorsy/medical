@@ -1,20 +1,19 @@
-import { FieldTypeConfig } from '@ngx-formly/core';
-import { Component, Input, inject } from '@angular/core';
 import { SharedModuleModule } from '@shared/shared-module.module';
-import {MatDialog} from '@angular/material/dialog';
+import { Component, inject, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { FieldTypeConfig } from '@ngx-formly/core';
 
 @Component({
-  selector: 'app-header-table',
+  selector: 'app-button-add',
   standalone: true,
   imports: [SharedModuleModule , DialogComponent],
-  templateUrl: './header-table.component.html',
-  styleUrls: ['./header-table.component.scss']
+  templateUrl: './button-add.component.html',
+  styleUrls: ['./button-add.component.scss']
 })
-export class HeaderTableComponent {
+export class ButtonAddComponent {
   dialog = inject(MatDialog);
-  @Input() header !:string;
-  @Input() label  !: string;
+  @Input() label !:string;
   @Input() fields !: FieldTypeConfig[];
 
   openDialog() : void {

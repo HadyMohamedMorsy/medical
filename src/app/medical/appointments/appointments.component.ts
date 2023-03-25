@@ -5,6 +5,8 @@ import { TableComponent } from '@shared/sharedComponent/table/table.component';
 import { AppointmentsService } from '@services/appointments/appointments.service';
 import { HeaderTableComponent } from '@shared/sharedComponent/header-table/header-table.component';
 import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
+import { FormsService } from '@services/forms/forms.service';
+import { FormlyFieldConfig} from '@ngx-formly/core';
 
 @Component({
   selector: 'app-appointments',
@@ -15,16 +17,163 @@ import { ActionsComponent } from '@shared/sharedComponent/actions/actions.compon
   providers: [AppointmentsService]
 })
 export class AppointmentsComponent {
-  private AppointmentsServiceService =  inject(AppointmentsService);
-  Appointments : any;
+      // injection dependency services
+  private getFields  = inject(FormsService);
+  private DataBindTableService =  inject(AppointmentsService);
+
+  data$ : any;
   items : any;
   display: boolean = false;
+  addFields !: FormlyFieldConfig[];
+  updateFields !: FormlyFieldConfig[];
+  ShowFields !:FormlyFieldConfig[];
+  deleting !:FormlyFieldConfig[];
 
   ngOnInit(): void {
     this.items = [
       {label:'Clinic'},
       {label:'Appointments'},
     ];
-    this.Appointments = this.AppointmentsServiceService.getAppointments();
+    this.data$ = this.DataBindTableService.getAppointments();
+    this.addFields = this.getFields.gridFields('Appointments',
+    [
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '12'
+        },
+      ]
+    ]
+    )
+    this.updateFields = this.getFields.gridFields('FieldsUpdateAppointments',
+    [
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '12'
+        },
+      ]
+    ]
+    )
+    this.ShowFields = this.getFields.gridFields('FieldShowAppointments',
+    [
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '12'
+        },
+      ]
+    ]
+    )
+    this.deleting = this.getFields.gridFields('FieldsDelete');
+
   }
 }

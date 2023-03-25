@@ -5,6 +5,7 @@ import { SharedModuleModule } from '@shared/shared-module.module';
 import { PatientsService } from '@services/patients/patients.service';
 import { FormsService } from '@services/forms/forms.service';
 import { ActionsConfirmComponent } from '@shared/sharedComponent/actions-confirm/actions-confirm.component';
+import { FormlyFieldConfig} from '@ngx-formly/core';
 
 @Component({
   selector: 'app-confirm-patients',
@@ -16,15 +17,18 @@ import { ActionsConfirmComponent } from '@shared/sharedComponent/actions-confirm
 })
 export class ConfirmPatientsComponent {
   // injection dependency services
-  private getFieldsPatients  = inject(FormsService);
-  private PatientsService =  inject(PatientsService);
+  private getFields = inject(FormsService);
+  private DataBindTableService = inject(PatientsService);
+
+  checked !:FormlyFieldConfig[];
   items : any;
-  patients$ : any;
+  data$ : any;
   ngOnInit(): void {
     this.items = [
       {label:'Clinic'},
       {label:'Confirm-Patients'},
   ];
-  this.patients$ = this.PatientsService.getPatients();
+  this.data$ = this.DataBindTableService.getPatients();
+  this.checked = this.getFields.gridFields('FieldCheck');
   }
 }

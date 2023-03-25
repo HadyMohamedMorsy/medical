@@ -13,6 +13,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {DialogModule} from 'primeng/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CalenderComponent } from './sharedComponent/calender/calender.component';
+import { UploadComponent } from './sharedComponent/upload/upload.component';
 
 @NgModule({
   declarations: [],
@@ -21,6 +22,7 @@ import { CalenderComponent } from './sharedComponent/calender/calender.component
       types: [
         { name: 'switchInput', component: SwitchInputComponent },
         { name: 'calender', component: CalenderComponent },
+        { name: 'FileUpload', component: UploadComponent },
       ],
     }),
   ],

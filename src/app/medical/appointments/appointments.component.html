@@ -8,10 +8,10 @@
 
   <app-header-table [label]="'Add Appointments'"
   [header]="'Appointments'"
+  [fields]="$any(addFields)"
   >
   </app-header-table>
-
-  <app-table [DateBind]="Appointments">
+  <app-table [DateBind]="data$">
     <ng-template #header let-Patients>
       <th class="text-center"> ID </th>
       <th class="text-center"> Name </th>
@@ -31,7 +31,11 @@
       <td>{{Patients.lastVisit}}</td>
       <td>{{Patients.status}}</td>
       <td class="flex justify-content-center">
-        <app-actions></app-actions>
+        <app-actions [pageRedirect]="'Appointments'"
+        [UpdatedFields]="$any(updateFields)"
+        [showFields]="$any(ShowFields)"
+        [Delete]="$any(deleting)"
+        ></app-actions>
       </td>
     </ng-template>
   </app-table>
