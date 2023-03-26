@@ -6,11 +6,11 @@ import { FormlyFieldConfig} from '@ngx-formly/core';
 import { FormsService } from '@services/forms/forms.service';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
 import { PatientsService } from '@services/patients/patients.service';
-
+import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [SharedModuleModule , TimelineModule , TableComponent],
+  imports: [SharedModuleModule , TimelineModule , TableComponent , BreadcrumbComponent],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
   providers : [PatientsService]

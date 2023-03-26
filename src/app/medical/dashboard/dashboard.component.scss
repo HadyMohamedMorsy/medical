@@ -1,3 +1,6 @@
 .app-container{
   padding-inline-start: 17rem;
+  &.remove-padding{
+    padding-inline-start: 0rem;
+  }
 }

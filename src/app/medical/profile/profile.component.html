@@ -1,9 +1,4 @@
-<div class="bredcrumb mt-4 flex align-items-center justify-content-between">
-  <p-breadcrumb [model]="items"></p-breadcrumb>
-  <div class="icon-sidebar">
-    <i class="pi pi-align-right p-menubar-button ng-star-inserted" style="font-size: 1.5rem"></i>
-  </div>
-</div>
+<app-breadcrumb [items]="items"></app-breadcrumb>
 <div class="grid mt-4 mb-4">
   <div class="col-12 md:col-6">
     <form [formGroup]="form" (ngSubmit)="onSubmit(fieldsModel)">

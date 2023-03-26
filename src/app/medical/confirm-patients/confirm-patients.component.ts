@@ -6,11 +6,12 @@ import { PatientsService } from '@services/patients/patients.service';
 import { FormsService } from '@services/forms/forms.service';
 import { ActionsConfirmComponent } from '@shared/sharedComponent/actions-confirm/actions-confirm.component';
 import { FormlyFieldConfig} from '@ngx-formly/core';
+import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-confirm-patients',
   standalone: true,
-  imports: [SharedModuleModule , TableComponent , ActionsConfirmComponent],
+  imports: [SharedModuleModule , TableComponent , ActionsConfirmComponent , BreadcrumbComponent],
   templateUrl: './confirm-patients.component.html',
   styleUrls: ['./confirm-patients.component.scss'],
   providers: [PatientsService]

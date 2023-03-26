@@ -1,9 +1,4 @@
-<div class="bredcrumb mt-4 flex align-items-center justify-content-between">
-  <p-breadcrumb [model]="items"></p-breadcrumb>
-  <div class="icon-sidebar">
-    <i class="pi pi-align-right p-menubar-button ng-star-inserted" style="font-size: 1.5rem"></i>
-  </div>
-</div>
+<app-breadcrumb [items]="items"></app-breadcrumb>
 <div class="Last-patients mt-6">
   <h1 class="text-4xl font-medium"> Confirm Patients </h1>
   <app-table [DateBind]="data$">

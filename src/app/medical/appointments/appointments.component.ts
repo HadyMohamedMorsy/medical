@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SharedModuleModule } from '@shared/shared-module.module';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
 import { AppointmentsService } from '@services/appointments/appointments.service';
@@ -7,11 +6,12 @@ import { HeaderTableComponent } from '@shared/sharedComponent/header-table/heade
 import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
 import { FormsService } from '@services/forms/forms.service';
 import { FormlyFieldConfig} from '@ngx-formly/core';
+import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-appointments',
   standalone: true,
-  imports: [CommonModule , SharedModuleModule , TableComponent , HeaderTableComponent , ActionsComponent],
+  imports: [SharedModuleModule , TableComponent , HeaderTableComponent , ActionsComponent, BreadcrumbComponent],
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
   providers: [AppointmentsService]
@@ -28,6 +28,7 @@ export class AppointmentsComponent {
   updateFields !: FormlyFieldConfig[];
   ShowFields !:FormlyFieldConfig[];
   deleting !:FormlyFieldConfig[];
+  uploadFields !: FormlyFieldConfig[];
 
   ngOnInit(): void {
     this.items = [
@@ -174,6 +175,7 @@ export class AppointmentsComponent {
     ]
     )
     this.deleting = this.getFields.gridFields('FieldsDelete');
-
+    
+    this.uploadFields = this.getFields.gridFields('FieldUpload');
   }
 }

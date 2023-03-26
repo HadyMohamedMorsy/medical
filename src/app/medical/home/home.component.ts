@@ -6,11 +6,12 @@ import { PatientsService } from '@services/patients/patients.service';
 import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
 import { FormlyFieldConfig} from '@ngx-formly/core';
 import { FormsService } from '@services/forms/forms.service';
+import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SharedModuleModule , CardModule , TableComponent ,ActionsComponent],
+  imports: [SharedModuleModule , CardModule , TableComponent ,ActionsComponent , BreadcrumbComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   providers: [PatientsService]

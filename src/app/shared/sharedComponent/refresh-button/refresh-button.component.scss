@@ -1,9 +1,9 @@
 :host ::ng-deep{
-  .p-calendar{
-    width: 100%;
-  }
   .p-button{
     background: #EF4444;
     border: 1px solid #EF4444;
+    &:hover{
+      background: #EF4444;
+    }
   }
 }

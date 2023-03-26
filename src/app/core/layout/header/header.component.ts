@@ -6,11 +6,12 @@ import {ButtonModule} from 'primeng/button';
 import { ButtonAddComponent } from '@shared/sharedComponent/button-add/button-add.component';
 import { FormsService } from '@services/forms/forms.service';
 import { FormlyFieldConfig} from '@ngx-formly/core';
-
+;
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule  , BadgeModule , AvatarModule , ButtonModule , ButtonAddComponent],
+  imports: [CommonModule  , BadgeModule , AvatarModule , 
+    ButtonModule , ButtonAddComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
@@ -70,5 +71,7 @@ export class HeaderComponent {
       ]
     ]
     );
+
+
   }
 }

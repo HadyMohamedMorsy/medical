@@ -6,11 +6,12 @@ import { HeaderTableComponent } from '@shared/sharedComponent/header-table/heade
 import { FormsService } from '@services/forms/forms.service';
 import { FormlyFieldConfig} from '@ngx-formly/core';
 import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
+import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-patients',
   standalone: true,
-  imports: [SharedModuleModule , TableComponent , HeaderTableComponent , ActionsComponent],
+  imports: [SharedModuleModule , TableComponent , HeaderTableComponent , ActionsComponent ,BreadcrumbComponent],
   templateUrl: './patients.component.html',
   styleUrls: ['./patients.component.scss'],
   providers: [PatientsService]
@@ -34,7 +35,7 @@ export class PatientsComponent {
         {label:'Patients'},
     ];
     this.data$ = this.DataBindTableService.getPatients();
-    
+
     this.addFields = this.getFields.gridFields('Patients',
     [
       [

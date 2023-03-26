@@ -25,7 +25,12 @@ export const routes: Route[] = [
   {
     path :'clinic',
     component : DashboardComponent,
-    loadChildren: () => import('./medical/routes-medical').then(mod => mod.ADMIN_ROUTES)
+    children : [
+      {
+        path : '',
+        loadChildren: () => import('./medical/routes-medical').then(mod => mod.ADMIN_ROUTES)
+      }
+    ]
   },
 ];
 

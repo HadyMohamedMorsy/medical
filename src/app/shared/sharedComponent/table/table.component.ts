@@ -4,14 +4,14 @@ import { LazyLoadEvent } from 'primeng/api';
 import { Table, TableService } from 'primeng/table';
 import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 import {ButtonModule} from 'primeng/button';
+import { RefreshButtonComponent } from '../refresh-button/refresh-button.component';
 export function tableFactory(tableComponent: TableComponent) {
   return tableComponent.primingTable;
 }
-
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [SharedModuleModule  , ButtonModule],
+  imports: [SharedModuleModule  , ButtonModule, RefreshButtonComponent],
   providers: [
     TableService,
     {
