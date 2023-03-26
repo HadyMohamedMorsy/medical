@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { SharedModuleModule} from 'src/app/shared/shared-module.module';
-import { FormlyFieldConfig} from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
-import { inject } from '@angular/core';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 import {FormsService} from '@services/forms/forms.service';
-
+import { SharedModuleModule } from 'src/app/shared/shared-module.module';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +25,7 @@ export class LoginComponent {
   }
 
   onSubmit(LoginModel : any){
-    console.log(LoginModel);
+    console.log(this.form);
+    console.log('hady'); 
   }
 }

@@ -1,18 +1,20 @@
-import { NgModule } from '@angular/core';
+import { userValidator, userValidatorMessage } from '../global/validation/validations';
+
+import {BreadcrumbModule} from 'primeng/breadcrumb';
+import {ButtonModule} from 'primeng/button';
+import { CalenderComponent } from './sharedComponent/calender/calender.component';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import {DialogModule} from 'primeng/dialog';
 import {FormlyModule} from '@ngx-formly/core';
 import {FormlyPrimeNGModule} from '@ngx-formly/primeng';
-import {ButtonModule} from 'primeng/button';
-import {SwitchInputComponent} from './sharedComponent/switch-input/switch-input.component';
-import {BreadcrumbModule} from 'primeng/breadcrumb';
-import {TableModule} from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
 import {InputTextModule} from 'primeng/inputtext';
-import {DialogModule} from 'primeng/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
-import { CalenderComponent } from './sharedComponent/calender/calender.component';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import {SwitchInputComponent} from './sharedComponent/switch-input/switch-input.component';
+import {TableModule} from 'primeng/table';
 import { UploadComponent } from './sharedComponent/upload/upload.component';
 
 @NgModule({
@@ -23,6 +25,10 @@ import { UploadComponent } from './sharedComponent/upload/upload.component';
         { name: 'switchInput', component: SwitchInputComponent },
         { name: 'calender', component: CalenderComponent },
         { name: 'FileUpload', component: UploadComponent },
+      ],
+      validators: [{ name: 'user', validation: userValidator }],
+      validationMessages: [
+        { name: 'user', message: userValidatorMessage },
       ],
     }),
   ],

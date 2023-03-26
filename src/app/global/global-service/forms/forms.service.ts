@@ -15,7 +15,10 @@ export class FormsService {
           className : 'filed col-12 ',
           props: {
             placeholder: 'Enter Your userName',
-          }
+          },
+          validators: {
+            validation: ['user'],
+          },    
         },
         {
           key : 'password',
