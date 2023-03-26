@@ -21,6 +21,7 @@ export class ActionsComponent {
   @Input() uploadFileFields   !: FieldTypeConfig[];
   @Input() showFields    !: FieldTypeConfig[];
   @Input() Delete        !: FieldTypeConfig[];
+  @Input() ConfirmStatus !:FieldTypeConfig[];
   @Input() pageRedirect  !: string | null;
   
   openDialog() : void {
@@ -77,6 +78,16 @@ export class ActionsComponent {
       data: {
         title: 'Upload Attachments',
         fields : this.uploadFileFields
+      },
+    })
+  }
+
+  openCheckDialog(status : string) : void {
+    this.dialog.open(DialogConfirmComponent , {
+      width : '50vw',
+      data: {
+        title: `do you want ${status} status`,
+        fields : this.ConfirmStatus
       },
     })
   }

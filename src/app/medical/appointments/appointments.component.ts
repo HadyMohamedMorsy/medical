@@ -36,146 +36,146 @@ export class AppointmentsComponent {
       {label:'Appointments'},
     ];
     this.data$ = this.DataBindTableService.getAppointments();
-    this.addFields = this.getFields.gridFields('Appointments',
-    [
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '12'
-        },
-      ]
-    ]
-    )
-    this.updateFields = this.getFields.gridFields('FieldsUpdateAppointments',
-    [
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '12'
-        },
-      ]
-    ]
-    )
-    this.ShowFields = this.getFields.gridFields('FieldShowAppointments',
-    [
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '6'
-        },
-      ],
-      [
-        {
-          media : 'md',
-          colNumber : '12'
-        },
-      ]
-    ]
-    )
-    this.deleting = this.getFields.gridFields('FieldsDelete');
-    
-    this.uploadFields = this.getFields.gridFields('FieldUpload');
+    // this.addFields = this.getFields.gridFields('Appointments',
+    // [
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '12'
+    //     },
+    //   ]
+    // ]
+    // )
+    // this.updateFields = this.getFields.gridFields('FieldsUpdateAppointments',
+    // [
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '12'
+    //     },
+    //   ]
+    // ]
+    // )
+    // this.ShowFields = this.getFields.gridFields('FieldShowAppointments',
+    // [
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '6'
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       media : 'md',
+    //       colNumber : '12'
+    //     },
+    //   ]
+    // ]
+    // )
+    // this.deleting = this.getFields.gridFields('FieldsDelete');
+
+    // this.uploadFields = this.getFields.gridFields('FieldUpload');
   }
 }

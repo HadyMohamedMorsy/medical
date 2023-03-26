@@ -46,7 +46,22 @@ export class SidebarComponent {
             label: 'Confirm-Patients',
             icon: 'pi pi-check',
             routerLink : './Confirm-Patients',
-        }
+        },
+        {
+            label: 'inside-clinic',
+            icon: 'pi pi-check',
+            routerLink : './Confirm-Patients',
+        },
+        {
+            label: 'with-doctor',
+            icon: 'pi pi-check',
+            routerLink : './Confirm-Patients',
+        },
+        {
+            label: 'users',
+            icon: 'pi pi-check',
+            routerLink : './Confirm-Patients',
+        },
     ];
 
     this.breakpointObserver

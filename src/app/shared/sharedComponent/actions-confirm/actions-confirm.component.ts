@@ -15,7 +15,7 @@ export class ActionsConfirmComponent {
   dialog = inject(MatDialog);
   @Input() ConfirmStatus !:FieldTypeConfig[];
 
-  openDialog(status : string) : void {
+  openCheckDialog(status : string) : void {
     this.dialog.open(DialogConfirmComponent , {
       width : '50vw',
       data: {
