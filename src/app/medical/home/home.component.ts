@@ -1,12 +1,13 @@
-import { SharedModuleModule } from 'src/app/shared/shared-module.module';
 import { Component, inject } from '@angular/core';
-import { CardModule} from 'primeng/card';
-import { TableComponent } from '@shared/sharedComponent/table/table.component';
-import { PatientsService } from '@services/patients/patients.service';
+
 import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
-import { FormlyFieldConfig} from '@ngx-formly/core';
-import { FormsService } from '@services/forms/forms.service';
 import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
+import { CardModule } from 'primeng/card';
+import { FormlyFieldConfig } from '@ngx-formly/core';
+import { FormsService } from '@services/forms/forms.service';
+import { PatientsService } from '@services/patients/patients.service';
+import { SharedModuleModule } from 'src/app/shared/shared-module.module';
+import { TableComponent } from '@shared/sharedComponent/table/table.component';
 
 @Component({
   selector: 'app-home',
@@ -103,7 +104,6 @@ export class HomeComponent {
       ]
     ]
     );
-
     this.uploadFields = this.getFields.gridFields('FieldUpload');
   }
 

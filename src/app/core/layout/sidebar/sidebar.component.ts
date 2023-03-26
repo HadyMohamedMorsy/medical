@@ -1,15 +1,14 @@
-
-import { CommonModule } from '@angular/common';
-import { Component, inject, Output, EventEmitter } from '@angular/core';
-import { SidebarModule} from 'primeng/sidebar';
-import {PanelMenuModule} from 'primeng/panelmenu';
-import { LayoutModule } from '@angular/cdk/layout';
 import {
   BreakpointObserver,
   BreakpointState
 } from '@angular/cdk/layout'
-import { ContainerService } from '@services/container/container.service';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 
+import { CommonModule } from '@angular/common';
+import { ContainerService } from '@services/container/container.service';
+import { LayoutModule } from '@angular/cdk/layout';
+import {PanelMenuModule} from 'primeng/panelmenu';
+import { SidebarModule } from 'primeng/sidebar';
 
 @Component({
   selector: 'app-sidebar',
@@ -49,18 +48,18 @@ export class SidebarComponent {
         },
         {
             label: 'inside-clinic',
-            icon: 'pi pi-check',
-            routerLink : './Confirm-Patients',
+            icon: 'pi pi-sitemap',
+            routerLink : './inside-clinic',
         },
         {
             label: 'with-doctor',
-            icon: 'pi pi-check',
-            routerLink : './Confirm-Patients',
+            icon: 'pi pi-user-plus',
+            routerLink : './with-doctor',
         },
         {
             label: 'users',
-            icon: 'pi pi-check',
-            routerLink : './Confirm-Patients',
+            icon: 'pi pi-users',
+            routerLink : './users',
         },
     ];
 

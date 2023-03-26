@@ -1,10 +1,11 @@
 import { Component, forwardRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
 import { ControlValueAccessor, ReactiveFormsModule } from '@angular/forms';
+import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
+
+import { CommonModule } from '@angular/common';
+import { FileUploadModule } from 'primeng/fileupload';
 import {FormlyModule} from '@ngx-formly/core';
 import {FormlyPrimeNGModule} from '@ngx-formly/primeng';
-import { FileUploadModule } from 'primeng/fileupload';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({

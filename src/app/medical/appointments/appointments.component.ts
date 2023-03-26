@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
+
+import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
+import { AppointmentsService } from '@services/appointments/appointments.service';
+import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
+import { FormlyFieldConfig } from '@ngx-formly/core';
+import { FormsService } from '@services/forms/forms.service';
+import { HeaderTableComponent } from '@shared/sharedComponent/header-table/header-table.component';
 import { SharedModuleModule } from '@shared/shared-module.module';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
-import { AppointmentsService } from '@services/appointments/appointments.service';
-import { HeaderTableComponent } from '@shared/sharedComponent/header-table/header-table.component';
-import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
-import { FormsService } from '@services/forms/forms.service';
-import { FormlyFieldConfig} from '@ngx-formly/core';
-import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-appointments',
@@ -36,146 +37,5 @@ export class AppointmentsComponent {
       {label:'Appointments'},
     ];
     this.data$ = this.DataBindTableService.getAppointments();
-    // this.addFields = this.getFields.gridFields('Appointments',
-    // [
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '12'
-    //     },
-    //   ]
-    // ]
-    // )
-    // this.updateFields = this.getFields.gridFields('FieldsUpdateAppointments',
-    // [
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '12'
-    //     },
-    //   ]
-    // ]
-    // )
-    // this.ShowFields = this.getFields.gridFields('FieldShowAppointments',
-    // [
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '6'
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       media : 'md',
-    //       colNumber : '12'
-    //     },
-    //   ]
-    // ]
-    // )
-    // this.deleting = this.getFields.gridFields('FieldsDelete');
-
-    // this.uploadFields = this.getFields.gridFields('FieldUpload');
   }
 }

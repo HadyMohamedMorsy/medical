@@ -9,21 +9,23 @@ import { SharedModuleModule } from '@shared/shared-module.module';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
 
 @Component({
-  selector: 'app-confirm-patients',
+  selector: 'app-inside-clinic',
   standalone: true,
   imports: [SharedModuleModule , TableComponent , ActionsConfirmComponent , BreadcrumbComponent],
-  templateUrl: './confirm-patients.component.html',
-  styleUrls: ['./confirm-patients.component.scss'],
+  templateUrl: './inside-clinic.component.html',
+  styleUrls: ['./inside-clinic.component.scss'],
   providers: [PatientsService]
+
 })
-export class ConfirmPatientsComponent {
+export class InsideClinicComponent {
   // injection dependency services
   private getFields = inject(FormsService);
   private DataBindTableService = inject(PatientsService);
-
+    
   checked !:FormlyFieldConfig[];
   items : any;
   data$ : any;
+
   ngOnInit(): void {
     this.items = [
       {label:'Clinic'},

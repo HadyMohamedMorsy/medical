@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 
-import { ActionsConfirmComponent } from '@shared/sharedComponent/actions-confirm/actions-confirm.component';
+import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
 import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { FormsService } from '@services/forms/forms.service';
@@ -9,14 +9,15 @@ import { SharedModuleModule } from '@shared/shared-module.module';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
 
 @Component({
-  selector: 'app-confirm-patients',
+  selector: 'app-with-doctor',
   standalone: true,
-  imports: [SharedModuleModule , TableComponent , ActionsConfirmComponent , BreadcrumbComponent],
-  templateUrl: './confirm-patients.component.html',
-  styleUrls: ['./confirm-patients.component.scss'],
+  imports: [SharedModuleModule , TableComponent , ActionsComponent , BreadcrumbComponent],
+  templateUrl: './with-doctor.component.html',
+  styleUrls: ['./with-doctor.component.scss'],
   providers: [PatientsService]
+
 })
-export class ConfirmPatientsComponent {
+export class WithDoctorComponent {
   // injection dependency services
   private getFields = inject(FormsService);
   private DataBindTableService = inject(PatientsService);
@@ -24,6 +25,7 @@ export class ConfirmPatientsComponent {
   checked !:FormlyFieldConfig[];
   items : any;
   data$ : any;
+
   ngOnInit(): void {
     this.items = [
       {label:'Clinic'},

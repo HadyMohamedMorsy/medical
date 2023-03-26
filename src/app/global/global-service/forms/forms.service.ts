@@ -1,7 +1,5 @@
-import { FormGroup } from '@angular/forms';
-import { Injectable } from '@angular/core';
 import {FormlyFieldConfig} from '@ngx-formly/core';
-import {GridFields} from 'src/app/global/global-modal/grid-fields';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -243,6 +241,108 @@ export class FormsService {
           },
     ]
   }
+  FieldsUpdateAppointments() : FormlyFieldConfig[]{
+    return [
+          {
+            key : 'First-Name',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your First Name',
+            }
+          },
+          {
+            key : 'Last-Name',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Last Name',
+            }
+          },
+          {
+            key : 'Age',
+            type :'calender',
+            className : 'filed col-12 ',
+            defaultValue: new Date(),
+            props: {
+              label: 'Age',
+              htmlFor:'age',
+              id:'age'
+            }
+          },
+          {
+            key : 'Phone-Number',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Phone-Number',
+              max: 11,
+              min:11,
+            }
+          },
+          {
+            key : 'gender',
+            type :'select',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Gender',
+              options: [
+                { label: 'male', value: 'male' },
+                { label: 'female', value: 'female' },
+              ],
+            }
+          },
+          {
+            key : 'Address',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'Enter Your Address',
+            }
+          },
+          {
+            key : 'medications',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'What medications are you taking',
+            }
+          },
+          {
+            key : 'type',
+            type :'select',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'select Your type Your inquiry',
+              options: [
+                { label: 'statement', value: 'statement' },
+                { label: 'consultation', value: 'consultation' },
+              ],
+            }
+          },
+          {
+            key : 'booking',
+            type :'calender',
+            className : 'filed col-12 ',
+            defaultValue: new Date(),
+            props: {
+              label: 'booking timing',
+              htmlFor:'booking',
+              id:'booking',
+              time : true,
+              second : true,
+            }
+          },
+          {
+            key : 'pharmaceutical',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'What pharmaceutical ?',
+            }
+          }
+    ]
+  }
   FieldsProfilePatients() : FormlyFieldConfig[]{
     return [
           {
@@ -333,7 +433,7 @@ export class FormsService {
       },
     ]
   }
-  FieldsAppointments() : FormlyFieldConfig[]{
+  FieldsUsers() : FormlyFieldConfig[]{
     return [
       {
         key : 'First-Name',
@@ -404,7 +504,7 @@ export class FormsService {
       },
     ]
   }
-  FieldsUpdateAppointments() : FormlyFieldConfig[]{
+  FieldsUpdateUsers() : FormlyFieldConfig[]{
     return [
       {
         key : 'First-Name',
@@ -475,7 +575,7 @@ export class FormsService {
       },
     ]
   }
-  FieldShowAppointments() : FormlyFieldConfig[]{
+  FieldsShowUsers() : FormlyFieldConfig[]{
     return [
       {
         key : 'First-Name',
@@ -613,17 +713,17 @@ export class FormsService {
       case 'ConfirmPatients' :
       gridListFields =  this.fireMethods(queryMedia , this.FieldsConfirmPatients())
       break;
-      case 'Appointments' :
-      gridListFields =  this.fireMethods(queryMedia , this.FieldsAppointments())
+      case 'Users' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsUsers())
       break;
       case 'FieldsDelete' :
       gridListFields =  this.fireMethods(queryMedia , this.FieldsDelete())
       break;
-      case 'FieldsUpdateAppointments' :
-      gridListFields =  this.fireMethods(queryMedia , this.FieldsUpdateAppointments())
+      case 'FieldsUpdateUsers' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsUpdateUsers())
       break;
-      case 'FieldShowAppointments' :
-      gridListFields =  this.fireMethods(queryMedia , this.FieldShowAppointments())
+      case 'FieldsShowUsers' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsShowUsers())
       break;
       case 'FieldCheck' :
       gridListFields =  this.fireMethods(queryMedia , this.FieldsCheck())
@@ -633,6 +733,9 @@ export class FormsService {
       break;
       case 'FieldUpload' :
       gridListFields =  this.fireMethods(queryMedia , this.FieldUpload())
+      break;
+      case 'FieldsUpdateAppointments' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsUpdateAppointments())
       break;
     }
     return gridListFields

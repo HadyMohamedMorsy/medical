@@ -1,10 +1,11 @@
-import { SharedModuleModule } from '@shared/shared-module.module';
-import { FieldTypeConfig } from '@ngx-formly/core';
-import { Component, inject, Input } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { Component, Input, inject } from '@angular/core';
+
 import { DialogComponent } from '../dialog/dialog.component';
 import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
 import { DialogShowComponent } from '../dialog-show/dialog-show.component';
+import { FieldTypeConfig } from '@ngx-formly/core';
+import {MatDialog} from '@angular/material/dialog';
+import { SharedModuleModule } from '@shared/shared-module.module';
 
 @Component({
   selector: 'app-actions',

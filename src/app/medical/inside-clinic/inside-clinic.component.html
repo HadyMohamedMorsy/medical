@@ -1,6 +1,6 @@
 <app-breadcrumb [items]="items"></app-breadcrumb>
 <div class="Last-patients mt-6">
-  <h1 class="text-4xl font-medium"> Confirm Patients </h1>
+  <h1 class="text-4xl font-medium"> inside clinic </h1>
   <app-table [DateBind]="data$">
     <ng-template #header let-Patients>
       <th class="text-center"> ID </th>
@@ -22,7 +22,7 @@
       <td>{{Patients.status}}</td>
       <td class="flex justify-content-center">
         <app-actions-confirm [ConfirmStatus]="$any(checked)"
-        [pageRedirect]="'confirm-patient'"
+        [pageRedirect]="'inside-clinic'"
         > 
         </app-actions-confirm>
       </td>
