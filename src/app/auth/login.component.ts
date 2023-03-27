@@ -7,6 +7,7 @@ import { inject } from '@angular/core';
 import { Login, LoginForm} from '@modal/login';
 import { AuthService } from '@services/auth/auth.service';
 import { Router } from '@angular/router';
+import { ToastService } from '@services/toast/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -19,10 +20,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   // injection dependency services
+  private route   = inject(Router);
+  private ToastService = inject(ToastService);
   getFieldsLogin  = inject(FormsService);
   loginProcess    = inject(AuthService);
-  private route   = inject(Router);
-  messageToast !: any;
 
   form = new FormGroup({});
   LoginModel = LoginForm;
@@ -35,6 +36,7 @@ export class LoginComponent {
   }
   onSubmit(LoginModel : Login){
     this.loginProcess.login(LoginModel).subscribe((val)=>{
+      this.ToastService.setMessage(val);
     })
   }
 }
