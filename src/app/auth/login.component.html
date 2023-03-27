@@ -9,7 +9,7 @@
           <p class="mb-5 sub-text"> Sign in to access your Account </p>
           <form [formGroup]="form" (ngSubmit)="onSubmit(LoginModel)">
               <formly-form [form]="form" [fields]="fieldsLogin" [model]="LoginModel"></formly-form>
-              <button pButton type="submit"  label="Sign in" icon="pi pi-sign-in" class=" mt-4 p-button-danger" badge="8" badgeClass="p-badge-info"></button>
+              <button pButton type="submit"  label="Sign in" icon="pi pi-sign-in" class=" mt-4 p-button-danger" badge="8" badgeClass="p-badge-info" [disabled]="!form.valid"></button>
           </form>
           <a [routerLink]="'/forget-password'"  class="mt-6 link block"> Forgot password? </a>
         </div>
@@ -19,3 +19,4 @@
       </div>
   </div>
 </div>
+

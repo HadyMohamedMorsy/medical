@@ -4,10 +4,17 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { importProvidersFrom } from '@angular/core';
+import { InterceptorInterceptor } from '@core/interceptor/interceptor.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 bootstrapApplication(AppComponent , {
   providers : [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorInterceptor,
+      multi: true
+    },
     importProvidersFrom([BrowserAnimationsModule]),
     provideRouter(routes)
   ]

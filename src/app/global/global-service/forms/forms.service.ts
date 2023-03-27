@@ -17,14 +17,15 @@ export class FormsService {
             placeholder: 'Enter Your userName',
           },
           validators: {
-            validation: ['user'],
-          },    
+            validation: ['user' , 'noSpecialCharacters'],
+          },
         },
         {
           key : 'password',
           type :'input',
           className : 'filed col-12 ',
           props: {
+            type : 'password',
             placeholder: 'Enter Your password',
           }
         },

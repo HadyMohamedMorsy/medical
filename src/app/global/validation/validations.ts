@@ -10,6 +10,23 @@ export function userValidator(control: AbstractControl): ValidationErrors | null
     return null;
 }
 
+export function userSpecificCharactar(control: AbstractControl): ValidationErrors | null {
+  const pattern = /^[a-zA-Z0-9]*$/;
+  if (!pattern.test(control.value)) {
+    return { noSpecialCharacters: true };
+  }
+  return null;
+}
+
+
+
 export function userValidatorMessage(error: any, field: FormlyFieldConfig) {
-    return `"${field.formControl?.value}" is not a valid IP Address`;
+    if (!field.formControl?.value) {
+      return `"${field.key}" is required`;
+    }
+    return `"${field.formControl?.value}" is invalid`;
+}
+
+export function userSpecificCharactarMessage(error: any, field: FormlyFieldConfig) {
+    return `"${field.key}" cannot contain special characters`;
 }

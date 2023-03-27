@@ -1,5 +1,4 @@
-import { userValidator, userValidatorMessage } from '../global/validation/validations';
-
+import { userSpecificCharactar, userSpecificCharactarMessage, userValidator, userValidatorMessage } from '../global/validation/validations';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {ButtonModule} from 'primeng/button';
 import { CalenderComponent } from './sharedComponent/calender/calender.component';
@@ -16,6 +15,8 @@ import { RouterModule } from '@angular/router';
 import {SwitchInputComponent} from './sharedComponent/switch-input/switch-input.component';
 import {TableModule} from 'primeng/table';
 import { UploadComponent } from './sharedComponent/upload/upload.component';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [],
@@ -26,9 +27,13 @@ import { UploadComponent } from './sharedComponent/upload/upload.component';
         { name: 'calender', component: CalenderComponent },
         { name: 'FileUpload', component: UploadComponent },
       ],
-      validators: [{ name: 'user', validation: userValidator }],
+      validators: [
+        { name: 'user', validation: userValidator },
+        { name: 'noSpecialCharacters', validation: userSpecificCharactar }
+      ],
       validationMessages: [
         { name: 'user', message: userValidatorMessage },
+        { name: 'noSpecialCharacters', message: userSpecificCharactarMessage },
       ],
     }),
   ],
@@ -45,6 +50,8 @@ import { UploadComponent } from './sharedComponent/upload/upload.component';
     InputTextModule,
     DialogModule,
     MatDialogModule,
+    ProgressBarModule,
+    ToastModule
 ]
 })
 export class SharedModuleModule { }
