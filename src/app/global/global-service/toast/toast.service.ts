@@ -1,18 +1,18 @@
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import {globalModal} from '@modal/global-toast'
+import {Authentication} from '@modal/login';
 @Injectable({
   providedIn: 'root'
 })
 export class ToastService {
 
-  private _message$ = new BehaviorSubject<any>(null);
+  private _message$ = new BehaviorSubject<Authentication | null>(null);
 
   get message$(){
     return this._message$.asObservable();
   }
 
-  setMessage(message: any) {
+  setMessage(message: Authentication) {
     this._message$.next(message);
   }
 

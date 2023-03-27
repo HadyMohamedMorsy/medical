@@ -31,8 +31,6 @@ export class LoginComponent {
 
   ngOnInit()  {
     this.fieldsLogin= this.getFieldsLogin.gridFields('login');
-    this.loginProcess.autoLogin();
-
   }
   onSubmit(LoginModel : Login){
     this.loginProcess.login(LoginModel).subscribe((val)=>{

@@ -17,7 +17,6 @@ export class ToastComponent {
   ngOnInit(): void {
     this.ToastService.message$.subscribe((val)=>{
       if(val){
-        console.log(val);
         switch(val.status){
           case 200 :
           this.MessageService.add({ severity: 'success', summary: 'Success', detail: `${val.message}` });

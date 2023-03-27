@@ -17,6 +17,7 @@ export interface Authentication {
     token : token,
     user : user
   };
+  status? : number
 }
 
 export interface token {
