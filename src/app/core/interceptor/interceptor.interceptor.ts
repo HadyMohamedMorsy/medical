@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-
+import {AuthService} from '@services/auth/auth.service';
 import {
   HttpRequest,
   HttpHandler,
@@ -7,18 +7,31 @@ import {
   HttpInterceptor,
   HttpErrorResponse
 } from '@angular/common/http';
-import { catchError, finalize, Observable, tap, throwError } from 'rxjs';
+import { catchError, finalize, Observable, switchMap, take, tap, throwError } from 'rxjs';
 import { LoadingService } from '@services/loading/loading.service';
 
 @Injectable()
 export class InterceptorInterceptor implements HttpInterceptor {
-
-  LoadingService = inject(LoadingService);
+  private LoadingService = inject(LoadingService);
+  private AuthService = inject(AuthService)
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     this.LoadingService.show();
-    return next.handle(request).pipe(catchError(this.HandlerError),
-        finalize(()=> this.LoadingService.hide())
+    return this.AuthService.EmitsDataForUser.pipe(
+      take(1),
+      switchMap(res => {
+        if(!res){
+          return next.handle(request).pipe(catchError(this.HandlerError),finalize(()=> this.LoadingService.hide()))
+        }else{
+          let authorization = res.token;
+          const RequestHandler = request.clone(
+            {
+              headers : request.headers.set('Authorization',`Bearer ${authorization}`),
+            }
+          )
+          return next.handle(RequestHandler).pipe(catchError(this.HandlerError) , finalize(()=> this.LoadingService.hide()));
+        }
+      })
     )
   }
 

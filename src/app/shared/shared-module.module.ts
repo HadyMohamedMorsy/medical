@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import {DialogModule} from 'primeng/dialog';
 import {FormlyModule} from '@ngx-formly/core';
 import {FormlyPrimeNGModule} from '@ngx-formly/primeng';
-import { HttpClientModule } from '@angular/common/http';
 import {InputTextModule} from 'primeng/inputtext';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgModule } from '@angular/core';
@@ -41,7 +40,6 @@ import { ToastModule } from 'primeng/toast';
     CommonModule ,
     RouterModule,
     ReactiveFormsModule,
-    HttpClientModule,
     FormlyModule ,
     FormlyPrimeNGModule,
     ButtonModule ,

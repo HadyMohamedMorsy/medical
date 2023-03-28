@@ -14,7 +14,6 @@ import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcru
   imports: [SharedModuleModule , TableComponent , HeaderTableComponent , ActionsComponent ,BreadcrumbComponent],
   templateUrl: './patients.component.html',
   styleUrls: ['./patients.component.scss'],
-  providers: [PatientsService]
 })
 export class PatientsComponent {
   // injection dependency services

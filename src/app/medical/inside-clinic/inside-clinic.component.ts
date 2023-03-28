@@ -14,14 +14,12 @@ import { TableComponent } from '@shared/sharedComponent/table/table.component';
   imports: [SharedModuleModule , TableComponent , ActionsConfirmComponent , BreadcrumbComponent],
   templateUrl: './inside-clinic.component.html',
   styleUrls: ['./inside-clinic.component.scss'],
-  providers: [PatientsService]
-
 })
 export class InsideClinicComponent {
   // injection dependency services
   private getFields = inject(FormsService);
   private DataBindTableService = inject(PatientsService);
-    
+
   checked !:FormlyFieldConfig[];
   items : any;
   data$ : any;

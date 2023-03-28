@@ -15,15 +15,13 @@ import { ToastService } from '@services/toast/toast.service';
   imports: [SharedModuleModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  providers : [AuthService]
-
 })
 export class LoginComponent {
   // injection dependency services
-  private route   = inject(Router);
+  private route        = inject(Router);
   private ToastService = inject(ToastService);
-  getFieldsLogin  = inject(FormsService);
-  loginProcess    = inject(AuthService);
+  getFieldsLogin       = inject(FormsService);
+  loginProcess         = inject(AuthService);
 
   form = new FormGroup({});
   LoginModel = LoginForm;

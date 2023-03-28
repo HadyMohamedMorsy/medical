@@ -15,7 +15,6 @@ import { TableComponent } from '@shared/sharedComponent/table/table.component';
   imports: [SharedModuleModule , CardModule , TableComponent ,ActionsComponent , BreadcrumbComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [PatientsService]
 })
 export class HomeComponent {
   private DataBindTableService =  inject(PatientsService);

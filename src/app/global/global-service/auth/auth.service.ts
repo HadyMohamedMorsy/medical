@@ -12,8 +12,8 @@ export class AuthService {
 
 EmitsDataForUser = new BehaviorSubject<null | User>(null);
 
-private  http = inject(HttpClient);
-private route = inject(Router);
+http = inject(HttpClient);
+private  route = inject(Router);
 TimerExpirationToken !:any;
 
   login(Auth : Login){

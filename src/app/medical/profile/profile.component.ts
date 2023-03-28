@@ -13,11 +13,10 @@ import { TimelineModule } from 'primeng/timeline';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [SharedModuleModule , TimelineModule , TableComponent , 
+  imports: [SharedModuleModule , TimelineModule , TableComponent ,
     BreadcrumbComponent , ActionsComponent],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
-  providers : [PatientsService]
 })
 export class ProfileComponent {
   private DataBindTableService =  inject(PatientsService);

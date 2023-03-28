@@ -14,7 +14,6 @@ import { TableComponent } from '@shared/sharedComponent/table/table.component';
   imports: [SharedModuleModule , TableComponent , ActionsConfirmComponent , BreadcrumbComponent],
   templateUrl: './confirm-patients.component.html',
   styleUrls: ['./confirm-patients.component.scss'],
-  providers: [PatientsService]
 })
 export class ConfirmPatientsComponent {
   // injection dependency services

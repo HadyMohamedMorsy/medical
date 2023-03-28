@@ -15,7 +15,6 @@ import { TableComponent } from '@shared/sharedComponent/table/table.component';
   imports: [SharedModuleModule , TableComponent , HeaderTableComponent , ActionsComponent, BreadcrumbComponent],
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
-  providers: [AppointmentsService]
 })
 export class AppointmentsComponent {
       // injection dependency services

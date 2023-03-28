@@ -14,7 +14,6 @@ import {
   imports: [CommonModule , RouterModule , HeaderComponent , SidebarComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  providers : [ContainerService]
 })
 export class DashboardComponent {
   ContainerService = inject(ContainerService);
