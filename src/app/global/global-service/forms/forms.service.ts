@@ -1,6 +1,5 @@
 import {FormlyFieldConfig} from '@ngx-formly/core';
 import { Injectable } from '@angular/core';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -75,7 +74,7 @@ export class FormsService {
   FieldsPatients() : FormlyFieldConfig[]{
     return [
           {
-            key : 'First-Name',
+            key : 'firstName',
             type :'input',
             className : 'filed col-12 ',
             props: {
@@ -83,7 +82,7 @@ export class FormsService {
             }
           },
           {
-            key : 'Last-Name',
+            key : 'lastName',
             type :'input',
             className : 'filed col-12 ',
             props: {
@@ -91,18 +90,19 @@ export class FormsService {
             }
           },
           {
-            key : 'Age',
+            key : 'birthday',
             type :'calender',
             className : 'filed col-12 ',
             defaultValue: new Date(),
             props: {
               label: 'Age',
               htmlFor:'age',
-              id:'age'
+              id:'age',
+              dateFormat:"mm/dd/yy"
             }
           },
           {
-            key : 'Phone-Number',
+            key : 'phoneNumber',
             type :'input',
             className : 'filed col-12 ',
             props: {
@@ -124,7 +124,7 @@ export class FormsService {
             }
           },
           {
-            key : 'Address',
+            key : 'address',
             type :'textarea',
             className : 'filed col-12 ',
             props: {
@@ -137,12 +137,11 @@ export class FormsService {
             className : 'filed col-12 ',
             props: {
               label : 'Do u have chronic disease',
-              placeholder: 'Enter Your Address',
               id : 'chronic',
             },
           },
           {
-            key : 'medications',
+            key : 'otherDetails',
             type :'textarea',
             className : 'filed col-12 ',
             props: {

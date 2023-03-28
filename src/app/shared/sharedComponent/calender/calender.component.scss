@@ -6,4 +6,11 @@
     background: #EF4444;
     border: 1px solid #EF4444;
   }
+  .p-datepicker-touch-ui, .p-calendar .p-datepicker-touch-ui{
+    min-width: 50vw;
+  }
+  .p-datepicker table td.p-datepicker-today > span.p-highlight{
+    color: #000;
+    background: #ffabab;
+  }
 }

@@ -20,9 +20,6 @@ export class DialogComponent {
   };
 
   ngOnInit(): void {
-  console.log(this.data.fields[0].fieldGroup);
-
-
   }
 
   onSubmit(fieldsModel : any){
