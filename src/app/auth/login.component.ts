@@ -33,6 +33,7 @@ export class LoginComponent {
   onSubmit(LoginModel : Login){
     this.loginProcess.login(LoginModel).subscribe((val)=>{
       this.ToastService.setMessage(val);
+      this.route.navigate(['/clinic'])
     })
   }
 }

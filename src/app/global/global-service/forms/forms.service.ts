@@ -30,7 +30,7 @@ export class FormsService {
           }
         },
         {
-          key : 'Remember Me',
+          key : 'remember',
           type :'switchInput',
           className : 'col-12 ',
           props: {

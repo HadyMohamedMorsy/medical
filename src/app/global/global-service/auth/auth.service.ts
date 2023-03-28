@@ -66,10 +66,14 @@ TimerExpirationToken !:any;
     this.TimerExpirationToken = null;
   }
 
-  autoLogout(expiationTimeToken : number){
-    this.TimerExpirationToken = setTimeout(()=>{
+  autoLogout(expiationTimeToken : any){
+    const timeOut = expiationTimeToken;
+    this.TimerExpirationToken = setTimeout(async ()=>{
       this.logout();
-    },expiationTimeToken)
+    },(timeOut / 1000))
+  }
 
+  isAuthenticated(){
+    return !!localStorage.getItem('DataUser');
   }
 }
