@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 
@@ -11,7 +11,9 @@ import { ButtonModule } from 'primeng/button';
 })
 export class RefreshButtonComponent {
   @Input() Loading !:boolean;
-  refresh(){
+  @Output() refreshAction : EventEmitter<any> = new EventEmitter();
 
+  refresh(){
+    this.refreshAction.emit();
   }
 }

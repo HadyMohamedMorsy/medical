@@ -5,7 +5,7 @@ export class User {
      private _token : string | undefined ,
      private _token_type : string | undefined ,
      private _expires_in : Date | undefined
-    )
+    ) 
   {}
 
   get token() : string | null{

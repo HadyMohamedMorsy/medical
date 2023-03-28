@@ -1,13 +1,13 @@
-<ng-container *ngIf="DateBind | async as data">
+
   <p-table [value]="$any(data)" [resizableColumns]="true" styleClass="p-datatable-gridlines"  [lazy]="true" (onLazyLoad)="loadPagination($event)" dataKey="id"
-    [paginator]="true" [rows]="10" [totalRecords]="data.length"  [loading]="loading">
+    [paginator]="true" [rows]="10" [totalRecords]="totalRecord"  [loading]="loading">
       <ng-template pTemplate="caption">
         <div class="flex justify-content-between">
             <!-- <p-button  icon="pi pi-refresh" (click)="refresh()" ></p-button> -->
-            <app-refresh-button [Loading]="isLoading"></app-refresh-button>
+            <app-refresh-button [Loading]="isLoading" (refreshAction)="refresh()"></app-refresh-button>
             <span class="p-input-icon-left">
               <i class="pi pi-search"></i>
-              <input pInputText type="text"  placeholder="Search keyword" />
+              <input pInputText type="text" placeholder="Search keyword" />
           </span>
         </div>
       </ng-template>
@@ -23,5 +23,5 @@
         </tr>
       </ng-template>
   </p-table>
-</ng-container>
+
 

@@ -42,11 +42,11 @@ TimerExpirationToken !:any;
       const DataUserStorage : any = JSON.parse(localStorage.getItem('DataUser') as string);
       if(DataUserStorage){
         const CurrentUser = new User(
-          DataUserStorage.Full_Name,
-          DataUserStorage.User_Type,
-          DataUserStorage.access_token,
-          DataUserStorage.token_type,
-          DataUserStorage.expires_in,
+          DataUserStorage.user,
+          DataUserStorage.role,
+          DataUserStorage._token,
+          DataUserStorage._token_type,
+          DataUserStorage._expires_in,
         )
         if(CurrentUser.token != undefined){
           let expiationTime = new Date(DataUserStorage._expires_in).getTime() - new Date().getTime();

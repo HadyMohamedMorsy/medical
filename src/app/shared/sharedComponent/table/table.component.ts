@@ -2,9 +2,11 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, Ev
 import { SharedModuleModule } from '@shared/shared-module.module';
 import { LazyLoadEvent } from 'primeng/api';
 import { Table, TableService } from 'primeng/table';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscribable, Subscription } from 'rxjs';
 import {ButtonModule} from 'primeng/button';
 import { RefreshButtonComponent } from '../refresh-button/refresh-button.component';
+import { PageRequestService } from '@services/pageRequest/page-request.service';
+import { ToastService } from '@services/toast/toast.service';
 
 export function tableFactory(tableComponent: TableComponent) {
   return tableComponent.primingTable;
@@ -26,33 +28,41 @@ export function tableFactory(tableComponent: TableComponent) {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TableComponent {
+  private cdr = inject(ChangeDetectorRef);
+  private PageRequestService = inject(PageRequestService);
+  private ToastService = inject(ToastService);
   @Input() DateBind !: Observable<any>;
   @ContentChild('header') header!: TemplateRef<any>;
   @ContentChild('body') body!: TemplateRef<any>;
+  data : any;
   loading = true;
   primingTable: any;
   filteredData$!: Observable<any[]>;
   isLoading = false;
-  private cdr = inject(ChangeDetectorRef);
-  private  searchSubject = new BehaviorSubject<any>('');
-
-  onSearch(value : any): void {
-    this.searchSubject.next(value.value);
-  }
+  Subscription !: Subscription;
+  totalRecord !: number;
 
   refresh(){
-    this.isLoading = !this.isLoading;
-    setTimeout(()=>{
-      this.isLoading = !this.isLoading;
-    },1000)
+    this.loading = true;
+    this.getData();
   }
+
   loadPagination(event : LazyLoadEvent){
-    setTimeout(()=> {
-      this.loading = false;
-      this.cdr.detectChanges();
-    }, 1000);
-
+    this.loading = true;
+    let rows= event.rows!;
+    let currentPage  = event.first!;
+    currentPage == 0 ?  currentPage = 10 : currentPage = event.first! + 10;
+    this.PageRequestService.changePage(currentPage / rows);
+    this.getData();
   }
 
-
+  private getData(){
+    this.DateBind.subscribe((val)=>{
+      this.loading = false;
+      this.data = val.result.data;
+      this.totalRecord = val.result.meta.total;
+      this.ToastService.setMessage(val);
+      this.cdr.detectChanges();
+    })
+  }
 }

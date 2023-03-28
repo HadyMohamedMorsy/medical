@@ -19,10 +19,9 @@ export class DialogComponent {
   fieldsModel = {
   };
 
-  ngOnInit(): void {
-  }
 
   onSubmit(fieldsModel : any){
+    
     console.log(fieldsModel);
   }
 
