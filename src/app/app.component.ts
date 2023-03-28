@@ -21,7 +21,6 @@ export class AppComponent {
   ngOnInit(): void {
     this.loginProcess.autoLogin();
     this.loading$.subscribe(value =>{
-      console.log(value);
       this.display = value;
       this.cdr.detectChanges();
     })
