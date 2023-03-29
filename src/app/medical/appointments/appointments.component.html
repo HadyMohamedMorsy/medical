@@ -4,23 +4,25 @@
     <h1 class="text-4xl font-medium"> Appointments </h1>
   </div>
   <app-table [DateBind]="data$">
-    <ng-template #header let-Patients>
+    <ng-template #header let-Appointment>
       <th class="text-center"> ID </th>
-      <th class="text-center"> Name </th>
-      <th class="text-center"> Age</th>
-      <th class="text-center"> Address </th>
-      <th class="text-center"> Number </th>
-      <th class="text-center"> Last visit </th>
-      <th class="text-center"> Status</th>
+      <th class="text-center"> Appointment_Type </th>
+      <th class="text-center"> Reservation_Date_And_Time</th>
+      <th class="text-center"> Patient_Id </th>
+      <th class="text-center"> Case_Details </th>
+      <th class="text-center"> Doctor_Report </th>
+      <th class="text-center"> Reservation_Status</th>
+      <th class="text-center"> Created_By</th>
     </ng-template>
-    <ng-template #body let-Patients>
-      <td>{{Patients.id}}</td>
-      <td>{{Patients.name}}</td>
-      <td>{{Patients.age}}</td>
-      <td>{{Patients.address}}</td>
-      <td>{{Patients.phone}}</td>
-      <td>{{Patients.lastVisit}}</td>
-      <td>{{Patients.status}}</td>
+    <ng-template #body let-Appointment>
+      <td>{{Appointment.ID}}</td>
+      <td>{{Appointment.Appointment_Type}}</td>
+      <td>{{Appointment.Reservation_Date_And_Time}}</td>
+      <td>{{Appointment.Patient_Id}}</td>
+      <td>{{Appointment.Case_Details | slice:0:50 }}</td>
+      <td>{{Appointment.Doctor_Report | slice:0:50}}</td>
+      <td>{{Appointment.Reservation_Status}}</td>
+      <td>{{Appointment.Created_By}}</td>
     </ng-template>
   </app-table>
 </div>

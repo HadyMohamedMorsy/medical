@@ -8,6 +8,7 @@ import { HeaderTableComponent } from '@shared/sharedComponent/header-table/heade
 import { PatientsService } from '@services/patients/patients.service';
 import { SharedModuleModule } from 'src/app/shared/shared-module.module';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
+import { UsersService } from '@services/users/users.service';
 
 @Component({
   selector: 'app-users',
@@ -19,7 +20,7 @@ import { TableComponent } from '@shared/sharedComponent/table/table.component';
 export class UsersComponent {
   // injection dependency services
   private getFields = inject(FormsService);
-  private DataBindTableService = inject(PatientsService);
+  private DataBindTableService =  inject(UsersService);
 
   items : any;
   data$ : any;
@@ -33,7 +34,7 @@ export class UsersComponent {
         {label:'Clinic'},
         {label:'Users'},
     ];
-    this.data$ = this.DataBindTableService.getPatients();
+    this.data$ = this.DataBindTableService.getUsers();
     this.addFields = this.getFields.gridFields('Users',[
       [
         {

@@ -8,22 +8,24 @@
   <app-table [DateBind]="data$">
     <ng-template #header let-Patients>
       <th class="text-center"> ID </th>
-      <th class="text-center"> Name </th>
-      <th class="text-center"> Age</th>
+      <th class="text-center"> Full_Name </th>
+      <th class="text-center"> National_Id</th>
+      <th class="text-center"> Age </th>
       <th class="text-center"> Address </th>
-      <th class="text-center"> Number </th>
-      <th class="text-center"> Last visit </th>
-      <th class="text-center"> Status </th>
+      <th class="text-center"> Phone_Number </th>
+      <th class="text-center"> Username </th>
+      <th class="text-center"> User_Type </th>
       <th class="text-center"> Action </th>
     </ng-template>
     <ng-template #body let-Patients>
-      <td>{{Patients.id}}</td>
-      <td>{{Patients.name}}</td>
-      <td>{{Patients.age}}</td>
-      <td>{{Patients.address}}</td>
-      <td>{{Patients.phone}}</td>
-      <td>{{Patients.lastVisit}}</td>
-      <td>{{Patients.status}}</td>
+      <td>{{Patients.ID}}</td>
+      <td>{{Patients.Full_Name}}</td>
+      <td>{{Patients.National_Id}}</td>
+      <td>{{Patients.Age}}</td>
+      <td>{{Patients.Address | slice:0:40}}</td>
+      <td>{{Patients.Phone_Number}}</td>
+      <td>{{Patients.Username}}</td>
+      <td>{{Patients.User_Type}}</td>
       <td class="flex justify-content-center">
         <app-actions
         [Delete]="$any(deleting)"

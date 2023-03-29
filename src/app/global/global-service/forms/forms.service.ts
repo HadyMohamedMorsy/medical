@@ -98,8 +98,8 @@ export class FormsService {
               label: 'Age',
               htmlFor:'age',
               id:'age',
-              dateFormat:"mm/dd/yy"
-            }
+              dateFormat: 'dd.mm.yy',
+            },
           },
           {
             key : 'phoneNumber',

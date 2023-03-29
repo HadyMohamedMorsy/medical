@@ -42,6 +42,7 @@ export class TableComponent {
   Subscription !: Subscription;
   totalRecord !: number;
 
+
   refresh(){
     this.loading = true;
     this.getData();
@@ -57,12 +58,21 @@ export class TableComponent {
   }
 
   private getData(){
-    this.DateBind.subscribe((val)=>{
+    this.Subscription = this.DateBind.subscribe((val)=>{
       this.loading = false;
       this.data = val.result.data;
       this.totalRecord = val.result.meta.total;
       this.ToastService.setMessage(val);
+      if (this.Subscription) {
+        this.Subscription.unsubscribe();
+      }
       this.cdr.detectChanges();
     })
+  }
+
+  ngOnDestroy() {
+    if (this.Subscription) {
+      this.Subscription.unsubscribe();
+    }
   }
 }
