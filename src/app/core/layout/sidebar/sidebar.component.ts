@@ -17,7 +17,7 @@ import { SidebarModule } from 'primeng/sidebar';
   PanelMenuModule , LayoutModule],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
-  providers : [ContainerService]
+  
 })
 export class SidebarComponent {
   breakpointObserver = inject(BreakpointObserver);
@@ -71,6 +71,8 @@ export class SidebarComponent {
       } else {
         this.display = false;
       }
+      console.log(this.display);
+      
     });
 
   }

@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
+import { Subscription, delay } from 'rxjs';
+
 import { AuthService } from '@services/auth/auth.service';
 import { LoadingService } from '@services/loading/loading.service';
-import { ToastComponent } from '@shared/sharedComponent/toast/toast.component';
-import { delay, Subscription } from 'rxjs';
 import {SharedModuleModule} from 'src/app/shared/shared-module.module';
+import { ToastComponent } from '@shared/sharedComponent/toast/toast.component';
+
 @Component({
   standalone: true,
   selector: 'app-root',
@@ -15,9 +17,9 @@ import {SharedModuleModule} from 'src/app/shared/shared-module.module';
 export class AppComponent {
   private cdr = inject(ChangeDetectorRef);
   LoadingService = inject(LoadingService);
+  loginProcess    = inject(AuthService);
   loading$    = this.LoadingService.loading$;
   display : boolean = true;
-  loginProcess    = inject(AuthService);
   ngOnInit(): void {
     this.loginProcess.autoLogin();
     this.loading$.subscribe(value =>{
