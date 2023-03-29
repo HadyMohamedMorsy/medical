@@ -3,6 +3,8 @@ import { FormGroup } from '@angular/forms';
 import  {MatDialogRef , MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { SharedModuleModule } from '@shared/shared-module.module';
 import { DatePipe } from '@angular/common';
+import { PatientsService } from '@services/patients/patients.service';
+import { ToastService } from '@services/toast/toast.service';
 
 
 @Component({
@@ -15,7 +17,8 @@ import { DatePipe } from '@angular/common';
   providers : [DatePipe]
 })
 export class DialogComponent {
-  private datePipe = inject(DatePipe);
+  private PatientsService = inject(PatientsService);
+  private ToastService = inject(ToastService);
   constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
   dialogRef  = inject(MatDialogRef<DialogComponent>);
   form = new FormGroup({});
@@ -26,7 +29,6 @@ export class DialogComponent {
   ngOnInit() {
     this.calender = this.data.fields[0].fieldGroup.filter((f : any) => this.keys.includes(f.key));
   }
-
   onSubmit(fieldsModel : any){
     if(this.calender){
       this.calender.forEach((itemField : any) => {
@@ -34,7 +36,11 @@ export class DialogComponent {
           ...this.fieldsModel,
           [itemField.key] : this.convertTime(itemField)
         }
-      });      
+      });
+      this.PatientsService.createPatients(this.fieldsModel).subscribe(val =>{
+        this.ToastService.setMessage(val);
+        this.dialogRef.close();
+      })
     }else{
     }
   }

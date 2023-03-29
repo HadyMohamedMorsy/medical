@@ -262,7 +262,7 @@ export class FormsService {
             }
           },
           {
-            key : 'Age',
+            key : 'birthday',
             type :'datapick',
             className : 'filed col-12 ',
             defaultValue: new Date(),
