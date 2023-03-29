@@ -1,4 +1,5 @@
 import { userSpecificCharactar, userSpecificCharactarMessage, userValidator, userValidatorMessage } from '../global/validation/validations';
+
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {ButtonModule} from 'primeng/button';
 import { CalenderComponent } from './sharedComponent/calender/calender.component';
@@ -9,13 +10,13 @@ import {FormlyPrimeNGModule} from '@ngx-formly/primeng';
 import {InputTextModule} from 'primeng/inputtext';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgModule } from '@angular/core';
+import { ProgressBarModule } from 'primeng/progressbar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import {SwitchInputComponent} from './sharedComponent/switch-input/switch-input.component';
 import {TableModule} from 'primeng/table';
-import { UploadComponent } from './sharedComponent/upload/upload.component';
-import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
+import { UploadComponent } from './sharedComponent/upload/upload.component';
 
 @NgModule({
   declarations: [],
@@ -23,7 +24,7 @@ import { ToastModule } from 'primeng/toast';
     FormlyModule.forRoot({
       types: [
         { name: 'switchInput', component: SwitchInputComponent },
-        { name: 'calender', component: CalenderComponent },
+        { name: 'datapick', component: CalenderComponent },
         { name: 'FileUpload', component: UploadComponent },
       ],
       validators: [

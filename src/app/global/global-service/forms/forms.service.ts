@@ -1,5 +1,6 @@
 import {FormlyFieldConfig} from '@ngx-formly/core';
 import { Injectable } from '@angular/core';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -91,12 +92,10 @@ export class FormsService {
           },
           {
             key : 'birthday',
-            type :'calender',
-            className : 'filed col-12 ',
-            defaultValue: new Date(),
+            type :'datapick',
+            className :'filed col-12 ',
+            defaultValue : new Date(),
             props: {
-              label: 'Age',
-              htmlFor:'age',
               id:'age',
               dateFormat: 'dd.mm.yy',
             },
@@ -176,7 +175,7 @@ export class FormsService {
           },
           {
             key : 'Age',
-            type :'calender',
+            type :'datapick',
             className : 'filed col-12 ',
             defaultValue: new Date(),
             props: {
@@ -225,7 +224,7 @@ export class FormsService {
           },
           {
             key : 'Consulted-again',
-            type :'calender',
+            type :'datapick',
             className : 'filed col-12 ',
             defaultValue: new Date(),
             props: {
@@ -264,7 +263,7 @@ export class FormsService {
           },
           {
             key : 'Age',
-            type :'calender',
+            type :'datapick',
             className : 'filed col-12 ',
             defaultValue: new Date(),
             props: {
@@ -325,7 +324,7 @@ export class FormsService {
           },
           {
             key : 'booking',
-            type :'calender',
+            type :'datapick',
             className : 'filed col-12 ',
             defaultValue: new Date(),
             props: {
@@ -366,7 +365,7 @@ export class FormsService {
           },
           {
             key : 'Age',
-            type :'calender',
+            type :'datapick',
             className : 'filed col-12 ',
             defaultValue: new Date(),
             props: {
@@ -423,7 +422,7 @@ export class FormsService {
       },
       {
         key : 'booking',
-        type :'calender',
+        type :'datapick',
         className : 'filed col-12 ',
         defaultValue: new Date(),
         props: {
@@ -456,7 +455,7 @@ export class FormsService {
       },
       {
         key : 'Age',
-        type :'calender',
+        type :'datapick',
         className : 'filed col-12 ',
         defaultValue: new Date(),
         props: {
@@ -527,7 +526,7 @@ export class FormsService {
       },
       {
         key : 'Age',
-        type :'calender',
+        type :'datapick',
         className : 'filed col-12 ',
         defaultValue: new Date(),
         props: {
@@ -600,7 +599,7 @@ export class FormsService {
       },
       {
         key : 'Age',
-        type :'calender',
+        type :'datapick',
         className : 'filed col-12 ',
         defaultValue: new Date(),
         props: {

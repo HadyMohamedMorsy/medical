@@ -25,6 +25,7 @@ specifiers:
   karma-coverage: ~2.2.0
   karma-jasmine: ~5.1.0
   karma-jasmine-html-reporter: ~2.0.0
+  moment: ^2.29.4
   primeflex: ^3.3.0
   primeicons: ^6.0.1
   primeng: ^15.2.0
@@ -47,6 +48,7 @@ dependencies:
   '@material-ui/core': 4.12.4
   '@ngx-formly/core': 6.1.3_uiug7k3ki6lawkikow3fwra5k4
   '@ngx-formly/primeng': 6.1.3_yfsjib4txvgpybl4rfht4kv5me
+  moment: 2.29.4
   primeflex: 3.3.0
   primeicons: 6.0.1
   primeng: 15.2.1_p7tp5e7s4f3epe5ze5pdwxct5a
@@ -5942,6 +5944,10 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dev: true
+
+  /moment/2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
+    dev: false
 
   /ms/2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
