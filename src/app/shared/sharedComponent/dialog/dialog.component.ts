@@ -68,7 +68,6 @@ export class DialogComponent {
     const submition = this.submitCheckRequest(type , modalValue) as Observable<any>
     this.Subscription = submition.subscribe(val =>{
       this.ToastService.setMessage(val);
-      console.log(val);
       this.dialogRef.close();
     })
   }
