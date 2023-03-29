@@ -1,8 +1,9 @@
-import { FieldTypeConfig } from '@ngx-formly/core';
 import { Component, Input, inject } from '@angular/core';
-import { SharedModuleModule } from '@shared/shared-module.module';
-import {MatDialog} from '@angular/material/dialog';
+
 import { DialogComponent } from '../dialog/dialog.component';
+import { FieldTypeConfig } from '@ngx-formly/core';
+import {MatDialog} from '@angular/material/dialog';
+import { SharedModuleModule } from '@shared/shared-module.module';
 
 @Component({
   selector: 'app-header-table',
@@ -22,7 +23,8 @@ export class HeaderTableComponent {
       width : '50vw',
       data: {
         title: this.label,
-        fields : this.fields
+        fields : this.fields,
+        type : this.label
       },
     })
   }

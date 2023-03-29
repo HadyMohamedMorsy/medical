@@ -1,3 +1,4 @@
+import { Observable, Subscriber, Subscription } from 'rxjs';
 import { Component, Inject, inject, ViewEncapsulation, NgModule } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import  {MatDialogRef , MAT_DIALOG_DATA} from '@angular/material/dialog';
@@ -23,12 +24,14 @@ export class DialogComponent {
   dialogRef  = inject(MatDialogRef<DialogComponent>);
   form = new FormGroup({});
   fieldsModel = {};
-  calender : any
-  keys = ['Age','birthday','Consulted-again','booking']
+  keys = ['Age','birthday','Consulted-again','booking'];
+  calender : any;
+  Subscription !: Subscription;
 
   ngOnInit() {
     this.calender = this.data.fields[0].fieldGroup.filter((f : any) => this.keys.includes(f.key));
   }
+
   onSubmit(fieldsModel : any){
     if(this.calender){
       this.calender.forEach((itemField : any) => {
@@ -37,11 +40,19 @@ export class DialogComponent {
           [itemField.key] : this.convertTime(itemField)
         }
       });
-      this.PatientsService.createPatients(this.fieldsModel).subscribe(val =>{
-        this.ToastService.setMessage(val);
-        this.dialogRef.close();
-      })
+      this.submitRequest(this.data.type , this.fieldsModel);
+
     }else{
+      this.submitRequest(this.data.type , fieldsModel);
+    }
+  }
+  
+  private submitCheckRequest(type : string , modalValue : any) : void | Observable<any> | string{
+    switch(type){
+      case 'Patients' :
+      return this.PatientsService.createPatients(modalValue);
+      break;
+      return 'there is no request here'
     }
   }
 
@@ -53,4 +64,16 @@ export class DialogComponent {
     }
   }
 
+  private submitRequest(type : string , modalValue : any){
+    const submition = this.submitCheckRequest(type , modalValue) as Observable<any>
+    this.Subscription = submition.subscribe(val =>{
+      this.ToastService.setMessage(val);
+      console.log(val);
+      this.dialogRef.close();
+    })
+  }
+
+  ngOnDestroy(){
+    this.Subscription.unsubscribe();
+  }
 }

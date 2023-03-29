@@ -1,8 +1,9 @@
+import { Injectable, inject } from '@angular/core';
+
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
 import { PageRequestService } from '@services/pageRequest/page-request.service';
-import { switchMap } from 'rxjs';
 import { environment } from 'src/environment/environments';
+import { switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,9 @@ export class UsersService {
         return this.http.get<any>(`${environment.apiUrl}users?page=${page}`);
       })
     )
+  }
+
+  createUsers(user : any){
+    return this.http.post<any>(`${environment.apiUrl}createUser` , user);
   }
 }

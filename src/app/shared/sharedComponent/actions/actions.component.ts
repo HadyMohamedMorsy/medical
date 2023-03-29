@@ -30,8 +30,9 @@ export class ActionsComponent {
       width : '50vw',
       height : '280px',
       data: {
-        title: 'Confirm Time',
-        fields : this.ConfirmFields
+        title: 'Confirm Time Appointments',
+        fields : this.ConfirmFields,
+        type   : 'confirm-Appointments'
       },
     })
   }
