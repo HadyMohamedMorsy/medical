@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
+
+import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
+import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
+import { FormlyFieldConfig } from '@ngx-formly/core';
+import { FormsService } from '@services/forms/forms.service';
+import { HeaderTableComponent } from '@shared/sharedComponent/header-table/header-table.component';
 import { PatientsService } from '@services/patients/patients.service';
 import { SharedModuleModule } from 'src/app/shared/shared-module.module';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
-import { HeaderTableComponent } from '@shared/sharedComponent/header-table/header-table.component';
-import { FormsService } from '@services/forms/forms.service';
-import { FormlyFieldConfig} from '@ngx-formly/core';
-import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
-import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-patients',
@@ -115,7 +116,7 @@ export class PatientsComponent {
       [
         {
           media : 'md',
-          colNumber : '6'
+          colNumber : '12'
         },
       ],
       [
@@ -146,6 +147,12 @@ export class PatientsComponent {
         {
           media : 'md',
           colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '12'
         },
       ],
       [

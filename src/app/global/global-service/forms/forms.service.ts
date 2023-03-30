@@ -158,6 +158,14 @@ export class FormsService {
   FieldsUpdatePatients() : FormlyFieldConfig[]{
     return [
           {
+            key : 'id',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              type : 'hidden',
+            }
+          },
+          {
             key : 'firstName',
             type :'input',
             className : 'filed col-12 ',
@@ -174,14 +182,11 @@ export class FormsService {
             }
           },
           {
-            key : 'birthday',
-            type :'datapick',
+            key : 'fullName',
+            type :'input',
             className : 'filed col-12 ',
-            defaultValue: new Date(),
             props: {
-              label: 'Age',
-              htmlFor:'age',
-              id:'age'
+              placeholder: 'Enter Your fullName',
             }
           },
           {
@@ -215,30 +220,22 @@ export class FormsService {
             }
           },
           {
-            key : 'otherDetails',
-            type :'textarea',
-            className : 'filed col-12 ',
-            props: {
-              placeholder: 'What medications are you taking',
-            }
-          },
-          {
-            key : 'Consulted-again',
+            key : 'birthday',
             type :'datapick',
             className : 'filed col-12 ',
             defaultValue: new Date(),
             props: {
-              label: 'Consulted-again',
-              htmlFor:'Consulted-again',
-              id:'Consulted-again'
+              label: 'birthday',
+              htmlFor:'birthday',
+              id:'birthday'
             }
           },
           {
-            key : 'pharmaceutical',
+            key : 'otherDetails',
             type :'textarea',
             className : 'filed col-12 ',
             props: {
-              placeholder: 'What pharmaceutical ?',
+              placeholder: 'What otherDetails ?',
             }
           },
     ]

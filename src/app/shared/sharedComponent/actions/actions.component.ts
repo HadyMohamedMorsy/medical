@@ -46,7 +46,8 @@ export class ActionsComponent {
         title: 'Are you sure about Update Details Patient',
         fields : this.UpdatedFields,
         type   : 'updatePatient',
-        row    : this.rowData
+        row    : this.rowData,
+        id     : this.idRow
       },
     })
   }

@@ -62,7 +62,7 @@ export class HomeComponent {
       [
         {
           media : 'md',
-          colNumber : '6'
+          colNumber : '12'
         },
       ],
       [
@@ -92,7 +92,7 @@ export class HomeComponent {
       [
         {
           media : 'md',
-          colNumber : '6'
+          colNumber : '12'
         },
       ],
       [

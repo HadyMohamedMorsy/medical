@@ -37,6 +37,7 @@ export class DialogComponent {
   ngOnInit() {
     this.calender = this.data.fields[0].fieldGroup.filter((f : any) => this.keys.includes(f.key));
     this.setModel(this.data.patientId , 'patientId');
+    this.updateFieldsWithData(this.data.row);
   }
 
   onSubmit(fieldsModel : any){
@@ -48,24 +49,22 @@ export class DialogComponent {
         }
       });
       this.submitRequest(this.data.type , this.fieldsModel);
-      console.log(this.fieldsModel);
     }else{
       this.submitRequest(this.data.type , fieldsModel);
-      console.log(fieldsModel);
     }
   }
 
-//  private updateFieldsWithData(data: any) {
-//     this.fieldsModel = data;
-//     console.log(this.fieldsModel);
-//     this.data.fields[0].fieldGroup.forEach((field : any) => {
-//       if (this.fieldsModel.hasOwnProperty(field.key)) {
-//         const value = (this.fieldsModel as FieldsModel)[field.key];
-//         // field.formControl.patchValue(value);
-//         console.log(value);
-//       }
-//     });
-//  }
+ private updateFieldsWithData(data: any) {
+    if(data){
+      this.fieldsModel = data;
+      this.data.fields[0].fieldGroup.forEach((field : any) => {
+        if (this.fieldsModel.hasOwnProperty(field.key)) {
+          const value = (this.fieldsModel as FieldsModel)[field.key];
+          this.form.patchValue(value);
+        }
+      });
+    }
+  }
 
   private setModel(checkId : any , key : any) {
     if(checkId){
@@ -91,6 +90,9 @@ export class DialogComponent {
       break;
       case 'delete-Users' :
       return this.UsersService.deleteUsers(modalValue);
+      break;
+      case 'updatePatient' :
+      return this.PatientsService.updatePatient(this.data.id, modalValue);
       break;
       return 'there is no request here'
     }

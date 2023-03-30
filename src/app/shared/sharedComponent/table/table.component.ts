@@ -1,11 +1,12 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, EventEmitter, inject, Input, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { SharedModuleModule } from '@shared/shared-module.module';
-import { LazyLoadEvent } from 'primeng/api';
-import { Table, TableService } from 'primeng/table';
 import { BehaviorSubject, Observable, Subscribable, Subscription } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, EventEmitter, Input, Output, TemplateRef, ViewEncapsulation, inject } from '@angular/core';
+import { Table, TableService } from 'primeng/table';
+
 import {ButtonModule} from 'primeng/button';
-import { RefreshButtonComponent } from '../refresh-button/refresh-button.component';
+import { LazyLoadEvent } from 'primeng/api';
 import { PageRequestService } from '@services/pageRequest/page-request.service';
+import { RefreshButtonComponent } from '../refresh-button/refresh-button.component';
+import { SharedModuleModule } from '@shared/shared-module.module';
 import { ToastService } from '@services/toast/toast.service';
 
 export function tableFactory(tableComponent: TableComponent) {
@@ -59,6 +60,8 @@ export class TableComponent {
 
   private getData(){
     this.Subscription = this.DateBind.subscribe((val)=>{
+      console.log(val);
+      
       this.loading = false;
       this.data = val.result.data;
       this.totalRecord = val.result.meta.total;

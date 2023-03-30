@@ -1,8 +1,9 @@
-import { environment } from './../../../../environment/environments';
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { map, switchMap } from 'rxjs';
+
+import { HttpClient } from '@angular/common/http';
 import { PageRequestService } from '@services/pageRequest/page-request.service';
+import { environment } from './../../../../environment/environments';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { PageRequestService } from '@services/pageRequest/page-request.service';
 export class PatientsService {
 
   private http = inject(HttpClient);
+  
   private PageRequestService = inject(PageRequestService);
   getPatients() {
     return this.PageRequestService.getPageRequest$.pipe(
@@ -21,6 +23,10 @@ export class PatientsService {
 
   createPatients(Patients : any){
     return this.http.post<any>(`${environment.apiUrl}createPatient` , Patients)
+  }
+  
+  updatePatient(id : number , updatedData : any){
+    return this.http.post<any>(`${environment.apiUrl}updatePatient/${id}` , updatedData)
   }
 
   deletePatient(id : any){

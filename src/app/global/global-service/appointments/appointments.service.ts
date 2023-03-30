@@ -1,6 +1,7 @@
-import { inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
 import { map, switchMap } from 'rxjs';
+
+import { HttpClient } from '@angular/common/http';
 import { PageRequestService } from '@services/pageRequest/page-request.service';
 import { environment } from 'src/environment/environments';
 
@@ -22,4 +23,11 @@ export class AppointmentsService {
   confirmPatientAppointments(PatientAppointments : any){
     return this.http.post<any>(`${environment.apiUrl}createAppointment` , PatientAppointments)
   }
+
+  changeStatusAppointment(reservationStatus : string){
+    return this.http.post<any>(`${environment.apiUrl}changeStatusAppointment` , reservationStatus)
+  }
+
+  
+
 }
