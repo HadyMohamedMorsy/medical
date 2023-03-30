@@ -1,17 +1,17 @@
 import { Component, inject } from '@angular/core';
 
-import { ActionsConfirmComponent } from '@shared/sharedComponent/actions-confirm/actions-confirm.component';
 import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { FormsService } from '@services/forms/forms.service';
 import { PatientsService } from '@services/patients/patients.service';
 import { SharedModuleModule } from '@shared/shared-module.module';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
+import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
 
 @Component({
   selector: 'app-confirm-patients',
   standalone: true,
-  imports: [SharedModuleModule , TableComponent , ActionsConfirmComponent , BreadcrumbComponent],
+  imports: [SharedModuleModule , TableComponent , ActionsComponent , BreadcrumbComponent],
   templateUrl: './confirm-patients.component.html',
   styleUrls: ['./confirm-patients.component.scss'],
 })

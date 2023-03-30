@@ -29,12 +29,75 @@ export class AppointmentsComponent {
   ShowFields !:FormlyFieldConfig[];
   deleting !:FormlyFieldConfig[];
   uploadFields !: FormlyFieldConfig[];
-
   ngOnInit(): void {
     this.items = [
       {label:'Clinic'},
       {label:'Appointments'},
     ];
     this.data$ = this.DataBindTableService.getAppointments();
+    this.ShowFields = this.getFields.gridFields('FieldsShowAppointments' ,
+      [
+        [
+          {
+            media : 'md',
+            colNumber : '6'
+          },
+        ],
+        [
+          {
+            media : 'md',
+            colNumber : '6'
+          },
+        ],
+        [
+          {
+            media : 'md',
+            colNumber : '6'
+          },
+        ],
+        [
+          {
+            media : 'md',
+            colNumber : '12'
+          },
+        ],
+        [
+          {
+            media : 'md',
+            colNumber : '12'
+          },
+        ],
+        [
+          {
+            media : 'md',
+            colNumber : '12'
+          },
+        ],
+        [
+          {
+            media : 'md',
+            colNumber : '12'
+          },
+        ],
+        [
+          {
+            media : 'md',
+            colNumber : '6'
+          },
+        ],
+        [
+          {
+            media : 'md',
+            colNumber : '6'
+          },
+        ],
+        [
+          {
+            media : 'md',
+            colNumber : '12'
+          },
+        ],
+      ]
+    )
   }
 }

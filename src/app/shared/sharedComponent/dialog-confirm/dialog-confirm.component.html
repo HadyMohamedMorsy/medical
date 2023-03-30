@@ -2,9 +2,9 @@
 <div mat-dialog-content>
   <form [formGroup]="form" (ngSubmit)="onSubmit(fieldsModel)">
     <formly-form [form]="form" [fields]="data.fields" [model]="fieldsModel"></formly-form>
+    <div mat-dialog-actions class="flex justify-content-end">
+      <button pButton mat-button mat-dialog-close class="p-button-danger mr-2">No</button>
+      <button pButton mat-button type="submit" cdkFocusInitial>Yes</button>
+    </div>
   </form>
-  <div mat-dialog-actions class="flex justify-content-end">
-    <button pButton mat-button mat-dialog-close class="p-button-danger mr-2">No</button>
-    <button pButton mat-button type="submit" mat-dialog-close cdkFocusInitial>Yes</button>
-  </div>
 </div>

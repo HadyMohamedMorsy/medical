@@ -18,4 +18,8 @@ export class AppointmentsService {
       })
     )
   }
+
+  confirmPatientAppointments(PatientAppointments : any){
+    return this.http.post<any>(`${environment.apiUrl}createAppointment` , PatientAppointments)
+  }
 }

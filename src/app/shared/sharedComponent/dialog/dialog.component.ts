@@ -6,7 +6,11 @@ import { SharedModuleModule } from '@shared/shared-module.module';
 import { DatePipe } from '@angular/common';
 import { PatientsService } from '@services/patients/patients.service';
 import { ToastService } from '@services/toast/toast.service';
-
+import { AppointmentsService } from '@services/appointments/appointments.service';
+import { UsersService } from '@services/users/users.service';
+interface FieldsModel {
+  [key: string]: any;
+}
 
 @Component({
   selector: 'app-dialog',
@@ -19,17 +23,20 @@ import { ToastService } from '@services/toast/toast.service';
 })
 export class DialogComponent {
   private PatientsService = inject(PatientsService);
+  private AppointmentsService = inject(AppointmentsService)
   private ToastService = inject(ToastService);
+  private UsersService = inject(UsersService);
   constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
   dialogRef  = inject(MatDialogRef<DialogComponent>);
   form = new FormGroup({});
   fieldsModel = {};
-  keys = ['Age','birthday','Consulted-again','booking'];
+  keys = ['Age','birthday','reservationDate','booking'];
   calender : any;
   Subscription !: Subscription;
 
   ngOnInit() {
     this.calender = this.data.fields[0].fieldGroup.filter((f : any) => this.keys.includes(f.key));
+    this.setModel(this.data.patientId , 'patientId');
   }
 
   onSubmit(fieldsModel : any){
@@ -41,16 +48,49 @@ export class DialogComponent {
         }
       });
       this.submitRequest(this.data.type , this.fieldsModel);
-
+      console.log(this.fieldsModel);
     }else{
       this.submitRequest(this.data.type , fieldsModel);
+      console.log(fieldsModel);
     }
   }
-  
+
+//  private updateFieldsWithData(data: any) {
+//     this.fieldsModel = data;
+//     console.log(this.fieldsModel);
+//     this.data.fields[0].fieldGroup.forEach((field : any) => {
+//       if (this.fieldsModel.hasOwnProperty(field.key)) {
+//         const value = (this.fieldsModel as FieldsModel)[field.key];
+//         // field.formControl.patchValue(value);
+//         console.log(value);
+//       }
+//     });
+//  }
+
+  private setModel(checkId : any , key : any) {
+    if(checkId){
+      this.fieldsModel = {
+        [key] : this.data.patientId
+      }
+    }
+  }
+
   private submitCheckRequest(type : string , modalValue : any) : void | Observable<any> | string{
     switch(type){
       case 'Patients' :
       return this.PatientsService.createPatients(modalValue);
+      break;
+      case 'confirm-Appointments' :
+      return this.AppointmentsService.confirmPatientAppointments(modalValue);
+      break;
+      case 'users' :
+      return this.UsersService.createUsers(modalValue);
+      break;
+      case 'delete-Patient' :
+      return this.PatientsService.deletePatient(modalValue);
+      break;
+      case 'delete-Users' :
+      return this.UsersService.deleteUsers(modalValue);
       break;
       return 'there is no request here'
     }
@@ -58,21 +98,24 @@ export class DialogComponent {
 
   private convertTime(itemField : any){
     if(itemField.props.time || itemField.props.second){
-      return new Date(this.form.get(itemField.key)?.value).toISOString()
+      return new Date(new Date(this.form.get(itemField.key)?.value).toISOString()).toLocaleString();
     }else{
       return  new Date(this.form.get(itemField.key)?.value).toISOString().slice(0, 10)
     }
   }
 
   private submitRequest(type : string , modalValue : any){
-    const submition = this.submitCheckRequest(type , modalValue) as Observable<any>
-    this.Subscription = submition.subscribe(val =>{
+    const submission = this.submitCheckRequest(type , modalValue) as Observable<any>
+    this.Subscription = submission.subscribe(val =>{
       this.ToastService.setMessage(val);
-      this.dialogRef.close();
+      this.dialogRef.close()
     })
   }
 
-  ngOnDestroy(){
-    this.Subscription.unsubscribe();
+  ngOnDestroy(): void {
+    if(this.Subscription){
+      this.Subscription.unsubscribe();
+    }
   }
+
 }

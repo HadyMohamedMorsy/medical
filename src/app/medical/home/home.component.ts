@@ -34,8 +34,14 @@ export class HomeComponent {
     ];
     this.data$ = this.DataBindTableService.getPatients();
 
-    this.confirmFields = this.getFields.gridFields('ConfirmPatients' ,
+    this.confirmFields = this.getFields.gridFields('FieldsConfirmPatientsAppointment' ,
     [
+      [
+        {
+          media : 'md',
+          colNumber : '12'
+        },
+      ],
       [
         {
           media : 'md',

@@ -1,37 +1,41 @@
 <app-breadcrumb [items]="items"></app-breadcrumb>
 <div class="Last-patients mt-6">
-  <app-header-table [label]="'Add Users'"
+  <app-header-table [label]="'users'"
   [header]="'Users'"
   [fields]="$any(addFields)"
   >
   </app-header-table>
   <app-table [DateBind]="data$">
     <ng-template #header let-Patients>
-      <th class="text-center"> ID </th>
-      <th class="text-center"> Full_Name </th>
+      <th class="text-center"> Id </th>
+      <th class="text-center"> FullName </th>
       <th class="text-center"> National_Id</th>
       <th class="text-center"> Age </th>
+      <th class="text-center"> Birthday </th>
       <th class="text-center"> Address </th>
-      <th class="text-center"> Phone_Number </th>
+      <th class="text-center"> PhoneNumber </th>
       <th class="text-center"> Username </th>
-      <th class="text-center"> User_Type </th>
+      <th class="text-center"> UserType </th>
       <th class="text-center"> Action </th>
     </ng-template>
-    <ng-template #body let-Patients>
-      <td>{{Patients.ID}}</td>
-      <td>{{Patients.Full_Name}}</td>
-      <td>{{Patients.National_Id}}</td>
-      <td>{{Patients.Age}}</td>
-      <td>{{Patients.Address | slice:0:40}}</td>
-      <td>{{Patients.Phone_Number}}</td>
-      <td>{{Patients.Username}}</td>
-      <td>{{Patients.User_Type}}</td>
+    <ng-template #body let-Users>
+      <td>{{Users.id}}</td>
+      <td>{{Users.fullName}}</td>
+      <td>{{Users.nationalId}}</td>
+      <td>{{Users.age}}</td>
+      <td>{{Users.birthday}}</td>
+      <td>{{Users.address}}</td>
+      <td>{{Users.phoneNumber}}</td>
+      <td>{{Users.username}}</td>
+      <td>{{Users.userType}}</td>
       <td class="flex justify-content-center">
         <app-actions
         [Delete]="$any(deleting)"
         [UpdatedFields]="$any(updateField)"
         [pageRedirect]="'users'"
         [showFields]="$any(ShowFields)"
+        [rowData]="Users"
+        [idRow]="Users.id"
         >
       </app-actions>
       </td>

@@ -21,10 +21,10 @@
       <td>{{Patients.lastVisit}}</td>
       <td>{{Patients.status}}</td>
       <td class="flex justify-content-center">
-        <app-actions-confirm [ConfirmStatus]="$any(checked)"
+        <app-actions [ConfirmStatus]="$any(checked)"
         [pageRedirect]="'inside-clinic'"
-        > 
-        </app-actions-confirm>
+        [idRow]="Patients.ID"
+        ></app-actions>
       </td>
     </ng-template>
   </app-table>

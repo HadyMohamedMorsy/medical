@@ -158,7 +158,7 @@ export class FormsService {
   FieldsUpdatePatients() : FormlyFieldConfig[]{
     return [
           {
-            key : 'First-Name',
+            key : 'firstName',
             type :'input',
             className : 'filed col-12 ',
             props: {
@@ -166,7 +166,7 @@ export class FormsService {
             }
           },
           {
-            key : 'Last-Name',
+            key : 'lastName',
             type :'input',
             className : 'filed col-12 ',
             props: {
@@ -174,7 +174,7 @@ export class FormsService {
             }
           },
           {
-            key : 'Age',
+            key : 'birthday',
             type :'datapick',
             className : 'filed col-12 ',
             defaultValue: new Date(),
@@ -185,7 +185,7 @@ export class FormsService {
             }
           },
           {
-            key : 'Phone-Number',
+            key : 'phoneNumber',
             type :'input',
             className : 'filed col-12 ',
             props: {
@@ -207,7 +207,7 @@ export class FormsService {
             }
           },
           {
-            key : 'Address',
+            key : 'address',
             type :'textarea',
             className : 'filed col-12 ',
             props: {
@@ -215,7 +215,7 @@ export class FormsService {
             }
           },
           {
-            key : 'medications',
+            key : 'otherDetails',
             type :'textarea',
             className : 'filed col-12 ',
             props: {
@@ -345,6 +345,109 @@ export class FormsService {
           }
     ]
   }
+  FieldsShowAppointments() : FormlyFieldConfig[]{
+    return [
+          {
+            key : 'patientName',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label :'PatientName',
+              className : 'hello',
+              placeholder: 'Enter Your First Name',
+              disabled : true
+            }
+          },
+          {
+            key : 'appointmentType',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label :'AppointmentType',
+              placeholder: 'select Your type Your appointmentType',
+              disabled : true
+            }
+          },
+          {
+            key : 'reservationDate',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label: 'ReservationDate',
+              disabled : true
+            }
+          },
+          {
+            key : 'caseDetails',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              label: 'CaseDetails',
+              placeholder: 'caseDetails',
+              disabled : true
+            }
+          },
+          {
+            key : 'doctorReport',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              label: 'DoctorReport',
+              placeholder: 'doctorReport',
+              disabled : true
+            }
+          },
+          {
+            key : 'reservationStatus',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label : 'ReservationStatus',
+              disabled : true
+            }
+          },
+          {
+            key : 'createdBy',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label : 'CreatedBy',
+              placeholder: 'createdBy',
+              disabled : true
+            }
+          },
+          {
+            key : 'updatedBy',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label : 'UpdatedBy',
+              placeholder: 'createdBy',
+              disabled : true
+            }
+          },
+          {
+            key : 'createdAt',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label : 'CreatedAt',
+              placeholder: 'createdBy',
+              disabled : true
+            }
+          },
+          {
+            key : 'updatedAt',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label : 'UpdatedAt',
+              placeholder: 'createdBy',
+              disabled : true
+            }
+          },
+    ]
+  }
   FieldsProfilePatients() : FormlyFieldConfig[]{
     return [
           {
@@ -406,10 +509,18 @@ export class FormsService {
           },
     ]
   }
-  FieldsConfirmPatients() : FormlyFieldConfig[]{
+  FieldsConfirmPatientsAppointment() : FormlyFieldConfig[]{
     return [
       {
-        key : 'type',
+        key : 'patientId',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          type : 'hidden',
+        }
+      },
+      {
+        key : 'appointmentType',
         type :'select',
         className : 'filed col-12 ',
         props: {
@@ -421,7 +532,7 @@ export class FormsService {
         }
       },
       {
-        key : 'booking',
+        key : 'reservationDate',
         type :'datapick',
         className : 'filed col-12 ',
         defaultValue: new Date(),
@@ -438,15 +549,16 @@ export class FormsService {
   FieldsUsers() : FormlyFieldConfig[]{
     return [
       {
-        key : 'First-Name',
+        key : 'firstName',
         type :'input',
         className : 'filed col-12 ',
         props: {
           placeholder: 'Enter Your First Name',
+
         }
       },
       {
-        key : 'Last-Name',
+        key : 'lastName',
         type :'input',
         className : 'filed col-12 ',
         props: {
@@ -454,7 +566,45 @@ export class FormsService {
         }
       },
       {
-        key : 'Age',
+        key : 'username',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your userName',
+        }
+      },
+      {
+        key : 'password',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          type : 'password',
+          placeholder: 'Enter Your password',
+        }
+      },
+      {
+        key : 'password_confirmation',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          type : 'password',
+          placeholder: 'Enter Your password_confirmation',
+        }
+      },
+      {
+        key : 'userType',
+        type :'select',
+        className : 'filed col-12 ',
+          props: {
+            placeholder: 'select Your type Your userType',
+            options: [
+              { label: 'Doctor', value: 'Doctor' },
+              { label: 'Secretarial', value: 'Secretarial' },
+            ],
+          }
+      },
+      {
+        key : 'birthday',
         type :'datapick',
         className : 'filed col-12 ',
         defaultValue: new Date(),
@@ -465,7 +615,7 @@ export class FormsService {
         }
       },
       {
-        key : 'Phone-Number',
+        key : 'phoneNumber',
         type :'input',
         className : 'filed col-12 ',
         props: {
@@ -475,7 +625,7 @@ export class FormsService {
         }
       },
       {
-        key : 'NationalId',
+        key : 'nationalId',
         type :'input',
         className : 'filed col-12 ',
         props: {
@@ -497,7 +647,7 @@ export class FormsService {
         }
       },
       {
-        key : 'Address',
+        key : 'address',
         type :'textarea',
         className : 'filed col-12 ',
         props: {
@@ -580,77 +730,120 @@ export class FormsService {
   FieldsShowUsers() : FormlyFieldConfig[]{
     return [
       {
-        key : 'First-Name',
+        key : 'firstName',
         type :'input',
         className : 'filed col-12 ',
         props: {
+          label : 'firstName',
           placeholder: 'Enter Your First Name',
           disabled : true
         }
       },
       {
-        key : 'Last-Name',
+        key : 'lastName',
         type :'input',
         className : 'filed col-12 ',
         props: {
+          label : 'lastName',
           placeholder: 'Enter Your Last Name',
           disabled : true
         }
       },
       {
-        key : 'Age',
-        type :'datapick',
+        key : 'fullName',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          label : 'fullName',
+          placeholder: 'Enter Your Last Name',
+          disabled : true
+        }
+      },
+      {
+        key : 'username',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          label : 'username',
+          placeholder: 'Enter Your Last Name',
+          disabled : true
+        }
+      },
+      {
+        key : 'userType',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          label : 'userType',
+          placeholder: 'Enter Your Last Name',
+          disabled : true
+        }
+      },
+      {
+        key : 'age',
+        type :'input',
         className : 'filed col-12 ',
         defaultValue: new Date(),
         props: {
-          label: 'Age',
-          htmlFor:'age',
-          id:'age',
+          label : 'Age',
           disabled : true
         }
       },
+        {
+          key : 'birthday',
+          type :'input',
+          className : 'filed col-12 ',
+          defaultValue: new Date(),
+          props: {
+            label : 'birthday',
+            disabled : true
+          }
+        },
       {
-        key : 'Phone-Number',
+        key : 'phoneNumber',
         type :'input',
         className : 'filed col-12 ',
         props: {
+          label : 'phoneNumber',
           placeholder: 'Enter Your Phone-Number',
-          max: 11,
-          min:11,
           disabled : true
         }
       },
       {
-        key : 'NationalId',
+        key : 'nationalId',
         type :'input',
         className : 'filed col-12 ',
         props: {
+          label : 'National_Id',
           placeholder: 'Enter Your NationalId',
-          max: 14,
-          min:14,
           disabled : true
         }
       },
       {
         key : 'gender',
-        type :'select',
+        type :'input',
         className : 'filed col-12 ',
         props: {
-          placeholder: 'Gender',
-          disabled : true,
-          options: [
-            { label: 'male', value: 'male' },
-            { label: 'female', value: 'female' },
-          ],
+          label : 'gender',
+          disabled : true
         }
       },
       {
-        key : 'Address',
+        key : 'otherDetails',
         type :'textarea',
         className : 'filed col-12 ',
         props: {
-          disabled : true,
-          placeholder: 'Enter Your Address',
+          label : 'otherDetails',
+          disabled : true
+        }
+      },
+      {
+        key : 'address',
+        type :'textarea',
+        className : 'filed col-12 ',
+        props: {
+          label : 'address',
+          disabled : true
         }
       },
     ]
@@ -663,7 +856,6 @@ export class FormsService {
         className : 'filed col-12 ',
         props: {
           type : 'hidden',
-          placeholder: 'Enter Your First Name',
         }
       },
     ]
@@ -712,8 +904,8 @@ export class FormsService {
       case 'FieldsProfile' :
       gridListFields =  this.fireMethods(queryMedia , this.FieldsProfilePatients())
       break;
-      case 'ConfirmPatients' :
-      gridListFields =  this.fireMethods(queryMedia , this.FieldsConfirmPatients())
+      case 'FieldsConfirmPatientsAppointment' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsConfirmPatientsAppointment())
       break;
       case 'Users' :
       gridListFields =  this.fireMethods(queryMedia , this.FieldsUsers())
@@ -738,6 +930,9 @@ export class FormsService {
       break;
       case 'FieldsUpdateAppointments' :
       gridListFields =  this.fireMethods(queryMedia , this.FieldsUpdateAppointments())
+      break;
+      case 'FieldsShowAppointments' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsShowAppointments())
       break;
     }
     return gridListFields

@@ -1,26 +1,35 @@
 
-<ng-container *ngIf="pageRedirect == 'home'">
+<ng-container *ngIf="pageRedirect == 'home' || pageRedirect == 'patients'">
   <button icon="pi pi-eye" pButton type="button" (click)="routeProfile()"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
-  <button icon="pi pi-pencil" pButton type="button" (click)="updateDialog()"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
-  <button icon="pi pi-plus" (click)="openDialog()" pButton type="button" class="p-button-outlined p-button-danger mr-2  p-button-rounded"></button>
-  <button icon="pi pi-trash" (click)="deleteConfirm()" pButton type="button" class="p-button-outlined p-button-danger  p-button-rounded"></button>
+  <button icon="pi pi-pencil" pButton type="button" (click)="updatePatients()"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+  <button icon="pi pi-plus" (click)="openDialogToConfirmFieldsPatientsTimeAppointmentsWithPlusIcon()" pButton type="button" class="p-button-outlined p-button-danger mr-2  p-button-rounded"></button>
+  <button icon="pi pi-trash" (click)="deleteRow('patient')" pButton type="button" class="p-button-outlined p-button-danger  p-button-rounded"></button>
 </ng-container>
 <ng-container *ngIf="pageRedirect == 'with-doctor'">
   <button icon="pi pi-eye" pButton type="button" (click)="routeProfile()"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
 </ng-container>
-<ng-container *ngIf="pageRedirect == 'patients'">
-  <button icon="pi pi-eye" pButton type="button" (click)="routeProfile()"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
-  <button icon="pi pi-pencil" pButton type="button" (click)="updateDialog()"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
-  <button icon="pi pi-plus" (click)="openDialog()" pButton type="button" class="p-button-outlined p-button-danger mr-2  p-button-rounded"></button>
-  <button icon="pi pi-trash" (click)="deleteConfirm()" pButton type="button" class="p-button-outlined p-button-danger  p-button-rounded"></button>
+<ng-container *ngIf="pageRedirect == 'Appointment'">
+  <button icon="pi pi-eye" pButton type="button" (click)="showRow('Appointment')" class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
 </ng-container>
 <ng-container *ngIf="pageRedirect == 'users'">
-  <button icon="pi pi-eye" pButton type="button" (click)="showDialog()" class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
-  <button icon="pi pi-pencil" pButton type="button" (click)="updateDialog()"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
-  <button icon="pi pi-trash" (click)="deleteConfirm()" pButton type="button" class="p-button-outlined p-button-danger  p-button-rounded"></button>
+  <button icon="pi pi-eye" pButton type="button" (click)="showRow('users')" class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+  <button icon="pi pi-pencil" pButton type="button" (click)="updateUsers()"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+  <button icon="pi pi-trash" (click)="deleteRow('users')" pButton type="button" class="p-button-outlined p-button-danger  p-button-rounded"></button>
 </ng-container>
 <ng-container *ngIf="pageRedirect == 'profile'">
+  <button icon="pi pi-eye" pButton type="button" (click)="showRow('Appointment')" class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
   <button icon="pi pi-check" (click)="openCheckDialog('complete')" pButton type="button"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
-  <button icon="pi pi-pencil" pButton type="button" (click)="updateDialog()"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+  <button icon="pi pi-pencil" pButton type="button" (click)="updatePatientsAppointmentsProfile()"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
   <button icon="pi pi-image" pButton type="button" (click)="uploadFile()" class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+</ng-container>
+<ng-container *ngIf="pageRedirect == 'confirm-patient'">
+  <div class="flex justify-content-center">
+    <button icon="pi pi-check" (click)="openCheckDialog('update')" pButton type="button"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+    <button icon="pi pi-times" (click)="openCheckDialog('Cancel')" pButton type="button" class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+  </div>
+</ng-container>
+<ng-container *ngIf="pageRedirect == 'inside-clinic'">
+  <div class="flex justify-content-center">
+    <button icon="pi pi-check" (click)="openCheckDialog('update')" pButton type="button"  class="p-button-outlined p-button-danger mr-2 p-button-rounded"></button>
+  </div>
 </ng-container>

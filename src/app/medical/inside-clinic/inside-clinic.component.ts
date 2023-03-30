@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
-
-import { ActionsConfirmComponent } from '@shared/sharedComponent/actions-confirm/actions-confirm.component';
+import { ActionsComponent } from '@shared/sharedComponent/actions/actions.component';
 import { BreadcrumbComponent } from '@shared/sharedComponent/breadcrumb/breadcrumb.component';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { FormsService } from '@services/forms/forms.service';
@@ -11,7 +10,7 @@ import { TableComponent } from '@shared/sharedComponent/table/table.component';
 @Component({
   selector: 'app-inside-clinic',
   standalone: true,
-  imports: [SharedModuleModule , TableComponent , ActionsConfirmComponent , BreadcrumbComponent],
+  imports: [SharedModuleModule , TableComponent , ActionsComponent , BreadcrumbComponent],
   templateUrl: './inside-clinic.component.html',
   styleUrls: ['./inside-clinic.component.scss'],
 })

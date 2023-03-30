@@ -60,19 +60,21 @@
       <th class="text-center"> Action </th>
     </ng-template>
     <ng-template #body let-Patients>
-      <td>{{Patients.ID}}</td>
-      <td>{{Patients.Full_Name}}</td>
-      <td>{{Patients.Birthday}}</td>
-      <td>{{Patients.Age}}</td>
-      <td>{{Patients.Address | slice:0:25 }}</td>
-      <td>{{Patients.Phone_Number}}</td>
-      <td>{{Patients.Created_Date}}</td>
+      <td>{{Patients.id}}</td>
+      <td>{{Patients.fullName}}</td>
+      <td>{{Patients.birthday}}</td>
+      <td>{{Patients.age}}</td>
+      <td>{{Patients.address | slice:0:25 }}</td>
+      <td>{{Patients.phoneNumber}}</td>
+      <td>{{Patients.createdAt}}</td>
       <td class="flex justify-content-center">
-        <app-actions [ConfirmFields]="$any(confirmFields)"
+        <app-actions [ConfirmFieldsPatientsTimeAppointments]="$any(confirmFields)"
         [Delete]="$any(deleting)"
         [UpdatedFields]="$any(updateField)"
         [uploadFileFields]="$any(uploadFields)"
         [pageRedirect]="'home'"
+        [rowData]="Patients"
+        [idRow]="Patients.id"
         ></app-actions>
       </td>
     </ng-template>

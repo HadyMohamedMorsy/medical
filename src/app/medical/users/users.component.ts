@@ -75,6 +75,30 @@ export class UsersComponent {
       [
         {
           media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+      ],
+      [
+        {
+          media : 'md',
           colNumber : '12'
         },
       ],

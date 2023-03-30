@@ -87,8 +87,14 @@ export class PatientsComponent {
       ]
     ]
     );
-    this.confirmFields = this.getFields.gridFields('ConfirmPatients' ,
+    this.confirmFields = this.getFields.gridFields('FieldsConfirmPatientsAppointment' ,
     [
+      [
+        {
+          media : 'md',
+          colNumber : '12'
+        },
+      ],
       [
         {
           media : 'md',
@@ -156,7 +162,6 @@ export class PatientsComponent {
       ]
     ]
     );
-
     this.uploadFields = this.getFields.gridFields('FieldUpload');
   }
 

@@ -22,7 +22,7 @@ TimerExpirationToken !:any;
       tap((response)=>{
         if(response.result?.token || response.result?.user){
           let dataStamp = (response.result?.token.expires_in as unknown as string)
-            const  timestamp = Date.parse(dataStamp) * 1000;
+            const  timestamp = Date.parse(dataStamp) / 1000;
             this.autoLogout(timestamp);
             const user = new User(
               response.result?.user.Full_Name,
@@ -70,7 +70,7 @@ TimerExpirationToken !:any;
     const timeOut = expiationTimeToken;
     this.TimerExpirationToken = setTimeout(async ()=>{
       this.logout();
-    },(timeOut / 1000))
+    },(timeOut))
   }
 
   isAuthenticated(){

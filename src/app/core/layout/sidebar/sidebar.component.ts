@@ -2,7 +2,7 @@ import {
   BreakpointObserver,
   BreakpointState
 } from '@angular/cdk/layout'
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { ContainerService } from '@services/container/container.service';
@@ -13,18 +13,21 @@ import { SidebarModule } from 'primeng/sidebar';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule , SidebarModule , 
+  imports: [CommonModule , SidebarModule ,
   PanelMenuModule , LayoutModule],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
-  
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class SidebarComponent {
   breakpointObserver = inject(BreakpointObserver);
   ContainerService = inject(ContainerService);
+  private cdr = inject(ChangeDetectorRef);
   display = true
   items : any;
   ngOnInit() {
+
     this.items = [
         {
             label: 'Dashboard',
@@ -68,13 +71,13 @@ export class SidebarComponent {
     .subscribe((state: BreakpointState) => {
       if (state.matches) {
         this.display = true;
+        this.cdr.detectChanges();
       } else {
         this.display = false;
+        this.cdr.detectChanges();
       }
-      console.log(this.display);
-      
     });
 
   }
-  
+
 }

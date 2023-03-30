@@ -5,24 +5,33 @@
   </div>
   <app-table [DateBind]="data$">
     <ng-template #header let-Appointment>
-      <th class="text-center"> ID </th>
-      <th class="text-center"> Appointment_Type </th>
-      <th class="text-center"> Reservation_Date_And_Time</th>
-      <th class="text-center"> Patient_Id </th>
-      <th class="text-center"> Case_Details </th>
-      <th class="text-center"> Doctor_Report </th>
-      <th class="text-center"> Reservation_Status</th>
-      <th class="text-center"> Created_By</th>
+      <th class="text-center"> Id </th>
+      <th class="text-center"> AppointmentType </th>
+      <th class="text-center"> ReservationDate</th>
+      <th class="text-center"> PatientName </th>
+      <th class="text-center"> CaseDetails </th>
+      <th class="text-center"> DoctorReport </th>
+      <th class="text-center"> ReservationStatus</th>
+      <th class="text-center"> Created_by</th>
+      <th class="text-center"> Action </th>
     </ng-template>
     <ng-template #body let-Appointment>
-      <td>{{Appointment.ID}}</td>
-      <td>{{Appointment.Appointment_Type}}</td>
-      <td>{{Appointment.Reservation_Date_And_Time}}</td>
-      <td>{{Appointment.Patient_Id}}</td>
-      <td>{{Appointment.Case_Details | slice:0:50 }}</td>
-      <td>{{Appointment.Doctor_Report | slice:0:50}}</td>
-      <td>{{Appointment.Reservation_Status}}</td>
-      <td>{{Appointment.Created_By}}</td>
+      <td>{{Appointment.id}}</td>
+      <td>{{Appointment.appointmentType}}</td>
+      <td>{{Appointment.reservationDate}}</td>
+      <td>{{Appointment.patientName}}</td>
+      <td>{{Appointment.caseDetails | slice:0:50 }}</td>
+      <td>{{Appointment.doctorReport | slice:0:50}}</td>
+      <td>{{Appointment.reservationStatus}}</td>
+      <td>{{Appointment.createdBy}}</td>
+      <td>
+        <app-actions
+        [pageRedirect]="'Appointment'"
+        [showFields]="$any(ShowFields)"
+        [rowData]="Appointment"
+        >
+        </app-actions>
+      </td>
     </ng-template>
   </app-table>
 </div>

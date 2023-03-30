@@ -1,7 +1,12 @@
 import { Component, Inject, inject, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import  {MatDialogRef , MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AppointmentsService } from '@services/appointments/appointments.service';
+import { UsersService } from '@services/users/users.service';
 import { SharedModuleModule } from '@shared/shared-module.module';
+interface FieldsModel {
+  [key: string]: any;
+}
 
 @Component({
   selector: 'app-dialog-show',
@@ -15,9 +20,22 @@ export class DialogShowComponent {
   dialogRef  = inject(MatDialogRef<DialogShowComponent>);
   form = new FormGroup({});
   fieldsModel = {};
+  showPage = this.data.type;
 
-  onSubmit(fieldsModel : any){
-
+  ngOnInit(): void {
+    this.ShowFieldsWithData(this.data.row);
   }
-  
+
+
+  private ShowFieldsWithData(data: any) {
+    this.fieldsModel = data;
+    console.log(this.fieldsModel);
+    // this.data.fields[0].fieldGroup.forEach((field : any) => {
+    //   if (this.fieldsModel.hasOwnProperty(field.key)) {
+    //     const value = (this.fieldsModel as FieldsModel)[field.key];
+    //     console.log(value);
+    //   }
+    // });
+  }
+
 }

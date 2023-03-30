@@ -17,63 +17,81 @@ import { SharedModuleModule } from '@shared/shared-module.module';
 export class ActionsComponent {
   dialog = inject(MatDialog);
   @Input() label  !: string;
-  @Input() ConfirmFields !: FieldTypeConfig[];
+  @Input() ConfirmFieldsPatientsTimeAppointments !: FieldTypeConfig[];
   @Input() UpdatedFields !: FieldTypeConfig[];
   @Input() uploadFileFields   !: FieldTypeConfig[];
   @Input() showFields    !: FieldTypeConfig[];
   @Input() Delete        !: FieldTypeConfig[];
   @Input() ConfirmStatus !:FieldTypeConfig[];
   @Input() pageRedirect  !: string | null;
-  
-  openDialog() : void {
+  @Input() rowData : any;
+  @Input() idRow : any;
+
+  openDialogToConfirmFieldsPatientsTimeAppointmentsWithPlusIcon() : void {
     this.dialog.open(DialogComponent , {
       width : '50vw',
       height : '280px',
       data: {
-        title: 'Confirm Time Appointments',
-        fields : this.ConfirmFields,
-        type   : 'confirm-Appointments'
+        title         : 'Confirm patient Appointments',
+        fields        : this.ConfirmFieldsPatientsTimeAppointments,
+        type          : 'confirm-Appointments',
+        patientId     : this.idRow
       },
     })
   }
-  updateDialog() : void{
+  updatePatients() : void{
+    this.dialog.open(DialogComponent,{
+      width : '50vw',
+      data: {
+        title: 'Are you sure about Update Details Patient',
+        fields : this.UpdatedFields,
+        type   : 'updatePatient',
+        row    : this.rowData
+      },
+    })
+  }
+  updateUsers() : void{
     this.dialog.open(DialogComponent,{
       width : '50vw',
       data: {
         title: 'Are you sure about Update',
-        fields : this.UpdatedFields
+        fields : this.UpdatedFields,
+        type   : 'update-Appointments'
       },
     })
   }
-  showDialog() : void{
-    this.dialog.open(DialogShowComponent,{
+  updatePatientsAppointmentsProfile() : void{
+    this.dialog.open(DialogComponent,{
+      width : '50vw',
+      data: {
+        title: 'Are you sure about Update',
+        fields : this.UpdatedFields,
+        type   : 'update-Appointments'
+      },
+    })
+  }
+  showRow(status : string) : void {
+      this.dialog.open(DialogShowComponent,{
       width : '50vw',
       data: {
         title: 'Details',
-        fields : this.showFields
+        fields : this.showFields,
+        type   : status,
+        row    : this.rowData
       },
     })
   }
-  deleteConfirm(){
+  deleteRow(status : string) : void {
     this.dialog.open(DialogConfirmComponent , {
       width : '50vw',
       data: {
-        title: 'Are you sure about delete ?',
-        fields : this.Delete
+        title         : `Are you sure about delete this ${status}?`,
+        fields        : this.Delete,
+        type          : status,
+        id            : this.idRow
       },
     })
   }
-  confirmDialog() : void{
-    this.dialog.open(DialogConfirmComponent , {
-      width : '50vw',
-      height : '280px',
-      data: {
-        title: this.label,
-        fields : this.ConfirmFields
-      },
-    })
-  }
-
   uploadFile() : void {
     this.dialog.open(DialogComponent,{
       width : '50vw',
@@ -83,17 +101,17 @@ export class ActionsComponent {
       },
     })
   }
-
   openCheckDialog(status : string) : void {
     this.dialog.open(DialogConfirmComponent , {
       width : '50vw',
       data: {
-        title: `do you want ${status} status`,
-        fields : this.ConfirmStatus
+        title         : `do you want ${status} status`,
+        fields        : this.ConfirmStatus,
+        type          : status,
+        id            : this.idRow
       },
     })
   }
-
   routeProfile() : void {
     console.log('hady mohamed');
   }

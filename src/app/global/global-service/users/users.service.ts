@@ -20,8 +20,11 @@ export class UsersService {
       })
     )
   }
-
   createUsers(user : any){
     return this.http.post<any>(`${environment.apiUrl}createUser` , user);
+  }
+
+  deleteUsers(id : any){
+    return this.http.post<any>(`${environment.apiUrl}softDeleteUser` , id)
   }
 }

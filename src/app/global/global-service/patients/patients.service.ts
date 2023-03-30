@@ -22,4 +22,10 @@ export class PatientsService {
   createPatients(Patients : any){
     return this.http.post<any>(`${environment.apiUrl}createPatient` , Patients)
   }
+
+  deletePatient(id : any){
+    return this.http.post<any>(`${environment.apiUrl}softDeletePatient` , id)
+  }
+
+
 }

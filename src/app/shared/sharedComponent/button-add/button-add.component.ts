@@ -21,7 +21,8 @@ export class ButtonAddComponent {
       width : '50vw',
       data: {
         title: this.label,
-        fields : this.fields
+        fields : this.fields,
+        type : this.label
       },
     })
   }
