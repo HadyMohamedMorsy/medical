@@ -3,27 +3,27 @@
   <h1 class="text-4xl font-medium"> inside clinic </h1>
   <app-table [DateBind]="data$">
     <ng-template #header let-Patients>
-      <th class="text-center"> ID </th>
-      <th class="text-center"> Name </th>
-      <th class="text-center"> Age</th>
-      <th class="text-center"> Address </th>
-      <th class="text-center"> Number </th>
-      <th class="text-center"> Last visit </th>
-      <th class="text-center"> Status </th>
-      <th class="text-center"> Actions </th>
+      <th class="text-center"> id </th>
+      <th class="text-center"> appointmentType </th>
+      <th class="text-center"> reservationDate</th>
+      <th class="text-center"> patientName </th>
+      <th class="text-center"> createdBy </th>
+      <th class="text-center"> updatedAt </th>
+      <th class="text-center"> reservationStatus </th>
+      <th class="text-center"> Action </th>
     </ng-template>
-    <ng-template #body let-Patients>
-      <td>{{Patients.id}}</td>
-      <td>{{Patients.name}}</td>
-      <td>{{Patients.age}}</td>
-      <td>{{Patients.address}}</td>
-      <td>{{Patients.phone}}</td>
-      <td>{{Patients.lastVisit}}</td>
-      <td>{{Patients.status}}</td>
+    <ng-template #body let-inside>
+      <td>{{inside.id}}</td>
+      <td>{{inside.appointmentType}}</td>
+      <td>{{inside.reservationDate}}</td>
+      <td>{{inside.patientName}}</td>
+      <td>{{inside.createdBy}}</td>
+      <td>{{inside.updatedAt}}</td>
+      <td>{{inside.reservationStatus}}</td>
       <td class="flex justify-content-center">
         <app-actions [ConfirmStatus]="$any(checked)"
         [pageRedirect]="'inside-clinic'"
-        [idRow]="Patients.ID"
+        [idRow]="inside.id"
         ></app-actions>
       </td>
     </ng-template>

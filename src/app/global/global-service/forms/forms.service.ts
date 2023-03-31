@@ -42,7 +42,7 @@ export class FormsService {
   FieldsForgetPassword() : FormlyFieldConfig[] {
     return [
         {
-          key : 'NationalId',
+          key : 'nationalId',
           type :'input',
           className : 'filed col-12 ',
           props: {
@@ -523,7 +523,7 @@ export class FormsService {
         props: {
           placeholder: 'select Your type Your inquiry',
           options: [
-            { label: 'statement', value: 'statement' },
+            { label: 'medical', value: 'medical'},
             { label: 'consultation', value: 'consultation' },
           ],
         }
@@ -656,7 +656,27 @@ export class FormsService {
   FieldsUpdateUsers() : FormlyFieldConfig[]{
     return [
       {
-        key : 'First-Name',
+        key : 'userType',
+        type :'select',
+        className : 'filed col-12 ',
+          props: {
+            placeholder: 'select Your type Your userType',
+            options: [
+              { label: 'Doctor', value: 'Doctor' },
+              { label: 'Secretarial', value: 'Secretarial' },
+            ],
+          }
+      },
+      {
+        key : 'username',
+        type :'input',
+        className : 'filed col-12 ',
+        props: {
+          placeholder: 'Enter Your userName',
+        }
+      },
+      {
+        key : 'firstName',
         type :'input',
         className : 'filed col-12 ',
         props: {
@@ -664,7 +684,7 @@ export class FormsService {
         }
       },
       {
-        key : 'Last-Name',
+        key : 'lastName',
         type :'input',
         className : 'filed col-12 ',
         props: {
@@ -672,32 +692,33 @@ export class FormsService {
         }
       },
       {
-        key : 'Age',
+        key : 'birthday',
         type :'datapick',
         className : 'filed col-12 ',
         defaultValue: new Date(),
         props: {
-          label: 'Age',
-          htmlFor:'age',
-          id:'age'
+          label: 'birthday',
+          htmlFor:'birthday',
+          id:'birthday'
         }
       },
       {
-        key : 'Phone-Number',
+        key : 'phoneNumber',
         type :'input',
         className : 'filed col-12 ',
         props: {
-          placeholder: 'Enter Your Phone-Number',
+          placeholder: 'Enter Your phoneNumber',
           max: 11,
           min:11,
         }
       },
       {
-        key : 'NationalId',
+        key : 'nationalId',
         type :'input',
         className : 'filed col-12 ',
         props: {
-          placeholder: 'Enter Your NationalId',
+          type:'Number',
+          placeholder: 'Enter Your nationalId',
           max: 14,
           min:14,
         }
@@ -715,11 +736,11 @@ export class FormsService {
         }
       },
       {
-        key : 'Address',
+        key : 'address',
         type :'textarea',
         className : 'filed col-12 ',
         props: {
-          placeholder: 'Enter Your Address',
+          placeholder: 'Enter Your address',
         }
       },
     ]

@@ -19,7 +19,7 @@ import { TableComponent } from '@shared/sharedComponent/table/table.component';
 export class ConfirmPatientsComponent {
   // injection dependency services
   private getFields = inject(FormsService);
-  private DataBindTableService = inject(PatientsService);
+  private DataBindTableService = inject(AppointmentsService);
 
   checked !:FormlyFieldConfig[];
   items : any;
@@ -31,7 +31,7 @@ export class ConfirmPatientsComponent {
   ];
   // ['pending', 'insideClinic','withDoctor', 'complete','cancel']
 
-  this.data$ = this.DataBindTableService.getPatients();
+  this.data$ = this.DataBindTableService.pendingStatusForAppointments();
   this.checked = this.getFields.gridFields('FieldCheck');
   }
 }

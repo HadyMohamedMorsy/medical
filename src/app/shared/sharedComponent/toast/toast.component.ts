@@ -17,15 +17,10 @@ export class ToastComponent {
   ngOnInit(): void {
     this.ToastService.message$.subscribe((val)=>{
       if(val){
-        switch(val.status){
-          case 200 :
+        if(val.status == 404){
+          this.MessageService.add({ severity: 'error', summary: 'error', detail: `${val.message}` });
+        }else{
           this.MessageService.add({ severity: 'success', summary: 'Success', detail: `${val.message}` });
-          break;
-          case 404 :
-          this.MessageService.add({ severity: 'error', summary: 'error', detail: `${val.errors}` });
-          break;
-          default:
-          this.MessageService.add({ severity: 'error', summary: 'error', detail: `there is something wrong` });
         }
       }
     })

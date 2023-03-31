@@ -1,6 +1,7 @@
 import { Component, Inject, inject, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import  {MatDialogRef , MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AppointmentsService } from '@services/appointments/appointments.service';
 import { PatientsService } from '@services/patients/patients.service';
 import { ToastService } from '@services/toast/toast.service';
 import { UsersService } from '@services/users/users.service';
@@ -15,9 +16,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./dialog-confirm.component.scss']
 })
 export class DialogConfirmComponent {
+  [x: string]: any;
   private ToastService = inject(ToastService);
   private UsersService = inject(UsersService);
   private PatientsService = inject(PatientsService);
+  private AppointmentsService = inject(AppointmentsService);
   Subscription: any;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
   dialogRef  = inject(MatDialogRef<DialogConfirmComponent>);
@@ -29,19 +32,25 @@ export class DialogConfirmComponent {
   }
 
   onSubmit(fieldsModel : any){
-    console.log(fieldsModel);
     this.submitRequest(this.data.type , fieldsModel);
   }
 
   private setModel(checkId : any , key : any) {
     if(checkId){
-      this.fieldsModel = {
-        [key] : checkId
+      if(!this.data.type){
+        this.fieldsModel = {
+          [key] : checkId
+        }
+      }else{
+        this.fieldsModel = {
+          [key] : checkId,
+          reservationStatus : this.data.type
+        }
       }
     }
   }
 
-  private submitCheckRequest(type : string , modalValue : any) : void | Observable<any> | string{
+  private submitCheckRequest(type : string , modalValue : any) : void | Observable<any>{
     switch(type){
       case 'patient' :
       return this.PatientsService.deletePatient(modalValue);
@@ -49,7 +58,9 @@ export class DialogConfirmComponent {
       case 'users' :
       return this.UsersService.deleteUsers(modalValue);
       break;
-      return 'there is no request here'
+      default :
+      return this.AppointmentsService.changeStatusAppointment(modalValue);
+
     }
   }
 

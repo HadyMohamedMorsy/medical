@@ -20,6 +20,29 @@ export class AppointmentsService {
     )
   }
 
+  pendingStatusForAppointments(){
+    return this.PageRequestService.getPageRequest$.pipe(
+      switchMap(page =>{
+        return this.http.get<any>(`${environment.apiUrl}pendingStatusForAppointments?page=${page}`)
+      })
+    )
+  }
+
+  insideClinicStatusForAppointments(){
+    return this.PageRequestService.getPageRequest$.pipe(
+      switchMap(page =>{
+        return this.http.get<any>(`${environment.apiUrl}insideClinicStatusForAppointments?page=${page}`)
+      })
+    )
+  }
+  withDoctorStatusForAppointments(){
+    return this.PageRequestService.getPageRequest$.pipe(
+      switchMap(page =>{
+        return this.http.get<any>(`${environment.apiUrl}withDoctorStatusForAppointments?page=${page}`)
+      })
+    )
+  }
+
   confirmPatientAppointments(PatientAppointments : any){
     return this.http.post<any>(`${environment.apiUrl}createAppointment` , PatientAppointments)
   }
@@ -27,7 +50,5 @@ export class AppointmentsService {
   changeStatusAppointment(reservationStatus : string){
     return this.http.post<any>(`${environment.apiUrl}changeStatusAppointment` , reservationStatus)
   }
-
-  
 
 }

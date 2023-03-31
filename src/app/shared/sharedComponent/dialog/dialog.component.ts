@@ -94,6 +94,9 @@ export class DialogComponent {
       case 'updatePatient' :
       return this.PatientsService.updatePatient(this.data.id, modalValue);
       break;
+      case 'update-users' :
+      return this.UsersService.updateUsers(this.data.id, modalValue);
+      break;
       return 'there is no request here'
     }
   }

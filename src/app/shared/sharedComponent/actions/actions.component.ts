@@ -1,4 +1,5 @@
-import { Component, Input, inject } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Component, Input, inject, Output, EventEmitter } from '@angular/core';
 
 import { DialogComponent } from '../dialog/dialog.component';
 import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
@@ -15,17 +16,20 @@ import { SharedModuleModule } from '@shared/shared-module.module';
   styleUrls: ['./actions.component.scss']
 })
 export class ActionsComponent {
+  private Route = inject(Router);
+  private activateRouter = inject(ActivatedRoute);
   dialog = inject(MatDialog);
-  @Input() label  !: string;
-  @Input() ConfirmFieldsPatientsTimeAppointments !: FieldTypeConfig[];
-  @Input() UpdatedFields !: FieldTypeConfig[];
-  @Input() uploadFileFields   !: FieldTypeConfig[];
-  @Input() showFields    !: FieldTypeConfig[];
-  @Input() Delete        !: FieldTypeConfig[];
-  @Input() ConfirmStatus !:FieldTypeConfig[];
-  @Input() pageRedirect  !: string | null;
-  @Input() rowData : any;
-  @Input() idRow : any;
+  @Input()  label  !: string;
+  @Input()  ConfirmFieldsPatientsTimeAppointments !: FieldTypeConfig[];
+  @Input()  UpdatedFields !: FieldTypeConfig[];
+  @Input()  uploadFileFields   !: FieldTypeConfig[];
+  @Input()  showFields    !: FieldTypeConfig[];
+  @Input()  Delete        !: FieldTypeConfig[];
+  @Input()  ConfirmStatus !:FieldTypeConfig[];
+  @Input()  pageRedirect  !: string | null;
+  @Input()  rowData : any;
+  @Input()  idRow : any;
+  @Output() passId  = new EventEmitter<number>();
 
   openDialogToConfirmFieldsPatientsTimeAppointmentsWithPlusIcon() : void {
     this.dialog.open(DialogComponent , {
@@ -57,7 +61,9 @@ export class ActionsComponent {
       data: {
         title: 'Are you sure about Update',
         fields : this.UpdatedFields,
-        type   : 'update-Appointments'
+        type   : 'update-users',
+        row    : this.rowData,
+        id     : this.idRow
       },
     })
   }
@@ -114,6 +120,6 @@ export class ActionsComponent {
     })
   }
   routeProfile() : void {
-    console.log('hady mohamed');
+    this.passId.emit(this.idRow);
   }
 }

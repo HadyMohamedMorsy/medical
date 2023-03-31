@@ -23,7 +23,9 @@ export class UsersService {
   createUsers(user : any){
     return this.http.post<any>(`${environment.apiUrl}createUser` , user);
   }
-
+  updateUsers(id:number , user : any){
+    return this.http.post<any>(`${environment.apiUrl}updateUser/${id}` , user);
+  }
   deleteUsers(id : any){
     return this.http.post<any>(`${environment.apiUrl}softDeleteUser` , id)
   }

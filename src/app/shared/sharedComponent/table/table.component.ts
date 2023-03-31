@@ -60,8 +60,6 @@ export class TableComponent {
 
   private getData(){
     this.Subscription = this.DateBind.subscribe((val)=>{
-      console.log(val);
-      
       this.loading = false;
       this.data = val.result.data;
       this.totalRecord = val.result.meta.total;

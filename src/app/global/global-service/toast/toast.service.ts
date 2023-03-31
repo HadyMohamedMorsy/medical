@@ -12,7 +12,7 @@ export class ToastService {
     return this._message$.asObservable();
   }
 
-  setMessage(message: Authentication) {
+  setMessage(message: Authentication | any) {
     this._message$.next(message);
   }
 

@@ -26,7 +26,7 @@ export const ADMIN_ROUTES : Route[] = [
     component : UsersComponent
   },
   {
-    path : 'profile',
+    path : 'profile/:id',
     component : ProfileComponent
   },
   {

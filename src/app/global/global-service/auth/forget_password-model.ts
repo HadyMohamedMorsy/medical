@@ -1,18 +1,18 @@
-export class User {
+export class UserForget{
   constructor(
-     public user : string | undefined,
-     public role : string | undefined,
-     private _token : string | undefined ,
-     private _token_type : string | undefined ,
-     private _expires_in : Date | undefined
-    )
-  {}
+    private id : number,
+    private expire_in : string | Date
+  ){}
 
-  get token() : string | null{
-    if(!this._expires_in || new Date(this.convertTime()) > new Date(this._expires_in)){
+  get expire(){
+    if(!this.expire_in || new Date(this.convertTime()) > new Date(this.expire_in)){
+      console.log('null');
       return null;
     }
-    return `${this._token}`;
+    return {
+      id : this.id,
+      expire_in : this.expire_in
+    }
   }
 
   private convertTime(){

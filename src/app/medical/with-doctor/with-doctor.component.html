@@ -1,29 +1,28 @@
 <app-breadcrumb [items]="items"></app-breadcrumb>
 <div class="Last-patients mt-6">
-  <h1 class="text-4xl font-medium"> inside clinic </h1>
+  <h1 class="text-4xl font-medium"> With Doctor </h1>
   <app-table [DateBind]="data$">
     <ng-template #header let-Patients>
-      <th class="text-center"> ID </th>
-      <th class="text-center"> Name </th>
-      <th class="text-center"> Age</th>
-      <th class="text-center"> Address </th>
-      <th class="text-center"> Number </th>
-      <th class="text-center"> Last visit </th>
-      <th class="text-center"> Status </th>
-      <th class="text-center"> Actions </th>
+      <th class="text-center"> id </th>
+      <th class="text-center"> appointmentType </th>
+      <th class="text-center"> reservationDate</th>
+      <th class="text-center"> patientName </th>
+      <th class="text-center"> createdBy </th>
+      <th class="text-center"> updatedAt </th>
+      <th class="text-center"> reservationStatus </th>
+      <th class="text-center"> Action </th>
     </ng-template>
-    <ng-template #body let-Patients>
-      <td>{{Patients.id}}</td>
-      <td>{{Patients.name}}</td>
-      <td>{{Patients.age}}</td>
-      <td>{{Patients.address}}</td>
-      <td>{{Patients.phone}}</td>
-      <td>{{Patients.lastVisit}}</td>
-      <td>{{Patients.status}}</td>
+    <ng-template #body let-Doctor>
+      <td>{{Doctor.id}}</td>
+      <td>{{Doctor.appointmentType}}</td>
+      <td>{{Doctor.reservationDate}}</td>
+      <td>{{Doctor.patientName}}</td>
+      <td>{{Doctor.createdBy}}</td>
+      <td>{{Doctor.updatedAt}}</td>
+      <td>{{Doctor.reservationStatus}}</td>
       <td class="flex justify-content-center">
         <app-actions
         [pageRedirect]="'with-doctor'"
-        
         >
         </app-actions>
       </td>

@@ -75,6 +75,7 @@
         [pageRedirect]="'home'"
         [rowData]="Patients"
         [idRow]="Patients.id"
+        (passId)="routeProfileParent($event)"
         ></app-actions>
       </td>
     </ng-template>

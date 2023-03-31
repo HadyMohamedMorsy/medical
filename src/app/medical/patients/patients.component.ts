@@ -8,6 +8,7 @@ import { HeaderTableComponent } from '@shared/sharedComponent/header-table/heade
 import { PatientsService } from '@services/patients/patients.service';
 import { SharedModuleModule } from 'src/app/shared/shared-module.module';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-patients',
@@ -20,6 +21,9 @@ export class PatientsComponent {
   // injection dependency services
   private getFields = inject(FormsService);
   private DataBindTableService = inject(PatientsService);
+  private Route = inject(Router);
+  private activateRouter = inject(ActivatedRoute);
+
 
   items : any;
   data$ : any;
@@ -170,6 +174,10 @@ export class PatientsComponent {
     ]
     );
     this.uploadFields = this.getFields.gridFields('FieldUpload');
+  }
+
+  routeProfileParent(id : number) : void {
+    this.Route.navigate([`/clinic/profile/${id}`]);
   }
 
 }
