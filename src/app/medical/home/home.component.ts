@@ -9,6 +9,7 @@ import { PatientsService } from '@services/patients/patients.service';
 import { SharedModuleModule } from 'src/app/shared/shared-module.module';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DashboardService } from '@services/dashboard/dashboard.service';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,7 @@ export class HomeComponent {
   private getFields = inject(FormsService);
   private Route = inject(Router);
   private activateRouter = inject(ActivatedRoute);
+  private DashboardService = inject(DashboardService);
 
   items : any;
   data$ : any;
@@ -29,14 +31,15 @@ export class HomeComponent {
   deleting !:FormlyFieldConfig[];
   updateField !: FormlyFieldConfig[];
   uploadFields !: FormlyFieldConfig[];
+  DashboardData$ : any;
 
   ngOnInit() {
+    this.DashboardData$ = this.DashboardService.dashboardData();
     this.items = [
         {label:'Clinic'},
         {label:'Home'},
     ];
     this.data$ = this.DataBindTableService.getPatients();
-
     this.confirmFields = this.getFields.gridFields('FieldsConfirmPatientsAppointment' ,
     [
       [

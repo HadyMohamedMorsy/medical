@@ -5,6 +5,10 @@ import { FormGroup } from '@angular/forms';
 import { inject } from '@angular/core';
 import {FormsService} from '@services/forms/forms.service';
 import { AuthService } from '@services/auth/auth.service';
+import { UserForget } from '../../global/global-service/auth/forget_password-model';
+import { Subscription, switchMap } from 'rxjs';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-confirm-password',
   standalone: true,
@@ -17,6 +21,10 @@ export class ConfirmPasswordComponent {
   // injection dependency services
   getFieldsConfirmPassword  = inject(FormsService);
   AuthService = inject(AuthService);
+  id : any
+  Subscription !: Subscription
+  router = inject(Router);
+
 
   form = new FormGroup({});
   ConfirmPasswordModel = {};
@@ -25,10 +33,23 @@ export class ConfirmPasswordComponent {
   ngOnInit()  {
     this.fieldsConfirmPassword= this.getFieldsConfirmPassword.gridFields('confirmPassword');
     this.AuthService.autoForgetPassword();
+    this.Subscription = this.AuthService.Forget.subscribe(val =>{
+      this.id = val.id
+      this.ConfirmPasswordModel = {
+        ...this.ConfirmPasswordModel,
+        id : this.id,
+      }
+    })
   }
 
-  onSubmit(LoginModel : any){
-    console.log(LoginModel);
+  onSubmit(confirmPassword : any){
+    this.AuthService.confirmPasswordRequest(confirmPassword).subscribe((val)=>{
+      this.router.navigate(['/login']);
+      localStorage.clear();
+    })
+  }
+  ngOnDestroy(): void {
+    this.Subscription.unsubscribe();
   }
 
 }

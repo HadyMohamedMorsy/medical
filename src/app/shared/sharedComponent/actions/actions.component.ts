@@ -7,7 +7,7 @@ import { DialogShowComponent } from '../dialog-show/dialog-show.component';
 import { FieldTypeConfig } from '@ngx-formly/core';
 import {MatDialog} from '@angular/material/dialog';
 import { SharedModuleModule } from '@shared/shared-module.module';
-
+import { DialogUploadComponent } from '../dialog-upload/dialog-upload.component';
 @Component({
   selector: 'app-actions',
   standalone: true,
@@ -100,11 +100,11 @@ export class ActionsComponent {
     })
   }
   uploadFile() : void {
-    this.dialog.open(DialogComponent,{
+    this.dialog.open(DialogUploadComponent,{
       width : '50vw',
       data: {
-        title: 'Upload Attachments',
-        fields : this.uploadFileFields
+        title             : 'Upload Attachments',
+        appointmentId     : this.idRow
       },
     })
   }

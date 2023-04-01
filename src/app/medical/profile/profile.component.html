@@ -33,6 +33,7 @@
       <th class="text-center"> patientName </th>
       <th class="text-center"> createdBy </th>
       <th class="text-center"> updatedBy </th>
+      <th class="text-center"> reservationStatus </th>
       <th class="text-center"> Action </th>
     </ng-template>
     <ng-template #body let-profile>
@@ -42,12 +43,14 @@
       <td>{{profile.patientName}}</td>
       <td>{{profile.createdBy}}</td>
       <td>{{profile.updatedBy}}</td>
+      <td>{{profile.reservationStatus}}</td>
       <td class="flex justify-content-center">
         <app-actions
         [pageRedirect]="'profile'"
         [UpdatedFields]="$any(updateField)"
         [ConfirmStatus]="$any(checked)"
         [uploadFileFields]="$any(uploadFields)"
+        [idRow]="profile.id"
         ></app-actions>
       </td>
     </ng-template>

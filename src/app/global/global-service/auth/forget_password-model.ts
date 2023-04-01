@@ -15,6 +15,10 @@ export class UserForget{
     }
   }
 
+  get getId(){
+    return this.id;
+  }
+
   private convertTime(){
     const now = new Date();
     const year = now.getFullYear();

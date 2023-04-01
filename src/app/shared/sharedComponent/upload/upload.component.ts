@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, EventEmitter, Output, forwardRef } from '@angular/core';
 import { ControlValueAccessor, ReactiveFormsModule } from '@angular/forms';
 import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
 
@@ -23,10 +23,10 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class UploadComponent extends FieldType<FieldTypeConfig> implements ControlValueAccessor{
-  uploadedFiles : File[] = [];
+  uploadedFiles : any[] = [];
   onChange: any = () => {};
   onTouched: any = () => {};
-
+  @Output() files  = new EventEmitter<any>();
   writeValue(obj: any): void {
     if (obj) {
       this.uploadedFiles = obj;
@@ -43,12 +43,13 @@ export class UploadComponent extends FieldType<FieldTypeConfig> implements Contr
 
 
   onUpload(event : any) {
-    // for(let file of event.files) {
-    //     this.uploadedFiles.push(file);
-    // }
     const files = event.files;
-    this.uploadedFiles = files;
+    for(let file of files){
+      this.uploadedFiles.push(file);
+    }
+    this.files.emit(this.uploadedFiles);
+    this.uploadedFiles = [];
     this.onChange(files);
     this.onTouched();
-  }  
+  }
 }

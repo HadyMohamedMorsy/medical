@@ -30,12 +30,6 @@ export class DialogShowComponent {
   private ShowFieldsWithData(data: any) {
     this.fieldsModel = data;
     console.log(this.fieldsModel);
-    // this.data.fields[0].fieldGroup.forEach((field : any) => {
-    //   if (this.fieldsModel.hasOwnProperty(field.key)) {
-    //     const value = (this.fieldsModel as FieldsModel)[field.key];
-    //     console.log(value);
-    //   }
-    // });
   }
 
 }

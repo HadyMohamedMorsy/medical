@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FormsService {
-
-
   FieldsLogin() : FormlyFieldConfig[] {
     return [
         {
@@ -55,7 +53,7 @@ export class FormsService {
   FieldsConfirmPassword() : FormlyFieldConfig[] {
     return [
         {
-          key : 'new-Password',
+          key : 'newPassword',
           type :'input',
           className : 'filed col-12 ',
           props: {
@@ -63,7 +61,7 @@ export class FormsService {
           }
         },
         {
-          key : 'confirm-Password',
+          key : 'confirmPassword',
           type :'input',
           className : 'col-12 ',
           props: {
@@ -940,7 +938,6 @@ export class FormsService {
       },
     ]
   }
-
   gridFields( methodField : string , queryMedia : any = undefined){
     let gridListFields !: FormlyFieldConfig[]
     switch(methodField){
@@ -992,7 +989,6 @@ export class FormsService {
     }
     return gridListFields
   }
-
   private fireMethods(
     queryMedia : any = undefined,
     method : FormlyFieldConfig[]

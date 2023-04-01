@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { map, switchMap } from 'rxjs';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PageRequestService } from '@services/pageRequest/page-request.service';
 import { environment } from 'src/environment/environments';
 
@@ -59,5 +59,9 @@ export class AppointmentsService {
       })
     )
   }
+  uploadFiles(Files : any){
+    const headers = new HttpHeaders().set('Content-Type', 'multipart/form-data');
+    return this.http.post<any>(`${environment.apiUrl}uploadingImages` , Files)
 
+  }
 }

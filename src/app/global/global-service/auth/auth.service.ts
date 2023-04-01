@@ -13,7 +13,7 @@ import { ToastService } from '@services/toast/toast.service';
 export class AuthService {
   [x: string]: any;
   EmitsDataForUser = new BehaviorSubject<null | User>(null);
-  Forget = new BehaviorSubject<null | UserForget>(null);
+  Forget = new BehaviorSubject<any>(null);
   private ToastService = inject(ToastService);
 
 http = inject(HttpClient);
@@ -100,7 +100,7 @@ TimerExpirationExpire !:any;
         }
       }),
       tap(res =>{
-        if(res.message){
+        if(res.status == 404){
           this.ToastService.setMessage(res);
         }else{
           let dataStamp = (res.expire_in as unknown as string)
@@ -148,6 +148,10 @@ TimerExpirationExpire !:any;
     },(TimerExpirationExpire))
   }
 
+  confirmPasswordRequest(confirm : any) {
+    return this.http.post<Authentication>(`${environment.apiUrl}changePassword` , confirm)
+  }
+
   private convertTime(dataStamp : any , checkAuth : string){
       const expirationTime = new Date(dataStamp).getTime();
       const now = new Date();
@@ -164,5 +168,10 @@ TimerExpirationExpire !:any;
       const secondsRemaining = Math.floor((expirationTime - new Date(formattedTime).getTime()) / 1000);
       checkAuth == 'login' ?  this.autoLogout(secondsRemaining * 1000) : this.autoConfirmPage(secondsRemaining * 1000)
   }
+
+  isAuthenticatedForget(){
+    return !!localStorage.getItem('cardinalUser');
+  }
+
 
 }

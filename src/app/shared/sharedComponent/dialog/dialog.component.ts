@@ -112,6 +112,7 @@ export class DialogComponent {
   private submitRequest(type : string , modalValue : any){
     const submission = this.submitCheckRequest(type , modalValue) as Observable<any>
     this.Subscription = submission.subscribe(val =>{
+      console.log(val);
       this.ToastService.setMessage(val);
       this.dialogRef.close()
     })

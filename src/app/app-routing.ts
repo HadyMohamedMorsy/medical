@@ -6,6 +6,8 @@ import { ConfirmPasswordComponent } from './auth/confirm-password/confirm-passwo
 import { DashboardComponent } from './medical/dashboard/dashboard.component';
 import { AuthGuardGuard } from '@core/guards/auth-guard.guard';
 import { LoginGuardGuard } from '@core/guards/login-guard.guard';
+import { ForgetGuard } from '@core/guards/forget.guard';
+import { ConfirmGuard } from '@core/guards/confirm.guard';
 
 export const routes: Route[] = [
   {
@@ -20,12 +22,12 @@ export const routes: Route[] = [
   },
   {
     path :'forget-password',
-    canActivate : [LoginGuardGuard],
+    canActivate : [LoginGuardGuard , ForgetGuard],
     component : ForgetPasswordComponent
   },
   {
     path :'confirm-password',
-    canActivate : [LoginGuardGuard],
+    canActivate : [LoginGuardGuard , ConfirmGuard],
     component : ConfirmPasswordComponent
   },
   {
