@@ -36,7 +36,7 @@ export class ProfileComponent {
   PatientsFields!: FormlyFieldConfig[];
   checked !:FormlyFieldConfig[];
   idParam : any;
-
+  ShowFields !:FormlyFieldConfig[];
   ngOnInit() {
 
     this.items = [
@@ -117,7 +117,6 @@ export class ProfileComponent {
         ],
       ]
     )
-
     this.FieldsProfile = this.DataBindTableService.getPatient(this.idParam).subscribe(val =>{
       this.fieldsModel =  val.result
     })
@@ -184,6 +183,44 @@ export class ProfileComponent {
           }
         ],
       ]
+    )
+    this.ShowFields = this.getFields.gridFields('FieldsShowAppointmentsProfile' ,
+    [
+      [
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+        {
+          media : 'md',
+          colNumber : '6'
+        },
+        {
+          media : 'md',
+          colNumber : '12'
+        },
+        {
+          media : 'md',
+          colNumber : '12'
+        },
+      ]
+    ]
     )
     this.checked = this.getFields.gridFields('FieldCheck');
     this.uploadFields = this.getFields.gridFields('FieldUpload');

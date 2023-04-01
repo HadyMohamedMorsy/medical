@@ -24,6 +24,8 @@ export class DialogShowComponent {
 
   ngOnInit(): void {
     this.ShowFieldsWithData(this.data.row);
+    console.log(this.data.row);
+
   }
 
 

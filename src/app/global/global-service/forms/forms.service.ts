@@ -443,6 +443,83 @@ export class FormsService {
           },
     ]
   }
+  FieldsShowAppointmentsProfile() : FormlyFieldConfig[]{
+    return [
+          {
+            key : 'patientName',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label :'patientName',
+              disabled : true
+            }
+          },
+          {
+            key : 'appointmentType',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label :'appointmentType',
+              disabled : true
+            }
+          },
+          {
+            key : 'appointmentsCurrentDate',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label :'appointmentsCurrentDate',
+              disabled : true
+            }
+          },
+          {
+            key : 'createdBy',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label :'createdBy',
+              disabled : true
+            }
+          },
+          {
+            key : 'createdAt',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label :'createdAt',
+              disabled : true
+            }
+          },
+          {
+            key : 'updatedBy',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              label : 'UpdatedBy',
+              placeholder: 'createdBy',
+              disabled : true
+            }
+          },
+          {
+            key : 'caseDetails',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              label :'caseDetails',
+              disabled : true
+            }
+          },
+          {
+            key : 'doctorReport',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              label : 'doctorReport',
+              disabled : true
+            }
+          },
+    ]
+  }
   FieldsProfilePatients() : FormlyFieldConfig[]{
     return [
           {
@@ -985,6 +1062,9 @@ export class FormsService {
       break;
       case 'FieldsShowAppointments' :
       gridListFields =  this.fireMethods(queryMedia , this.FieldsShowAppointments())
+      break;
+      case 'FieldsShowAppointmentsProfile' :
+      gridListFields =  this.fireMethods(queryMedia , this.FieldsShowAppointmentsProfile())
       break;
     }
     return gridListFields
