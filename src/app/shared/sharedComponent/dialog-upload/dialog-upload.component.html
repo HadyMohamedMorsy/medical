@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>{{data.title}} </h1>
+<div mat-dialog-content>
+  <app-upload (files)="uploadFile($event)"></app-upload>
+  <div mat-dialog-actions class="flex justify-content-end">
+    <button pButton mat-button mat-dialog-close class="p-button-danger mr-2">Cancel</button>
+  </div>
+</div>
