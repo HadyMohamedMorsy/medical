@@ -51,4 +51,13 @@ export class AppointmentsService {
     return this.http.post<any>(`${environment.apiUrl}changeStatusAppointment` , reservationStatus)
   }
 
+
+  profileAppointment(id : any){
+    return this.PageRequestService.getPageRequest$.pipe(
+      switchMap(page =>{
+        return this.http.get<any>(`${environment.apiUrl}appointmentsForUser/${id}?page=${page}`)
+      })
+    )
+  }
+
 }

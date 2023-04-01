@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import {Route} from '@angular/router';
 import { UsersComponent } from './users/users.component';
 import { WithDoctorComponent } from './with-doctor/with-doctor.component';
+import { ResolverResolver } from '@core/resolver/resolver.resolver';
 
 export const ADMIN_ROUTES : Route[] = [
   {
@@ -27,7 +28,10 @@ export const ADMIN_ROUTES : Route[] = [
   },
   {
     path : 'profile/:id',
-    component : ProfileComponent
+    component : ProfileComponent,
+    resolve: {
+      data: ResolverResolver
+    }
   },
   {
     path : 'Confirm-Patients',

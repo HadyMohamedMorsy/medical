@@ -30,6 +30,7 @@ export class InsideClinicComponent {
       {label:'Confirm-Patients'},
   ];
   this.data$ = this.DataBindTableService.insideClinicStatusForAppointments();
+
   this.checked = this.getFields.gridFields('FieldCheck');
   }
 }

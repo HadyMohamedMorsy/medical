@@ -114,8 +114,11 @@ export class HomeComponent {
     );
     this.uploadFields = this.getFields.gridFields('FieldUpload');
   }
-  routeProfileParent(id : number) : void {
-    this.Route.navigate([`profile/${id}`] , {relativeTo: this.activateRouter});
+  routeProfileParent(id : number , Patients : any) : void {
+
+    this.Route.navigate([`profile/${id}`] , {
+      relativeTo: this.activateRouter,
+    });
   }
 }
 

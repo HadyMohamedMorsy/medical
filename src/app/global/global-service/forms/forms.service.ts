@@ -448,37 +448,45 @@ export class FormsService {
   FieldsProfilePatients() : FormlyFieldConfig[]{
     return [
           {
-            key : 'First-Name',
+            key : 'firstName',
             type :'input',
             className : 'filed col-12 ',
             props: {
               placeholder: 'Enter Your First Name',
+              disabled : true
             }
           },
           {
-            key : 'Last-Name',
+            key : 'lastName',
             type :'input',
             className : 'filed col-12 ',
             props: {
               placeholder: 'Enter Your Last Name',
+              disabled : true
             }
           },
           {
-            key : 'Age',
-            type :'datapick',
-            className : 'filed col-12 ',
-            defaultValue: new Date(),
-            props: {
-              label: 'Age',
-              htmlFor:'age',
-              id:'age'
-            }
-          },
-          {
-            key : 'Phone-Number',
+            key : 'birthday',
             type :'input',
             className : 'filed col-12 ',
             props: {
+              disabled : true
+            }
+          },
+          {
+            key : 'age',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              disabled : true
+            }
+          },
+          {
+            key : 'phoneNumber',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              disabled : true,
               placeholder: 'Enter Your Phone-Number',
               max: 11,
               min:11,
@@ -490,6 +498,7 @@ export class FormsService {
             className : 'filed col-12 ',
             props: {
               placeholder: 'Gender',
+              disabled : true,
               options: [
                 { label: 'male', value: 'male' },
                 { label: 'female', value: 'female' },
@@ -497,11 +506,39 @@ export class FormsService {
             }
           },
           {
-            key : 'Address',
+            key : 'address',
             type :'textarea',
             className : 'filed col-12 ',
             props: {
+              disabled : true,
               placeholder: 'Enter Your Address',
+            }
+          },
+          {
+            key : 'otherDetails',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              disabled : true,
+              placeholder: 'Enter Your otherDetails',
+            }
+          },
+          {
+            key : 'createdBy',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              disabled : true,
+              placeholder: 'Enter Your otherDetails',
+            }
+          },
+          {
+            key : 'updatedBy',
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              disabled : true,
+              placeholder: 'Enter Your otherDetails',
             }
           },
     ]
