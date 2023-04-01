@@ -73,7 +73,9 @@ export class ActionsComponent {
       data: {
         title: 'Are you sure about Update',
         fields : this.UpdatedFields,
-        type   : 'update-Appointments'
+        type   : 'update-Appointment-profile',
+        row    : this.rowData,
+        id     : this.idRow
       },
     })
   }

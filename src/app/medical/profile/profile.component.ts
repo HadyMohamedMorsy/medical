@@ -125,25 +125,7 @@ export class ProfileComponent {
         [
           {
             media : 'md',
-            colNumber : '6'
-          }
-        ],
-        [
-          {
-            media : 'md',
-            colNumber : '6'
-          }
-        ],
-        [
-          {
-            media : 'md',
-            colNumber : '6'
-          }
-        ],
-        [
-          {
-            media : 'md',
-            colNumber : '6'
+            colNumber : '12'
           }
         ],
         [
@@ -167,13 +149,7 @@ export class ProfileComponent {
         [
           {
             media : 'md',
-            colNumber : '6'
-          }
-        ],
-        [
-          {
-            media : 'md',
-            colNumber : '6'
+            colNumber : '12'
           }
         ],
         [

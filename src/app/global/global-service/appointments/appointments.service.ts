@@ -59,9 +59,14 @@ export class AppointmentsService {
       })
     )
   }
+
   uploadFiles(Files : any){
     const headers = new HttpHeaders().set('Content-Type', 'multipart/form-data');
     return this.http.post<any>(`${environment.apiUrl}uploadingImages` , Files)
 
+  }
+
+  updateAppointment(updateWithDoctor : any){
+    return this.http.post<any>(`${environment.apiUrl}updateAppointment` , updateWithDoctor);
   }
 }

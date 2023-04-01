@@ -241,23 +241,15 @@ export class FormsService {
   FieldsUpdateAppointments() : FormlyFieldConfig[]{
     return [
           {
-            key : 'First-Name',
+            key : 'id',
             type :'input',
             className : 'filed col-12 ',
             props: {
-              placeholder: 'Enter Your First Name',
+              type : 'hidden'
             }
           },
           {
-            key : 'Last-Name',
-            type :'input',
-            className : 'filed col-12 ',
-            props: {
-              placeholder: 'Enter Your Last Name',
-            }
-          },
-          {
-            key : 'birthday',
+            key : 'reservationDate',
             type :'datapick',
             className : 'filed col-12 ',
             defaultValue: new Date(),
@@ -268,76 +260,54 @@ export class FormsService {
             }
           },
           {
-            key : 'Phone-Number',
-            type :'input',
-            className : 'filed col-12 ',
-            props: {
-              placeholder: 'Enter Your Phone-Number',
-              max: 11,
-              min:11,
-            }
-          },
-          {
-            key : 'gender',
-            type :'select',
-            className : 'filed col-12 ',
-            props: {
-              placeholder: 'Gender',
-              options: [
-                { label: 'male', value: 'male' },
-                { label: 'female', value: 'female' },
-              ],
-            }
-          },
-          {
-            key : 'Address',
-            type :'textarea',
-            className : 'filed col-12 ',
-            props: {
-              placeholder: 'Enter Your Address',
-            }
-          },
-          {
-            key : 'medications',
-            type :'textarea',
-            className : 'filed col-12 ',
-            props: {
-              placeholder: 'What medications are you taking',
-            }
-          },
-          {
-            key : 'type',
+            key : 'reservationStatus',
             type :'select',
             className : 'filed col-12 ',
             props: {
               placeholder: 'select Your type Your inquiry',
               options: [
-                { label: 'statement', value: 'statement' },
-                { label: 'consultation', value: 'consultation' },
+                { label: 'complete', value: 'complete' },
+                { label: 'cancel', value: 'cancel' },
+                { label: 'pending', value: 'pending' },
+                { label: 'insideClinic', value: 'insideClinic' },
+                { label: 'withDoctor', value: 'withDoctor' },
               ],
             }
           },
           {
-            key : 'booking',
-            type :'datapick',
-            className : 'filed col-12 ',
-            defaultValue: new Date(),
-            props: {
-              label: 'booking timing',
-              htmlFor:'booking',
-              id:'booking',
-              time : true,
-              second : true,
-            }
-          },
-          {
-            key : 'pharmaceutical',
+            key : 'caseDetails',
             type :'textarea',
             className : 'filed col-12 ',
             props: {
-              placeholder: 'What pharmaceutical ?',
+              label :'caseDetails',
+              placeholder: 'Enter Your caseDetails',
+              max: 11,
+              min:11,
             }
-          }
+          },
+          {
+            key : 'doctorReport',
+            type :'textarea',
+            className : 'filed col-12 ',
+            props: {
+              label : 'doctorReport',
+              max: 11,
+              min:11,
+            }
+          },
+          {
+            key : 'appointmentType',
+            type :'select',
+            className : 'filed col-12 ',
+            props: {
+              placeholder: 'select Your type Your inquiry',
+              options: [
+                { label: 'Medical', value: 'Medical' },
+                { label: 'Consultation', value: 'Consultation' },
+              ],
+            }
+          },
+
     ]
   }
   FieldsShowAppointments() : FormlyFieldConfig[]{

@@ -48,22 +48,24 @@ export class DialogComponent {
           [itemField.key] : this.convertTime(itemField)
         }
       });
+      console.log(fieldsModel);
+
       this.submitRequest(this.data.type , this.fieldsModel);
     }else{
       this.submitRequest(this.data.type , fieldsModel);
     }
   }
 
- private updateFieldsWithData(data: any) {
-    if(data){
-      this.fieldsModel = data;
-      this.data.fields[0].fieldGroup.forEach((field : any) => {
-        if (this.fieldsModel.hasOwnProperty(field.key)) {
-          const value = (this.fieldsModel as FieldsModel)[field.key];
-          this.form.patchValue(value);
-        }
-      });
-    }
+  private updateFieldsWithData(data: any) {
+      if(data){
+        this.fieldsModel = data;
+        this.data.fields[0].fieldGroup.forEach((field : any) => {
+          if (this.fieldsModel.hasOwnProperty(field.key)) {
+            const value = (this.fieldsModel as FieldsModel)[field.key];
+            this.form.patchValue(value);
+          }
+        });
+      }
   }
 
   private setModel(checkId : any , key : any) {
@@ -97,6 +99,9 @@ export class DialogComponent {
       case 'update-users' :
       return this.UsersService.updateUsers(this.data.id, modalValue);
       break;
+      case 'update-Appointment-profile' :
+      return this.AppointmentsService.updateAppointment(modalValue);
+      break;
       return 'there is no request here'
     }
   }
@@ -112,7 +117,6 @@ export class DialogComponent {
   private submitRequest(type : string , modalValue : any){
     const submission = this.submitCheckRequest(type , modalValue) as Observable<any>
     this.Subscription = submission.subscribe(val =>{
-      console.log(val);
       this.ToastService.setMessage(val);
       this.dialogRef.close()
     })
