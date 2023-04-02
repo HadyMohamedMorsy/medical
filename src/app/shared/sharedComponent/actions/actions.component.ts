@@ -118,7 +118,7 @@ export class ActionsComponent {
     })
   }
   openCheckDialog(status : string) : void {
-    this.dialog.open(DialogConfirmComponent , {
+    const dialogRef = this.dialog.open(DialogConfirmComponent , {
       width : '50vw',
       data: {
         title         : `do you want ${status} status`,

@@ -117,7 +117,6 @@ export class DialogComponent {
     this.Subscription = submission.subscribe(val =>{
       this.ToastService.setMessage(val);
       this.dialogRef.close(val);
-      console.log(val);
     })
   }
 
