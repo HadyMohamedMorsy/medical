@@ -8,6 +8,7 @@ import { PageRequestService } from '@services/pageRequest/page-request.service';
 import { RefreshButtonComponent } from '../refresh-button/refresh-button.component';
 import { SharedModuleModule } from '@shared/shared-module.module';
 import { ToastService } from '@services/toast/toast.service';
+import { UpdateRowTableService } from '@services/updateRowTable/update-row-table.service';
 
 export function tableFactory(tableComponent: TableComponent) {
   return tableComponent.primingTable;
@@ -32,6 +33,7 @@ export class TableComponent {
   private cdr = inject(ChangeDetectorRef);
   private PageRequestService = inject(PageRequestService);
   private ToastService = inject(ToastService);
+  private UpdateRowTableService = inject(UpdateRowTableService);
   @Input() DateBind !: Observable<any>;
   @ContentChild('header') header!: TemplateRef<any>;
   @ContentChild('body') body!: TemplateRef<any>;
@@ -43,10 +45,18 @@ export class TableComponent {
   Subscription !: Subscription;
   totalRecord !: number;
 
-
   refresh(){
     this.loading = true;
     this.getData();
+  }
+
+  ngOnInit() {
+    this.UpdateRowTableService.rowData$.subscribe(val =>{
+      this.data = [
+        ...this.data ,
+        val
+      ]
+    })
   }
 
   loadPagination(event : LazyLoadEvent){
@@ -64,16 +74,11 @@ export class TableComponent {
       this.data = val.result.data;
       this.totalRecord = val.result.meta.total;
       this.ToastService.setMessage(val);
+      this.cdr.detectChanges();
       if (this.Subscription) {
         this.Subscription.unsubscribe();
       }
-      this.cdr.detectChanges();
     })
   }
 
-  ngOnDestroy() {
-    if (this.Subscription) {
-      this.Subscription.unsubscribe();
-    }
-  }
 }

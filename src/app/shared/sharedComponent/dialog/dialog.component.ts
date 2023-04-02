@@ -48,8 +48,6 @@ export class DialogComponent {
           [itemField.key] : this.convertTime(itemField)
         }
       });
-      console.log(fieldsModel);
-
       this.submitRequest(this.data.type , this.fieldsModel);
     }else{
       this.submitRequest(this.data.type , fieldsModel);
@@ -118,7 +116,8 @@ export class DialogComponent {
     const submission = this.submitCheckRequest(type , modalValue) as Observable<any>
     this.Subscription = submission.subscribe(val =>{
       this.ToastService.setMessage(val);
-      this.dialogRef.close()
+      this.dialogRef.close(val);
+      console.log(val);
     })
   }
 
