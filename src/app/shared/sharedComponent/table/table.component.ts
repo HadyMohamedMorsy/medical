@@ -77,6 +77,7 @@ export class TableComponent {
       this.cdr.detectChanges();
 
     })
+    // i want refactoring here 
     this.refreshing = this.UpdateRowTableService.Refresh$.subscribe(val =>{
       this.refresh();
       this.cdr.detectChanges();
@@ -112,10 +113,10 @@ export class TableComponent {
       this.totalRecord = val.result.meta.total;
       this.ToastService.setMessage(val);
       this.cdr.detectChanges();
-      if (this.Subscription) {
-        this.Subscription.unsubscribe();
-      }
     })
+    if (this.Subscription) {
+      this.Subscription.unsubscribe();
+    }
   }
 
   ngOnDestroy(): void {
