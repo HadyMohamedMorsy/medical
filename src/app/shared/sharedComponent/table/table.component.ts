@@ -45,6 +45,10 @@ export class TableComponent {
   filteredData$!: Observable<any[]>;
   isLoading = false;
   Subscription !: Subscription;
+  rowData !: Subscription;
+  DeleteData !: Subscription;
+  updateRowData !:Subscription;
+  refreshing !: Subscription;
   totalRecord !: number;
 
   refresh(){
@@ -53,15 +57,29 @@ export class TableComponent {
   }
 
   ngOnInit() {
-    this.UpdateRowTableService.rowData$.subscribe(val =>{
+    this.rowData = this.UpdateRowTableService.rowData$.subscribe(val =>{
       this.data = [
         ...this.data ,
         val
       ]
     })
-    this.UpdateRowTableService.DeleteData$.subscribe(val =>{
+    this.DeleteData = this.UpdateRowTableService.DeleteData$.subscribe(val =>{
       this.data = this.data.filter((item : any) => item.id != val);
-      this.cdr.detectChanges();      
+      this.cdr.detectChanges();
+    })
+    this.updateRowData = this.UpdateRowTableService.updateRowData$.subscribe(val =>{
+      this.data  =  this.data.map((obj : any) => {
+        if(obj.id == val.id){
+          return {...obj, val};
+        }
+        return obj;
+      })
+      this.cdr.detectChanges();
+
+    })
+    this.refreshing = this.UpdateRowTableService.Refresh$.subscribe(val =>{
+      this.refresh();
+      this.cdr.detectChanges();
     })
   }
 
@@ -89,7 +107,7 @@ export class TableComponent {
 
   private getData(){
     this.Subscription = this.DateBind.subscribe((val)=>{
-      this.loading = false;   
+      this.loading = false;
       this.data = val.result.data;
       this.totalRecord = val.result.meta.total;
       this.ToastService.setMessage(val);
@@ -100,4 +118,10 @@ export class TableComponent {
     })
   }
 
+  ngOnDestroy(): void {
+    this.rowData.unsubscribe();
+    this.DeleteData.unsubscribe();
+    this.updateRowData.unsubscribe();
+    this.refreshing.unsubscribe();
+  }
 }

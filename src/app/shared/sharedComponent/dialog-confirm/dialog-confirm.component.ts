@@ -69,6 +69,7 @@ export class DialogConfirmComponent {
     this.Subscription = submission.subscribe(val =>{
       this.ToastService.setMessage(val);
       this.dialogRef.close(this.data.id)
+
     })
   }
 

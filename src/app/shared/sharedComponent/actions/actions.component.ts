@@ -9,6 +9,7 @@ import { FieldTypeConfig } from '@ngx-formly/core';
 import {MatDialog} from '@angular/material/dialog';
 import { SharedModuleModule } from '@shared/shared-module.module';
 import { UpdateRowTableService } from '@services/updateRowTable/update-row-table.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-actions',
@@ -33,7 +34,7 @@ export class ActionsComponent {
   @Input()  rowData : any;
   @Input()  idRow : any;
   @Output() passId  = new EventEmitter<number>();
-  @Input() display : any  
+  @Input() display : any
 
   openDialogToConfirmFieldsPatientsTimeAppointmentsWithPlusIcon() : void {
     this.dialog.open(DialogComponent , {
@@ -48,7 +49,7 @@ export class ActionsComponent {
     })
   }
   updatePatients() : void{
-    this.dialog.open(DialogComponent,{
+   const dialogRef = this.dialog.open(DialogComponent,{
       width : '50vw',
       data: {
         title: 'Are you sure about Update Details Patient',
@@ -58,9 +59,18 @@ export class ActionsComponent {
         id     : this.idRow
       },
     })
+    dialogRef.afterClosed()
+    .pipe(
+      map(({result}) => result)
+    )
+    .subscribe(val=>{
+      if(val){
+        this.UpdateRowTableService.setUpdateRow(val);
+      }
+    })
   }
   updateUsers() : void{
-    this.dialog.open(DialogComponent,{
+    const dialogRef = this.dialog.open(DialogComponent,{
       width : '50vw',
       data: {
         title: 'Are you sure about Update',
@@ -69,6 +79,16 @@ export class ActionsComponent {
         row    : this.rowData,
         id     : this.idRow
       },
+
+    })
+    dialogRef.afterClosed()
+    .pipe(
+      map(({result}) => result)
+    )
+    .subscribe(val=>{
+      if(val){
+        this.UpdateRowTableService.setUpdateRow(val);
+      }
     })
   }
   updatePatientsAppointmentsProfile() : void{
@@ -126,6 +146,12 @@ export class ActionsComponent {
         type          : status,
         id            : this.idRow
       },
+    })
+    dialogRef.afterClosed()
+    .subscribe(val=>{
+      if(val){
+        this.UpdateRowTableService.setRefresh(val);
+      }
     })
   }
   routeProfile() : void {
