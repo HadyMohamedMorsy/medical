@@ -1,13 +1,14 @@
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { Component, Input, inject, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 
 import { DialogComponent } from '../dialog/dialog.component';
 import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
 import { DialogShowComponent } from '../dialog-show/dialog-show.component';
+import { DialogUploadComponent } from '../dialog-upload/dialog-upload.component';
 import { FieldTypeConfig } from '@ngx-formly/core';
 import {MatDialog} from '@angular/material/dialog';
 import { SharedModuleModule } from '@shared/shared-module.module';
-import { DialogUploadComponent } from '../dialog-upload/dialog-upload.component';
+
 @Component({
   selector: 'app-actions',
   standalone: true,
@@ -30,6 +31,7 @@ export class ActionsComponent {
   @Input()  rowData : any;
   @Input()  idRow : any;
   @Output() passId  = new EventEmitter<number>();
+  @Input() display : any  
 
   openDialogToConfirmFieldsPatientsTimeAppointmentsWithPlusIcon() : void {
     this.dialog.open(DialogComponent , {
