@@ -8,6 +8,7 @@ import { DialogUploadComponent } from '../dialog-upload/dialog-upload.component'
 import { FieldTypeConfig } from '@ngx-formly/core';
 import {MatDialog} from '@angular/material/dialog';
 import { SharedModuleModule } from '@shared/shared-module.module';
+import { UpdateRowTableService } from '@services/updateRowTable/update-row-table.service';
 
 @Component({
   selector: 'app-actions',
@@ -19,6 +20,7 @@ import { SharedModuleModule } from '@shared/shared-module.module';
 export class ActionsComponent {
   private Route = inject(Router);
   private activateRouter = inject(ActivatedRoute);
+  private UpdateRowTableService = inject(UpdateRowTableService);
   dialog = inject(MatDialog);
   @Input()  label  !: string;
   @Input()  ConfirmFieldsPatientsTimeAppointments !: FieldTypeConfig[];
@@ -93,7 +95,7 @@ export class ActionsComponent {
     })
   }
   deleteRow(status : string) : void {
-    this.dialog.open(DialogConfirmComponent , {
+    const dialogRef = this.dialog.open(DialogConfirmComponent , {
       width : '50vw',
       data: {
         title         : `Are you sure about delete this ${status}?`,
@@ -101,6 +103,9 @@ export class ActionsComponent {
         type          : status,
         id            : this.idRow
       },
+    })
+    dialogRef.afterClosed().subscribe(val=>{
+      this.UpdateRowTableService.setDeleteRow(val);
     })
   }
   uploadFile() : void {

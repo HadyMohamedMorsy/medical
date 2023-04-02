@@ -68,7 +68,7 @@ export class DialogConfirmComponent {
     const submission = this.submitCheckRequest(type , modalValue) as Observable<any>
     this.Subscription = submission.subscribe(val =>{
       this.ToastService.setMessage(val);
-      this.dialogRef.close()
+      this.dialogRef.close(this.data.id)
     })
   }
 
