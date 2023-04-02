@@ -6,6 +6,7 @@ import {ButtonModule} from 'primeng/button';
 import { LazyLoadEvent } from 'primeng/api';
 import { PageRequestService } from '@services/pageRequest/page-request.service';
 import { RefreshButtonComponent } from '../refresh-button/refresh-button.component';
+import { SearchService } from '@services/search/search.service';
 import { SharedModuleModule } from '@shared/shared-module.module';
 import { ToastService } from '@services/toast/toast.service';
 import { UpdateRowTableService } from '@services/updateRowTable/update-row-table.service';
@@ -34,6 +35,7 @@ export class TableComponent {
   private PageRequestService = inject(PageRequestService);
   private ToastService = inject(ToastService);
   private UpdateRowTableService = inject(UpdateRowTableService);
+  private SearchService = inject(SearchService);
   @Input() DateBind !: Observable<any>;
   @ContentChild('header') header!: TemplateRef<any>;
   @ContentChild('body') body!: TemplateRef<any>;
@@ -59,6 +61,18 @@ export class TableComponent {
     })
   }
 
+  search(content : any){
+    if(content.value !=""){
+      this.loading = true;
+      this.SearchService.searchQuery('Appointment' , content).subscribe((val)=>{
+        this.loading = false;
+        this.data = val.result.data;
+        this.totalRecord = val.result.meta.total;
+        this.cdr.detectChanges();
+      })
+    }
+  }
+
   loadPagination(event : LazyLoadEvent){
     this.loading = true;
     let rows= event.rows!;
@@ -66,11 +80,12 @@ export class TableComponent {
     currentPage == 0 ?  currentPage = 10 : currentPage = event.first! + 10;
     this.PageRequestService.changePage(currentPage / rows);
     this.getData();
+
   }
 
   private getData(){
     this.Subscription = this.DateBind.subscribe((val)=>{
-      this.loading = false;
+      this.loading = false;   
       this.data = val.result.data;
       this.totalRecord = val.result.meta.total;
       this.ToastService.setMessage(val);
