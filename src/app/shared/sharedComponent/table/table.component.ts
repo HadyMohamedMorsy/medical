@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable, Subscribable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, Subscribable, Subscription, debounceTime, distinctUntilChanged } from 'rxjs';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, EventEmitter, Input, Output, TemplateRef, ViewEncapsulation, inject } from '@angular/core';
 import { Table, TableService } from 'primeng/table';
 
@@ -49,7 +49,9 @@ export class TableComponent {
   DeleteData !: Subscription;
   updateRowData !:Subscription;
   refreshing !: Subscription;
+  searching !: Subscription;
   totalRecord !: number;
+
 
   refresh(){
     this.loading = true;
@@ -87,13 +89,20 @@ export class TableComponent {
   search(content : any){
     if(content.value !=""){
       this.loading = true;
-      this.SearchService.searchQuery('Appointment' , content).subscribe((val)=>{
+      this.searching = this.SearchService.searchQuery('User' , content.value.trim())
+      .subscribe((val)=>{
         this.loading = false;
         this.data = val.result.data;
         this.totalRecord = val.result.meta.total;
         this.cdr.detectChanges();
+        if (this.searching) {
+          this.searching.unsubscribe();
+        }
       })
+    }else{
+      this.getData();
     }
+
   }
 
   loadPagination(event : LazyLoadEvent){
