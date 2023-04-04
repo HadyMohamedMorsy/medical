@@ -37,6 +37,7 @@ export class TableComponent {
   private UpdateRowTableService = inject(UpdateRowTableService);
   private SearchService = inject(SearchService);
   @Input() DateBind !: Observable<any>;
+  @Input() searchTable !:string;
   @ContentChild('header') header!: TemplateRef<any>;
   @ContentChild('body') body!: TemplateRef<any>;
   data : any;
@@ -51,7 +52,6 @@ export class TableComponent {
   refreshing !: Subscription;
   searching !: Subscription;
   totalRecord !: number;
-
 
   refresh(){
     this.loading = true;
@@ -89,7 +89,7 @@ export class TableComponent {
   search(content : any){
     if(content.value !=""){
       this.loading = true;
-      this.searching = this.SearchService.searchQuery('User' , content.value.trim())
+      this.searching = this.SearchService.searchQuery(this.searchTable,content.value.trim())
       .subscribe((val)=>{
         this.loading = false;
         this.data = val.result.data;

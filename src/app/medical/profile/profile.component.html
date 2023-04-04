@@ -5,27 +5,11 @@
       <formly-form [form]="form" [fields]="PatientsFields" [model]="fieldsModel"></formly-form>
     </form>
   </div>
-  <!-- <div class="col-12 md:col-6">
-    <div class="card">
-      <p-timeline [value]="events" class="w-full" [align]="'right'">
-          <ng-template pTemplate="opposite" let-event>
-            <div class="flex flex-column pb-2">
-              <div class="header-time-line mb-2">
-                <h2 class="mb-0"> {{ event.status }} </h2>
-                <small [style]="'color : #bcbcbd'"> {{ event.date }} </small>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit
-                amet consectetur adipisicing elit
-              </p>
-            </div>
-          </ng-template>
-      </p-timeline>
-  </div>
-  </div> -->
 </div>
 <div class="table-profile mt-4">
-  <app-table [DateBind]="data$">
+  <app-table [DateBind]="data$"
+  [searchTable]="'Appointment'"
+  >
     <ng-template #header let-Patients>
       <th class="text-center"> id </th>
       <th class="text-center"> appointmentType </th>

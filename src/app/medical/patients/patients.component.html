@@ -3,9 +3,12 @@
   <app-header-table [label]="'Patients'"
   [header]="'Patients'"
   [fields]="$any(addFields)"
+
   >
   </app-header-table>
-  <app-table [DateBind]="data$">
+  <app-table [DateBind]="data$"
+  [searchTable]="'Patient'"
+  >
     <ng-template #header let-Patients>
       <th class="text-center"> ID </th>
       <th class="text-center"> Full Name </th>

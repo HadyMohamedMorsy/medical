@@ -5,7 +5,9 @@
   [fields]="$any(addFields)"
   >
   </app-header-table>
-  <app-table [DateBind]="data$">
+  <app-table [DateBind]="data$"
+  [searchTable]="'User'"
+  >
     <ng-template #header let-Patients>
       <th class="text-center"> Id </th>
       <th class="text-center"> FullName </th>

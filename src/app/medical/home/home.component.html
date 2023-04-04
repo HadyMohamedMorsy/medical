@@ -55,7 +55,9 @@
 
 <div class="Last-patients mt-6">
   <h3 class="text-4xl font-medium mb-4">Patients</h3>
-  <app-table [DateBind]="data$">
+  <app-table [DateBind]="data$"
+  [searchTable]="'Patient'"
+  >
     <ng-template #header let-Patients>
       <th class="text-center"> ID </th>
       <th class="text-center"> Full Name </th>
@@ -83,6 +85,7 @@
         [rowData]="Patients"
         [idRow]="Patients.id"
         (passId)="routeProfileParent($event , Patients)"
+
         ></app-actions>
       </td>
     </ng-template>

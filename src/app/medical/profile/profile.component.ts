@@ -43,11 +43,6 @@ export class ProfileComponent {
         {label:'Clinic'},
         {label:'profile'},
     ];
-    this.events = [
-      { status: 'statement', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#EF4444', image: 'game-controller.jpg' },
-      { status: 'consultation', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#EF4444' },
-      { status: 'consultation', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#EF4444' },
-    ];
    this.data$ = this.route.data.pipe(
       map(({data}) => data),
     )
