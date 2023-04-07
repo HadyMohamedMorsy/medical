@@ -6,7 +6,10 @@
       "@shared/*" : ["src/app/shared/*"],
       "@services/*" : ["src/app/global/global-service/*"],
       "@modal/*" : ["src/app/global/global-modal/*"],
+      "@enum/*" : ["src/app/global/global-enum/*"],
       "@core/*" : ["src/app/core/*"],
+      "@validation/*" : ["src/app/global/validation/*"],
+
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

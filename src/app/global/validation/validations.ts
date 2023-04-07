@@ -1,30 +1,27 @@
-import { AbstractControl, ValidationErrors } from '@angular/forms';
-
+import { AbstractControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 export function userValidator(control: AbstractControl): ValidationErrors | null {
     const value = control.value;
     if (!value || value.trim() === '') {
-        return { user: true };
+        return { userName: true };
     }
     return null;
+}
+
+export function userValidatorMessage(error: any, field: FormlyFieldConfig) {
+  if (!field.formControl?.value) {
+    return `"${field.key}" is required`;
+  }
+  return `"${field.formControl?.value}" is invalid`;
 }
 
 export function userSpecificCharactar(control: AbstractControl): ValidationErrors | null {
   const pattern = /^[a-zA-Z0-9]*$/;
   if (!pattern.test(control.value)) {
-    return { noSpecialCharacters: true };
+    return { hasSpecialCharacters: true };
   }
   return null;
-}
-
-
-
-export function userValidatorMessage(error: any, field: FormlyFieldConfig) {
-    if (!field.formControl?.value) {
-      return `"${field.key}" is required`;
-    }
-    return `"${field.formControl?.value}" is invalid`;
 }
 
 export function userSpecificCharactarMessage(error: any, field: FormlyFieldConfig) {

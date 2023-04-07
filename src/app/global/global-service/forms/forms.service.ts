@@ -1,5 +1,9 @@
 import {FormlyFieldConfig} from '@ngx-formly/core';
 import { Injectable } from '@angular/core';
+import {LoginForm} from '@enum/forms/LoginForm';
+import { Forgetpassword } from '@enum/forms/Forgetpassword';
+import { FieldsConfirmPassword } from '@enum/forms/FieldsConfirmPassword';
+import { AbstractControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -8,31 +12,31 @@ export class FormsService {
   FieldsLogin() : FormlyFieldConfig[] {
     return [
         {
-          key : 'username',
+          key : LoginForm.USERNAME,
           type :'input',
           className : 'filed col-12 ',
           props: {
-            placeholder: 'Enter Your userName',
+            placeholder: LoginForm.PLACEHOLDERUSERNAME,
           },
           validators: {
-            validation: ['user' , 'noSpecialCharacters'],
+            validation: [LoginForm.VALIDATIONUSERNAME , LoginForm.VALIDATIONUSERNAMECHARACTER],
           },
         },
         {
-          key : 'password',
+          key : LoginForm.PASSWORD,
           type :'input',
           className : 'filed col-12 ',
           props: {
             type : 'password',
-            placeholder: 'Enter Your password',
+            placeholder: LoginForm.PLACEHOLDERUSERNAME,
           }
         },
         {
-          key : 'remember',
+          key : LoginForm.REMEMBER,
           type :'switchInput',
           className : 'col-12 ',
           props: {
-            label: 'Remember Me',
+            label: LoginForm.LABELREMEMBER,
           }
         },
     ]
@@ -40,12 +44,13 @@ export class FormsService {
   FieldsForgetPassword() : FormlyFieldConfig[] {
     return [
         {
-          key : 'nationalId',
+          key : Forgetpassword.NATIONAlID,
           type :'input',
           className : 'filed col-12 ',
           props: {
             type : 'number',
-            placeholder: 'Enter Your NationalId',
+            required: true,
+            placeholder: Forgetpassword.PLACEHOLDERNATIONAlID,
           }
         },
     ]
@@ -53,20 +58,27 @@ export class FormsService {
   FieldsConfirmPassword() : FormlyFieldConfig[] {
     return [
         {
-          key : 'newPassword',
+          key : FieldsConfirmPassword.CONFIRMPASSWORD,
           type :'input',
           className : 'filed col-12 ',
           props: {
-            placeholder: 'Enter Your Password',
+            type :'password',
+            required: true,
+            placeholder: FieldsConfirmPassword.PLACEHOLDERNEWPASSWORD,
           }
         },
         {
-          key : 'confirmPassword',
+          key : FieldsConfirmPassword.NEWPASSWORD,
           type :'input',
           className : 'col-12 ',
           props: {
-            placeholder: 'confirm Your Password',
-          }
+            type :'password',
+            required: true,
+            placeholder: FieldsConfirmPassword.PLACEHOLDERCONFIRMPASSWORD,
+          },
+          expressions : {
+            'props.required' : 'formState.disabled',
+          },
         },
     ]
   }

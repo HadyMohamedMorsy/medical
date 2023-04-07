@@ -1,4 +1,4 @@
-import { userSpecificCharactar, userSpecificCharactarMessage, userValidator, userValidatorMessage } from '../global/validation/validations';
+import { userSpecificCharactar, userSpecificCharactarMessage, userValidator, userValidatorMessage  } from '@validation/validations';
 
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {ButtonModule} from 'primeng/button';
@@ -17,6 +17,7 @@ import {SwitchInputComponent} from './sharedComponent/switch-input/switch-input.
 import {TableModule} from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { UploadComponent } from './sharedComponent/upload/upload.component';
+import {LoginForm} from '@enum/forms/LoginForm';
 
 @NgModule({
   declarations: [],
@@ -28,12 +29,12 @@ import { UploadComponent } from './sharedComponent/upload/upload.component';
         { name: 'FileUpload', component: UploadComponent },
       ],
       validators: [
-        { name: 'user', validation: userValidator },
-        { name: 'noSpecialCharacters', validation: userSpecificCharactar }
+        { name: LoginForm.VALIDATIONUSERNAME, validation: userValidator },
+        { name: LoginForm.VALIDATIONUSERNAMECHARACTER, validation: userSpecificCharactar },
       ],
       validationMessages: [
-        { name: 'user', message: userValidatorMessage },
-        { name: 'noSpecialCharacters', message: userSpecificCharactarMessage },
+        { name: LoginForm.VALIDATIONUSERNAME, message: userValidatorMessage },
+        { name: LoginForm.VALIDATIONUSERNAMECHARACTER, message: userSpecificCharactarMessage },
       ],
     }),
   ],

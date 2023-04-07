@@ -1,6 +1,18 @@
 {
     "cSpell.words": [
+        "CONFIRMPASSWORD",
+        "Forgetpassword",
         "Formly",
-        "userspecificcharactar"
+        "LABELREMEMBER",
+        "NEWPASSWORD",
+        "PLACEHOLDERCONFIRMPASSWORD",
+        "PLACEHOLDERNATION",
+        "PLACEHOLDERNEWPASSWORD",
+        "PLACEHOLDERPASSWORD",
+        "PLACEHOLDERREMEMBER",
+        "PLACEHOLDERUSERNAME",
+        "userspecificcharactar",
+        "VALIDATIONUSERNAME",
+        "VALIDATIONUSERNAMECHARACTER"
     ]
 }

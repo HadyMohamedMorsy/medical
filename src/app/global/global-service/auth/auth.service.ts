@@ -154,6 +154,7 @@ TimerExpirationExpire !:any;
 
   private convertTime(dataStamp : any , checkAuth : string){
       const expirationTime = new Date(dataStamp).getTime();
+
       const now = new Date();
       // Get the components of the current time
       const year = now.getFullYear();
@@ -166,6 +167,7 @@ TimerExpirationExpire !:any;
       hours = hours ? hours : 12;
       const formattedTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
       const secondsRemaining = Math.floor((expirationTime - new Date(formattedTime).getTime()) / 1000);
+      console.log((expirationTime) - (new Date(formattedTime).getTime()));
       checkAuth == 'login' ?  this.autoLogout(secondsRemaining * 1000) : this.autoConfirmPage(secondsRemaining * 1000)
   }
 
