@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl : 'https://digitalatum.com/projects/Clinic/public/api/'
+  apiUrl : 'https://digitalatum.com/projects/production/Clinic/public/api/'
 };
