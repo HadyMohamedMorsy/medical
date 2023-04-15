@@ -3,7 +3,7 @@ import { map, switchMap } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PageRequestService } from '@services/pageRequest/page-request.service';
-import { environment } from 'src/environment/environments';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

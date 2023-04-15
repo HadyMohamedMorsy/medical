@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { PageRequestService } from '@services/pageRequest/page-request.service';
-import { environment } from 'src/environment/environments';
+import { environment } from 'src/environments/environment';
 import { switchMap } from 'rxjs';
 
 @Injectable({

@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 
 import { PageRequestService } from '@services/pageRequest/page-request.service';
-import { environment } from 'src/environment/environments';
+import { environment } from 'src/environments/environment';
 import { debounce, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 
 @Injectable({

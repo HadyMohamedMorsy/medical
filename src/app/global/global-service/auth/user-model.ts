@@ -23,8 +23,9 @@ export class User {
     let hours = now.getHours();
     const minutes = ('0' + now.getMinutes()).slice(-2);
     const seconds = ('0' + now.getSeconds()).slice(-2);
-    hours = hours % 12;
-    hours = hours ? hours : 12;
+    // hours = hours % 12;
+    // hours = hours ? hours : 12;
+    hours = hours;
     const formattedTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     return formattedTime
   }

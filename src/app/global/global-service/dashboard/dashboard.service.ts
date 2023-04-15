@@ -1,7 +1,7 @@
 /* `import` is a keyword that is used to import modules. */
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { environment } from 'src/environment/environments';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

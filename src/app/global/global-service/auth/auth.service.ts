@@ -1,6 +1,6 @@
 import { BehaviorSubject, map, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environment } from './../../../../environment/environments';
+import { environment } from '../../../../environments/environment';
 import { Injectable, inject } from '@angular/core';
 import {Login , Authentication} from '@modal/login';
 import { Data, Router } from '@angular/router';
@@ -54,7 +54,7 @@ TimerExpirationExpire !:any;
         )
         if(CurrentUser.token != undefined){
           let expiationTime = (DataUserStorage._expires_in as unknown as string)
-          this.convertTime(expiationTime , 'login')
+          this.convertTime(expiationTime, 'login')
           this.EmitsDataForUser.next(CurrentUser);
         }
       }
@@ -163,9 +163,10 @@ TimerExpirationExpire !:any;
       let hours = now.getHours();
       const minutes = ('0' + now.getMinutes()).slice(-2);
       const seconds = ('0' + now.getSeconds()).slice(-2);
-      hours = hours % 12;
-      hours = hours ? hours : 12;
+      hours = hours;
       const formattedTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      console.log(formattedTime);
+      console.log(dataStamp);
       const secondsRemaining = Math.floor((expirationTime - new Date(formattedTime).getTime()) / 1000);
       console.log((expirationTime) - (new Date(formattedTime).getTime()));
       checkAuth == 'login' ?  this.autoLogout(secondsRemaining * 1000) : this.autoConfirmPage(secondsRemaining * 1000)

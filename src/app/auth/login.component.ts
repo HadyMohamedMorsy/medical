@@ -8,7 +8,6 @@ import { Login, LoginForm} from '@modal/login';
 import { AuthService } from '@services/auth/auth.service';
 import { Router } from '@angular/router';
 import { ToastService } from '@services/toast/toast.service';
-
 @Component({
   selector: 'app-login',
   standalone: true,

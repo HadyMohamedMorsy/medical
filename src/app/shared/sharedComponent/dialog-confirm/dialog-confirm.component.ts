@@ -29,6 +29,8 @@ export class DialogConfirmComponent {
 
   ngOnInit(): void {
     this.setModel(this.data.id , 'id');
+    console.log(this.fieldsModel);
+
   }
 
   onSubmit(fieldsModel : any){
@@ -37,7 +39,7 @@ export class DialogConfirmComponent {
 
   private setModel(checkId : any , key : any) {
     if(checkId){
-      if(!this.data.type){
+      if(!this.data.changeStatus){
         this.fieldsModel = {
           [key] : checkId
         }

@@ -39,7 +39,7 @@ export class HeaderTableComponent {
       tap(res =>{
         this.resultValue =  Messages(res);
       }),
-      finalize(() => 
+      finalize(() =>
         this.ToastService.setMessage(
           this.resultValue
         )

@@ -18,7 +18,7 @@ import {TableModule} from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { UploadComponent } from './sharedComponent/upload/upload.component';
 import {LoginForm} from '@enum/forms/LoginForm';
-
+import { GalleriaModule } from 'primeng/galleria';
 @NgModule({
   declarations: [],
   imports : [
@@ -51,7 +51,8 @@ import {LoginForm} from '@enum/forms/LoginForm';
     DialogModule,
     MatDialogModule,
     ProgressBarModule,
-    ToastModule
+    ToastModule,
+    GalleriaModule
 ]
 })
 export class SharedModuleModule { }

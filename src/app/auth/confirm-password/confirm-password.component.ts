@@ -9,6 +9,7 @@ import { UserForget } from '../../global/global-service/auth/forget_password-mod
 import { Subscription, switchMap } from 'rxjs';
 import { Router } from '@angular/router';
 import { FieldsConfirmPassword } from '@enum/forms/FieldsConfirmPassword';
+
 @Component({
   selector: 'app-confirm-password',
   standalone: true,
@@ -29,7 +30,6 @@ export class ConfirmPasswordComponent {
   form = new FormGroup({});
   ConfirmPasswordModel = {};
   fieldsConfirmPassword !: FormlyFieldConfig[];
-
   ngOnInit()  {
     this.fieldsConfirmPassword= this.getFieldsConfirmPassword.gridFields('confirmPassword');
     this.AuthService.autoForgetPassword();
@@ -44,16 +44,13 @@ export class ConfirmPasswordComponent {
   }
 
   onSubmit(confirmPassword : any){
-    console.log(this.form);
 
-    if(this.form.invalid){
-      return
-    }else{
+
       this.AuthService.confirmPasswordRequest(confirmPassword).subscribe((val)=>{
         this.router.navigate(['/login']);
         localStorage.clear();
       })
-    }
+
   }
   ngOnDestroy(): void {
     this.Subscription.unsubscribe();

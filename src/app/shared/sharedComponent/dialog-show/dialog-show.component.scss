@@ -6,4 +6,11 @@
     margin-left: 10px;
     font-weight: 500;
   }
+  .p-galleria-mask{
+    width: calc(100% - 17rem);
+    margin-inline-start: 17rem;
+  }
+  .p-galleria-item-prev{
+    left: 17rem;
+  }
 }

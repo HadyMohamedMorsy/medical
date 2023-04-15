@@ -144,6 +144,7 @@ export class ActionsComponent {
         title         : `do you want ${status} status`,
         fields        : this.ConfirmStatus,
         type          : status,
+        changeStatus  : true,
         id            : this.idRow
       },
     })

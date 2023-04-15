@@ -64,6 +64,7 @@ export class TableComponent {
         ...this.data ,
         val
       ]
+      this.cdr.detectChanges();
     })
     this.DeleteData = this.UpdateRowTableService.DeleteData$.subscribe(val =>{
       this.data = this.data.filter((item : any) => item.id != val);

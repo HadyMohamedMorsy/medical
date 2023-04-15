@@ -5,5 +5,23 @@
   </form>
   <div mat-dialog-actions class="flex justify-content-end">
     <button pButton mat-button mat-dialog-close class="p-button-danger mr-2">Cancel</button>
+    <ng-container *ngIf="images.length > 0 && images">
+      <div class="card flex justify-content-center">
+        <button pButton type="button" icon="pi pi-external-link" label="Show images" (click)="displayBasic = true"></button>
+        <p-galleria [value]="images" [(visible)]="displayBasic" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '50%'}" [numVisible]="9"
+            [circular]="true" [fullScreen]="true" [showItemNavigators]="true">
+            <ng-template pTemplate="item" let-item>
+                <img [src]="'https://digitalatum.com/projects/testing/Clinic/backend/'+item" style="width: 100%; display: block;"/>
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <div class="grid grid-nogutter justify-content-center">
+                    <img [src]="'https://digitalatum.com/projects/testing/Clinic/backend/'+item" style="width: 100%; display: block;"/>
+                </div>
+            </ng-template>
+        </p-galleria>
+      </div>
+    </ng-container>
   </div>
 </div>
+
+

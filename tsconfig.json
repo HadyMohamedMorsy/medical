@@ -9,6 +9,7 @@
       "@enum/*" : ["src/app/global/global-enum/*"],
       "@core/*" : ["src/app/core/*"],
       "@validation/*" : ["src/app/global/validation/*"],
+      "@assists/*" : ["src/assets/images/*"],
 
     },
     "baseUrl": "./",
