@@ -6,17 +6,19 @@ import {ButtonModule} from 'primeng/button';
 import { ButtonAddComponent } from '@shared/sharedComponent/button-add/button-add.component';
 import { FormsService } from '@services/forms/forms.service';
 import { FormlyFieldConfig} from '@ngx-formly/core';
+import { AuthService } from '@services/auth/auth.service';
 ;
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule  , BadgeModule , AvatarModule , 
+  imports: [CommonModule  , BadgeModule , AvatarModule ,
     ButtonModule , ButtonAddComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
   private getFields  = inject(FormsService);
+  private authLogout = inject(AuthService);
   addFields !: FormlyFieldConfig[];
   ngOnInit() : void {
     this.addFields = this.getFields.gridFields('Patients',
@@ -71,5 +73,9 @@ export class HeaderComponent {
       ]
     ]
     );
+  }
+
+  logout(){
+    this.authLogout.logout();
   }
 }

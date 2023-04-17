@@ -1,4 +1,4 @@
-<p-fileUpload name="files[]"  url="https://digitalatum.com/projects/testing/Clinic/backend/public/api/uploadingImages" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" [maxFileSize]=1000000 >
+<p-fileUpload name="files[]"  [url]="url+'uploadingImages'" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" [maxFileSize]=1000000 >
   <ng-template pTemplate="content">
       <ul *ngIf="uploadedFiles.length">
           <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>

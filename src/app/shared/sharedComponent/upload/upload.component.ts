@@ -7,6 +7,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import {FormlyModule} from '@ngx-formly/core';
 import {FormlyPrimeNGModule} from '@ngx-formly/primeng';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-upload',
@@ -24,6 +25,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class UploadComponent extends FieldType<FieldTypeConfig> implements ControlValueAccessor{
   uploadedFiles : any[] = [];
+  url = environment.apiUrl;
   onChange: any = () => {};
   onTouched: any = () => {};
   @Output() files  = new EventEmitter<any>();
