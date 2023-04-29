@@ -165,10 +165,7 @@ TimerExpirationExpire !:any;
       const seconds = ('0' + now.getSeconds()).slice(-2);
       hours = hours;
       const formattedTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-      console.log(formattedTime);
-      console.log(dataStamp);
       const secondsRemaining = Math.floor((expirationTime - new Date(formattedTime).getTime()) / 1000);
-      console.log((expirationTime) - (new Date(formattedTime).getTime()));
       checkAuth == 'login' ?  this.autoLogout(secondsRemaining * 1000) : this.autoConfirmPage(secondsRemaining * 1000)
   }
 

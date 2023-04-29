@@ -20,7 +20,6 @@ export class DashboardComponent {
   breakpointObserver = inject(BreakpointObserver);
   renderer = inject(Renderer2);
   @ViewChild('pRef', {static: false}) pRef!: ElementRef;
-
   ngOnInit(): void {
     this.breakpointObserver
     .observe(['(min-width: 991px)'])

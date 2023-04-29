@@ -66,18 +66,12 @@ export class SidebarComponent {
         },
     ];
 
-    this.breakpointObserver
-    .observe(['(min-width: 991px)'])
-    .subscribe((state: BreakpointState) => {
-      if (state.matches) {
-        this.display = true;
-        this.cdr.detectChanges();
-      } else {
-        this.display = false;
-        this.cdr.detectChanges();
-      }
-    });
+    this.ContainerService.getContainer().subscribe((val)=>{
+      console.log(val);
 
+      this.display = val;
+      this.cdr.detectChanges();
+    })
   }
 
 }
