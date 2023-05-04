@@ -8,6 +8,7 @@ import { PatientsService } from '@services/patients/patients.service';
 import { SharedModuleModule } from '@shared/shared-module.module';
 import { TableComponent } from '@shared/sharedComponent/table/table.component';
 import { AppointmentsService } from '@services/appointments/appointments.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-with-doctor',
@@ -20,6 +21,8 @@ export class WithDoctorComponent {
   // injection dependency services
   private getFields = inject(FormsService);
   private DataBindTableService = inject(AppointmentsService);
+  private Route = inject(Router);
+  private activateRouter = inject(ActivatedRoute);
 
   checked !:FormlyFieldConfig[];
   items : any;
@@ -32,5 +35,9 @@ export class WithDoctorComponent {
   ];
   this.data$ = this.DataBindTableService.withDoctorStatusForAppointments();
   this.checked = this.getFields.gridFields('FieldCheck');
+  }
+
+  routeProfileParent(id : number) : void {
+    this.Route.navigate([`clinic/profile/${id}`]);
   }
 }

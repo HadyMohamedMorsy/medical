@@ -44,12 +44,11 @@ export class ConfirmPasswordComponent {
   }
 
   onSubmit(confirmPassword : any){
-
-
-      this.AuthService.confirmPasswordRequest(confirmPassword).subscribe((val)=>{
-        this.router.navigate(['/login']);
-        localStorage.clear();
-      })
+    
+    this.AuthService.confirmPasswordRequest(confirmPassword).subscribe((val)=>{
+      this.router.navigate(['/login']);
+      localStorage.clear();
+    })
 
   }
   ngOnDestroy(): void {

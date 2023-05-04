@@ -28,7 +28,7 @@ export class FormsService {
           className : 'filed col-12 ',
           props: {
             type : 'password',
-            placeholder: LoginForm.PLACEHOLDERUSERNAME,
+            placeholder: LoginForm.PLACEHOLDERPASSWORD,
           }
         },
         {

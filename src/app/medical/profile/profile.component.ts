@@ -45,7 +45,7 @@ export class ProfileComponent {
     ];
    this.data$ = this.route.data.pipe(
       map(({data}) => data),
-    )
+    );
     this.idParam =  this.route.snapshot.paramMap.get('id');
 
     this.PatientsFields = this.getFields.gridFields('FieldsProfile',
@@ -194,6 +194,7 @@ export class ProfileComponent {
     ]
     )
     this.checked = this.getFields.gridFields('FieldCheck');
+
     this.uploadFields = this.getFields.gridFields('FieldUpload');
   }
 

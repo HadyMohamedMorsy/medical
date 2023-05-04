@@ -24,7 +24,10 @@
       <td>{{Doctor.reservationStatus}}</td>
       <td class="flex justify-content-center">
         <app-actions
+        [ConfirmStatus]="$any(checked)"
         [pageRedirect]="'with-doctor'"
+        [idRow]="Doctor.patientId"
+        (passId)="routeProfileParent($event)"
         >
         </app-actions>
       </td>

@@ -1,4 +1,4 @@
-import { userSpecificCharactar, userSpecificCharactarMessage, userValidator, userValidatorMessage  } from '@validation/validations';
+import { fieldMatchValidator, userSpecificCharactar, userSpecificCharactarMessage, userValidator, userValidatorMessage  } from '@validation/validations';
 
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {ButtonModule} from 'primeng/button';
@@ -19,6 +19,8 @@ import { ToastModule } from 'primeng/toast';
 import { UploadComponent } from './sharedComponent/upload/upload.component';
 import {LoginForm} from '@enum/forms/LoginForm';
 import { GalleriaModule } from 'primeng/galleria';
+import { FieldsConfirmPassword } from '@enum/forms/FieldsConfirmPassword';
+
 @NgModule({
   declarations: [],
   imports : [
@@ -31,6 +33,7 @@ import { GalleriaModule } from 'primeng/galleria';
       validators: [
         { name: LoginForm.VALIDATIONUSERNAME, validation: userValidator },
         { name: LoginForm.VALIDATIONUSERNAMECHARACTER, validation: userSpecificCharactar },
+        { name: FieldsConfirmPassword.VALIDATIOMATCH, validation: fieldMatchValidator },
       ],
       validationMessages: [
         { name: LoginForm.VALIDATIONUSERNAME, message: userValidatorMessage },
