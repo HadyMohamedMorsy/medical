@@ -61,8 +61,8 @@ export class TableComponent {
   ngOnInit() {
     this.rowData = this.UpdateRowTableService.rowData$.subscribe(val =>{
       this.data = [
+        val,
         ...this.data ,
-        val
       ]
       this.cdr.detectChanges();
     })
@@ -73,7 +73,7 @@ export class TableComponent {
     this.updateRowData = this.UpdateRowTableService.updateRowData$.subscribe(val =>{
       this.data  =  this.data.map((obj : any) => {
         if(obj.id == val.id){
-          return {...obj, val};
+          return {val,...obj};
         }
         return obj;
       })
