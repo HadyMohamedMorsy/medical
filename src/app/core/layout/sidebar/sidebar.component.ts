@@ -67,8 +67,6 @@ export class SidebarComponent {
     ];
 
     this.ContainerService.getContainer().subscribe((val)=>{
-      console.log(val);
-
       this.display = val;
       this.cdr.detectChanges();
     })
