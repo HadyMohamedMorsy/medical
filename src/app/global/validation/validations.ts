@@ -30,21 +30,18 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 }
 
 function fieldMatchValidator(control: AbstractControl){
-  const { password, passwordConfirm } = control.value;
 
-    // avoid displaying the message error when values are empty
-    if (!passwordConfirm || !password) {
-      return null;
+  const { confirmPassword , newPassword} = control.value;
+
+    if (confirmPassword != newPassword) {
+      return { fieldMatch:  'Password Not Matching'};
     }
 
-    if (passwordConfirm === password) {
-      return null;
-    }
+  return null
+}
 
-    console.log(password , passwordConfirm);
-
-
-  return { fieldMatch:  'Password Not Matching'};
+function userMatchValidatorMessage(error: any, field: FormlyFieldConfig) {
+  return `this is MatchValidator`;
 }
 
 export {
@@ -52,5 +49,6 @@ export {
   userValidatorMessage,
   userSpecificCharactar,
   userSpecificCharactarMessage,
-  fieldMatchValidator
+  fieldMatchValidator,
+  userMatchValidatorMessage
 }

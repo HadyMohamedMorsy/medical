@@ -1,4 +1,4 @@
-import { fieldMatchValidator, userSpecificCharactar, userSpecificCharactarMessage, userValidator, userValidatorMessage  } from '@validation/validations';
+import { fieldMatchValidator, userMatchValidatorMessage, userSpecificCharactar, userSpecificCharactarMessage, userValidator, userValidatorMessage  } from '@validation/validations';
 
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {ButtonModule} from 'primeng/button';
@@ -38,6 +38,7 @@ import { FieldsConfirmPassword } from '@enum/forms/FieldsConfirmPassword';
       validationMessages: [
         { name: LoginForm.VALIDATIONUSERNAME, message: userValidatorMessage },
         { name: LoginForm.VALIDATIONUSERNAMECHARACTER, message: userSpecificCharactarMessage },
+        { name: FieldsConfirmPassword.VALIDATIOMATCH, message: userMatchValidatorMessage },
       ],
     }),
   ],

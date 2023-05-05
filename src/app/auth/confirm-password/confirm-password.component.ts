@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SharedModuleModule} from 'src/app/shared/shared-module.module';
-import { FormlyFieldConfig} from '@ngx-formly/core';
+import { FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { inject } from '@angular/core';
 import {FormsService} from '@services/forms/forms.service';
@@ -30,6 +30,7 @@ export class ConfirmPasswordComponent {
   form = new FormGroup({});
   ConfirmPasswordModel = {};
   fieldsConfirmPassword !: FormlyFieldConfig[];
+
   ngOnInit()  {
     this.fieldsConfirmPassword= this.getFieldsConfirmPassword.gridFields('confirmPassword');
     this.AuthService.autoForgetPassword();
@@ -44,7 +45,7 @@ export class ConfirmPasswordComponent {
   }
 
   onSubmit(confirmPassword : any){
-    
+
     this.AuthService.confirmPasswordRequest(confirmPassword).subscribe((val)=>{
       this.router.navigate(['/login']);
       localStorage.clear();

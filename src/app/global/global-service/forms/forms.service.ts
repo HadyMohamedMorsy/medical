@@ -1,4 +1,4 @@
-import {FormlyFieldConfig} from '@ngx-formly/core';
+import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
 import { Injectable } from '@angular/core';
 import {LoginForm} from '@enum/forms/LoginForm';
 import { Forgetpassword } from '@enum/forms/Forgetpassword';
@@ -9,6 +9,8 @@ import { AbstractControl } from '@angular/forms';
   providedIn: 'root'
 })
 export class FormsService {
+  options: FormlyFormOptions = {};
+
   FieldsLogin() : FormlyFieldConfig[] {
     return [
         {
@@ -58,28 +60,35 @@ export class FormsService {
   FieldsConfirmPassword() : FormlyFieldConfig[] {
     return [
         {
-          key : FieldsConfirmPassword.CONFIRMPASSWORD,
-          type :'input',
-          className : 'filed col-12 ',
-          props: {
-            type :'password',
-            required: true,
-            placeholder: FieldsConfirmPassword.PLACEHOLDERNEWPASSWORD,
+          validators: {
+            validation: [{ name: 'fieldMatch', options: { errorPath: FieldsConfirmPassword.NEWPASSWORD } }],
+          },
+          fieldGroup : [
+           {
+            key : FieldsConfirmPassword.CONFIRMPASSWORD,
+            type :'input',
+            className : 'filed col-12 ',
+            props: {
+              type :'password',
+              required: true,
+              placeholder: FieldsConfirmPassword.PLACEHOLDERNEWPASSWORD,
+            }
+           },
+           {
+            key : FieldsConfirmPassword.NEWPASSWORD,
+            type :'input',
+            className : 'col-12 ',
+            props: {
+              type :'password',
+              required: true,
+              placeholder: FieldsConfirmPassword.PLACEHOLDERCONFIRMPASSWORD,
+            },
+            expressions : {
+              'props.required' : 'formState.disabled',
+            },
           }
-        },
-        {
-          key : FieldsConfirmPassword.NEWPASSWORD,
-          type :'input',
-          className : 'col-12 ',
-          props: {
-            type :'password',
-            required: true,
-            placeholder: FieldsConfirmPassword.PLACEHOLDERCONFIRMPASSWORD,
-          },
-          expressions : {
-            'props.required' : 'formState.disabled',
-          },
-        },
+          ]
+        }
     ]
   }
   FieldsPatients() : FormlyFieldConfig[]{

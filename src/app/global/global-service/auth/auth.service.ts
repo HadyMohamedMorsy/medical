@@ -155,6 +155,7 @@ TimerExpirationExpire !:any;
   private convertTime(dataStamp : any , checkAuth : string){
       const expirationTime = new Date(dataStamp).getTime();
 
+      console.log(dataStamp);
 
       const now = new Date();
       // Get the components of the current time
